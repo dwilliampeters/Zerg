@@ -4,7 +4,16 @@ $(function() {
 
 	var imageBoxSrc;
 
-	$('.imageBox').bind("click", function(event) {
+	/*$('.flip-container').bind('mouseover', flipper);
+	$('.flip-container').bind('mouseout', flipper);*/
+	$('.flip-container').bind('click', flipper);
+
+	function flipper () {
+		$(this).toggleClass('hover');
+		return false;
+	}
+
+	/*$('.imageBox').bind("click", function(event) {
 		imageBoxSrc = $(this).attr('href');
 		$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
 		$('.lightbox').addClass('show');
@@ -21,6 +30,6 @@ $(function() {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
 		}   // esc
-	});
+	});*/
 
 });

@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -22,101 +22,243 @@
         <![endif]-->
 
         <div id="shell">
+            <header role="banner" class="clearfix">
+                <h1>Prototype</h1>
+                <ul class="filteration">
+                    <li>
+                        <a href="#">Filter 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Filter 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Filter 3</a>
+                    </li>
+                    <li>
+                        <a href="#">Filter 4</a>
+                    </li>
+                </ul>
+            </header>
+
             <div id="container" class="transitions-enabled clearfix">
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 2 Apr<br>
-                Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 31 Mar<br>
-                Aenean posuere tincidunt risus, sed tincidunt erat sodales et. Class aptent taciti sociosqu ad litora torquent per conubia nullam.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 5 Apr<br>
-                Vestibulum adipiscing ante nec diam placerat viverra. Nulla dui dui, lobortis ut tristique metus.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 2 Apr<br>
-                Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 31 Mar<br>
-                Aenean posuere tincidunt risus, sed tincidunt erat sodales et. Class aptent taciti sociosqu ad litora torquent per conubia nullam.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="box col1 flip-container">
+                <a class="textBox" href="#">
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
-                <a class="textBox" href="#">
-                <p class="twit">@tweepsum 5 Apr<br>
-                Vestibulum adipiscing ante nec diam placerat viverra. Nulla dui dui, lobortis ut tristique metus.</p>
+                <div class="box col2 img flip-container">
+                <a class="imageBox" rel="lightbox" href="img/temp/image1.jpg">
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/temp/image1.jpg" alt="" />
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col2 img">
-                <a class="imageBox" rel="lightbox" href="img/temp/image1.jpg"><img src="img/temp/image1.jpg" alt="" /></a>
-                </div>
-
-                <div class="box col2 img">
-                <a class="imageBox" rel="lightbox" href="img/temp/image2.jpg"><img src="img/temp/image2.jpg" alt="" /></a>
-                </div>
-
-                <div class="box col1">
-                <a class="textBox" href="#">
-                <p class="twit">@tweepsum 2 Apr<br>
-                Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                <div class="box col2 img flip-container">
+                <a class="imageBox" rel="lightbox" href="img/temp/image1.jpg">
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/temp/image2.jpg" alt="" />
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col2 img">
-                <a class="imageBox" rel="lightbox" href="img/temp/image3.jpg"><img src="img/temp/image3.jpg" alt="" /></a>
-                </div>
-
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 31 Mar<br>
-                Aenean posuere tincidunt risus, sed tincidunt erat sodales et. Class aptent taciti sociosqu ad litora torquent per conubia nullam.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col3">
-                <a class="textBox" href="#">
-                <p class="twit">@tweepsum 5 Apr<br>
-                Vestibulum adipiscing ante nec diam placerat viverra. Nulla dui dui, lobortis ut tristique metus.</p>
+                <div class="box col2 img flip-container">
+                <a class="imageBox" rel="lightbox" href="img/temp/image1.jpg">
+                    <div class="flipper">
+                        <div class="front">
+                            <img src="img/temp/image3.jpg" alt="" />
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col3 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 2 Apr<br>
-                Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 31 Mar<br>
-                Aenean posuere tincidunt risus, sed tincidunt erat sodales et. Class aptent taciti sociosqu ad litora torquent per conubia nullam.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
-                <div class="box col1">
+                <div class="box col1 flip-container">
                 <a class="textBox" href="#">
-                <p class="twit">@tweepsum 5 Apr<br>
-                Vestibulum adipiscing ante nec diam placerat viverra. Nulla dui dui, lobortis ut tristique metus.</p>
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
+                </a>
+                </div>
+
+                <div class="box col1 flip-container">
+                <a class="textBox" href="#">
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
+                </a>
+                </div>
+
+                <div class="box col1 flip-container">
+                <a class="textBox" href="#">
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
+                </a>
+                </div>
+
+                <div class="box col1 flip-container">
+                <a class="textBox" href="#">
+                    <div class="flipper">
+                        <div class="front">
+                            <p class="twit">@tweepsum 2 Apr<br>
+                            Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                        </div>
+                        <div class="back">
+                            Hovered content
+                        </div>
+                    </div>
                 </a>
                 </div>
 
