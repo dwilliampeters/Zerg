@@ -2,21 +2,31 @@ $(function() {
 	"use strict";
 	/*jshint smarttabs:true */
 
-	var imageBoxSrc;
+	var imageBoxSrc,
+		things;
 
 	/*$('.flip-container').bind('mouseover', flipper);
 	$('.flip-container').bind('mouseout', flipper);*/
-	$('.flip-container').bind('click', flipper);
+	$('.collectionTile').bind('click', flipper);
 
 	function flipper () {
 		if ( !$(this).hasClass('hover') ) {
-			$('.flip-container').removeClass('hover');
+			$('.collectionTile').removeClass('hover');
 			$(this).addClass('hover');
 		} else {
-			$('.flip-container').removeClass('hover');
+			$('.collectionTile').removeClass('hover');
 		}
 		return false;
 	}
+
+	setInterval(function() {
+		$('.collectionTile').removeClass('tease');
+		things = $('.collectionTile');
+		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
+		setTimeout(function() {
+		$('.collectionTile').removeClass('tease');
+		}, 900);
+	}, 3000);
 
 	/*$('.imageBox').bind("click", function(event) {
 		imageBoxSrc = $(this).attr('href');

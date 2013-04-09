@@ -93,19 +93,18 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.flip-container {
+/*.collectionTile {
     -webkit-perspective: 1000;
     -moz-perspective: 1000;
     perspective: 1000;
 }
-/*    .flip-container:hover .flipper, .flip-container.hover .flipper {*/
-    .flip-container.hover .flipper {
+    .collectionTile.hover .flipper {
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
         transform: rotateY(180deg);
     }
 
-.flip-container, .front, .back {
+.collectionTile, .front, .back {
     width: 100%;
     height: 100%;
 }
@@ -145,8 +144,54 @@ textarea {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
+}*/
+
+.collectionTile {
+    overflow: hidden;
+}
+    .collectionTile.tease .tile {
+        top: -20%;
+    }
+    .collectionTile.tease .collectionInfo {
+        top: 80%;
+    }
+    .collectionTile.hover .tile {
+        top: -100%;
+    }
+    .collectionTile.hover .collectionInfo {
+        top: 0;
+    }
+
+.collectionTile, .tile, .collectionInfo {
+    width: 100%;
+    height: 100%;
 }
 
+.collectionContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tile, .collectionInfo {
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tile {
+    background: lightgrey;
+    cursor: pointer;
+}
+
+.collectionInfo {
+    top: 100%;
+    background: lightblue;
+}
 
 img { max-width: 100%; }
 
@@ -189,7 +234,7 @@ header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; }
     float: left;
 }
 
-.box .front, .box .back {
+.box .tile, .box .collectionInfo {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -197,9 +242,7 @@ header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; }
     overflow: hidden;
 }
 
-/*.box .back { padding: 10px; background: rgba(143, 199, 242, 0.98); width: 100%; height: 100%; font-size: 14px; }*/
-
-.box.img .front { padding: 0; }
+.box.img .tile { padding: 0; }
 
 .box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
 
@@ -218,15 +261,6 @@ header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; }
 }
 
 .col1, .col2, .col3 { width: 140px; height: 140px; }
-/*.col2 { width: 290px; height: 290px; overflow: hidden; }
-.col3 { width: 290px; height: 140px; overflow: hidden; }*/
-
-.col1 img { max-width: 140px; }
-.col2 img { max-width: 290px; }
-.col3 img { max-width: 290px; }
-
-/*.col1 .twit { margin: 0; padding: 5px; }
-.col3 .twit { margin: 0; padding: 5px; }*/
 
 
 /**** Transitions ****/
