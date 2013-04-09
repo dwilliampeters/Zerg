@@ -9,7 +9,12 @@ $(function() {
 	$('.flip-container').bind('click', flipper);
 
 	function flipper () {
-		$(this).toggleClass('hover');
+		if ( !$(this).hasClass('hover') ) {
+			$('.flip-container').removeClass('hover');
+			$(this).addClass('hover');
+		} else {
+			$('.flip-container').removeClass('hover');
+		}
 		return false;
 	}
 

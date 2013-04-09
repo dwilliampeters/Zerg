@@ -111,13 +111,13 @@ textarea {
 }
 
 .flipper {
-    -webkit-transition: 0.6s;
+    -webkit-transition: 0.25s;
     -webkit-transform-style: preserve-3d;
 
-    -moz-transition: 0.6s;
+    -moz-transition: 0.25s;
     -moz-transform-style: preserve-3d;
 
-    transition: 0.6s;
+    transition: 0.25s;
     transform-style: preserve-3d;
 
     position: relative;
@@ -267,9 +267,12 @@ header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; }
 }
 
 @media only screen and (min-width: 300px) {
-    header[role="banner"] ul li { float: left; }
     .col2 { width: 290px; height: 290px; }
     .col3 { width: 290px; height: 140px; }
+}
+
+@media only screen and (min-width: 450px) {
+    header[role="banner"] ul li { float: left; }
 }
 
 
