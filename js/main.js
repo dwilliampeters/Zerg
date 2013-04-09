@@ -6,13 +6,13 @@ $(function() {
 
 	$('.imageBox').bind("click", function(event) {
 		imageBoxSrc = $(this).attr('href');
-		$('.lightbox-content').html('<img src="' + imageBoxSrc + '" />');
+		$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
 		$('.lightbox').addClass('show');
 		return false;
 	});
 
 	$('.textBox').bind("click", function(event) {
-		$('.lightbox-content').html('Lightbox content, share, off site link etc.');
+		$('.lightbox-content > div').html('Lightbox content, share, off site link etc.');
 		$('.lightbox').addClass('show');
 		return false;
 	});
