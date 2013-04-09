@@ -93,12 +93,115 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.shell { background: #ddd; width: 900px; margin: 0 auto; padding: 10px 0 0 0; }
+/*.shell { background: #ddd; width: 900px; margin: 0 auto; padding: 10px 0 0 0; }
 .large, .xlarge, .xxlarge { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0 10px 10px 10px; }
 .large { width: 200px; height: 200px; }
 .xlarge { width: 400px; height: 200px; }
 .xxlarge { width: 400px; height: 400px; }
-.panel { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 5px; background: #eee; width: 100%; height: 100%; }
+.panel { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 5px; background: #eee; width: 100%; height: 100%; }*/
+
+/* Masonry */
+#shell { width: 300px; margin: 0 auto; }
+
+#container {
+    margin: 0 auto;
+    background: #FFF;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    clear: both;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.centered { margin: 0 auto; }
+
+.box {
+    margin: 5px;
+    /*padding: 5px;*/
+    background: #D8D5D2;
+    font-size: 11px;
+    line-height: 1.4em;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.box h2 {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.box img,
+#tumblelog img {
+    display: block;
+    width: 100%;
+}
+
+.rtl .box {
+    float: right;
+    text-align: right; 
+    direction: rtl;
+}
+
+.col1 { width: 140px; height: 140px; overflow: hidden; }
+.col2 { width: 290px; height: 290px; overflow: hidden; }
+.col3 { width: 290px; height: 140px; overflow: hidden; }
+
+.col1 img { max-width: 140px; }
+.col2 img { max-width: 290px; }
+.col3 img { max-width: 290px; }
+
+.col1 .twit { margin: 0; padding: 5px; }
+.col3 .twit { margin: 0; padding: 5px; }
+
+
+/**** Transitions ****/
+
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+      -ms-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
+}
+
+@media only screen and (min-width: 450px) {
+    #shell { width: 450px; }
+}
+
+@media only screen and (min-width: 900px) {
+    #shell { width: 900px; }
+}
+
 
 /* ==========================================================================
    Helper classes
