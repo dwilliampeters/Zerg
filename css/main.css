@@ -100,12 +100,18 @@ textarea {
 .xxlarge { width: 400px; height: 400px; }
 .panel { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 5px; background: #eee; width: 100%; height: 100%; }*/
 
-/* Masonry */
 #shell { width: 300px; margin: 0 auto; }
+
+.lightbox { display: none; background: #000; background: rgba(0, 0, 0, 0.8); position: fixed; top: 0; left: 0; width: 100%; height: 100%; text-align: center; }
+.lightbox.show { display: block; }
+.lightbox-content { margin: 0 auto; display: inline-block; margin-top: 50px; padding: 20px; background: #fff; }
+
+/* Masonry */
 
 #container {
     margin: 0 auto;
-    background: #FFF;
+    background: #f5f5f5;
+    padding: 5px;
     margin-bottom: 20px;
     border-radius: 5px;
     clear: both;
@@ -118,20 +124,22 @@ textarea {
 
 .box {
     margin: 5px;
-    /*padding: 5px;*/
-    background: #D8D5D2;
+    padding: 10px;
+    background: #e5e5e5;
     font-size: 11px;
     line-height: 1.4em;
+    text-shadow: 0 1px 3px #fff;
     float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.box h2 {
-    font-size: 14px;
-    font-weight: 200;
-}
+.box.img { padding: 0; }
+
+.box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
+
+.box p { margin: 0; }
 
 .box img,
 #tumblelog img {
@@ -153,8 +161,8 @@ textarea {
 .col2 img { max-width: 290px; }
 .col3 img { max-width: 290px; }
 
-.col1 .twit { margin: 0; padding: 5px; }
-.col3 .twit { margin: 0; padding: 5px; }
+/*.col1 .twit { margin: 0; padding: 5px; }
+.col3 .twit { margin: 0; padding: 5px; }*/
 
 
 /**** Transitions ****/
@@ -196,6 +204,10 @@ textarea {
 
 @media only screen and (min-width: 450px) {
     #shell { width: 450px; }
+}
+
+@media only screen and (min-width: 600px) {
+    #shell { width: 600px; }
 }
 
 @media only screen and (min-width: 900px) {
