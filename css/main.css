@@ -244,6 +244,10 @@ header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; }
 
 .box.img .tile { padding: 0; }
 
+.box .collectionInfo { font-weight: bold; font-size: 14px; line-height: 1.4; }
+
+.twitter-share-button { margin-bottom: 10px; }
+
 .box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
 
 .box p { margin: 0; }

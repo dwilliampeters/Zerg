@@ -26,7 +26,7 @@ $(function() {
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 900);
-	}, 3000);
+	}, 3900);
 
 	/*$('.imageBox').bind("click", function(event) {
 		imageBoxSrc = $(this).attr('href');
