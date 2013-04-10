@@ -104,7 +104,7 @@ $(function() {
 	// Reset
 	$(document).on('click', '.action', function() {
 		var action = $(this).attr('data-target');
-		if ( action === 'reset' ) { tileLoad(); $('#msg').html(''); }
+		if ( action === 'reset' ) { tileLoad(); $('#msg').html(''); $('.filters a').removeClass('active'); }
 		return false;
 	})
 
