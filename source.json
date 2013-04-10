@@ -1,0 +1,58 @@
+{
+	"tiles": [
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "2",
+			"media": "img/temp/image3.jpg",
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "2",
+			"media": "img/temp/image2.jpg",
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "3",
+			"media": null,
+			"tags":  "filter 1"
+		},
+		{
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "1",
+			"media": null,
+			"tags":  "filter 1"
+		}
+	]
+}
