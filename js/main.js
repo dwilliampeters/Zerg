@@ -20,10 +20,10 @@ $(function() {
 		$.each(data.tiles, function(i, item) {
 			//console.log(item.title);
 			if ( !item.media ) {
-				$('#container').append('<div id="box1" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+				$('#container').append('<div class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
 			}
 			if ( item.media ) {
-				$('#container').append('<div id="box1" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+				$('#container').append('<div class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
 			}
 		});
 
