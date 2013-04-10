@@ -10,41 +10,95 @@ $(function() {
 	var box = $('.box'),
 		touched,
 		imageBoxSrc,
-		things;
+		things,
+		filter = false;
 
-	// Get the tiles
-	var source = baseUrl + 'source.json';
-
-	// Load into the container
-	$.getJSON(source, function(data) {
-		
-		// Singular tiles
-		if(window.location.hash) {
-			var hash = window.location.hash;
-			console.log('single content');
-		} else {
-			$.each(data.tiles, function(i, item) {
-				//console.log(item.title);
-				if ( !item.media ) {
-					$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
-				}
-				if ( item.media ) {
-					$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
-				}
-			});
+	// URL Vars
+	$.extend({
+		getUrlVars: function(){
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
 		}
-
-		$('#container').masonry({
-			itemSelector: '.box',
-			isFitWidth: true
-		}).imagesLoaded(function() {
-			$('#container').masonry('reload');
-		});
-
+		return vars;
+		},
+		getUrlVar: function(name){
+			return $.getUrlVars()[name];
+		}
 	});
 
+	if ($.getUrlVar('id')) {
+		var deepLink = $.getUrlVar('id');
+	}
+
+	$('.filters a').bind('click', function() {
+		filter = $(this).attr('data-target');
+		console.log(filter);
+		tileLoad(filter);
+		return false;
+	})
+
+	tileLoad();
+
+	function tileLoad (filter) {
+
+		// Reset the content
+		$('#container').html('');
+
+		// Get the tiles
+		var source = baseUrl + 'source.json';
+
+		// Load into the container
+		$.getJSON(source, function(data) {
+
+			var ob = data.tiles;
+			$.each(ob, function(i, item) {
+				if ( filter ) {
+					if (item.tags.indexOf(filter) >= 0) {
+					//if ( item.id === deepLink) {
+						if ( !item.media ) {
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						}
+						if ( item.media ) {
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						}
+					}
+				} else if ( deepLink ) {
+					 if ( item.id === deepLink) {
+						if ( !item.media ) {
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						}
+						if ( item.media ) {
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						}
+					}
+				} else {
+					if ( !item.media ) {
+						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+					}
+					if ( item.media ) {
+						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+					}
+				}
+			});
+
+			// Run masonry now it's in the dom
+			$('#container').masonry({
+				itemSelector: '.box',
+				isFitWidth: true
+			}).imagesLoaded(function() {
+				$('#container').masonry('reload');
+			});
+
+		});
+
+	}
+
 	// Tile interaction
-	$(document).on('click', '.collectionTile', function(){
+	$(document).on('click', '.collectionTile', function() {
 		touched = $(this);
 		flipper(touched);
 	})
