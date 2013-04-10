@@ -32,11 +32,16 @@ $(function() {
 
 	if ($.getUrlVar('id')) {
 		var deepLink = $.getUrlVar('id');
+		$('#msg').html('');
+		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
 	}
 
 	$('.filters a').bind('click', function() {
 		filter = $(this).attr('data-target');
-		console.log(filter);
+		$('.filters a').removeClass('active');
+		$(this).addClass('active');
+		$('#msg').html('');
+		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
 		tileLoad(filter);
 		return false;
 	})
@@ -58,7 +63,6 @@ $(function() {
 			$.each(ob, function(i, item) {
 				if ( filter ) {
 					if (item.tags.indexOf(filter) >= 0) {
-					//if ( item.id === deepLink) {
 						if ( !item.media ) {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
 						}
@@ -67,7 +71,7 @@ $(function() {
 						}
 					}
 				} else if ( deepLink ) {
-					 if ( item.id === deepLink) {
+				 	if ( item.id === deepLink) {
 						if ( !item.media ) {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
 						}
@@ -96,6 +100,13 @@ $(function() {
 		});
 
 	}
+
+	// Reset
+	$(document).on('click', '.action', function() {
+		var action = $(this).attr('data-target');
+		if ( action === 'reset' ) { tileLoad(); $('#msg').html(''); }
+		return false;
+	})
 
 	// Tile interaction
 	$(document).on('click', '.collectionTile', function() {
