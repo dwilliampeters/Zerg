@@ -17,15 +17,22 @@ $(function() {
 
 	// Load into the container
 	$.getJSON(source, function(data) {
-		$.each(data.tiles, function(i, item) {
-			//console.log(item.title);
-			if ( !item.media ) {
-				$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
-			}
-			if ( item.media ) {
-				$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
-			}
-		});
+		
+		// Singular tiles
+		if(window.location.hash) {
+			var hash = window.location.hash;
+			console.log('single content');
+		} else {
+			$.each(data.tiles, function(i, item) {
+				//console.log(item.title);
+				if ( !item.media ) {
+					$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+				}
+				if ( item.media ) {
+					$('#container').append('<div id="tile-' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+				}
+			});
+		}
 
 		$('#container').masonry({
 			itemSelector: '.box',
@@ -33,6 +40,7 @@ $(function() {
 		}).imagesLoaded(function() {
 			$('#container').masonry('reload');
 		});
+
 	});
 
 	// Tile interaction
@@ -60,13 +68,6 @@ $(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 900);
 	}, 3900);
-
-	// Singular tiles
-	if(window.location.hash) {
-	  var hash = window.location.hash;
-	  box.addClass('hide');
-	  $(hash).removeClass('hide');
-	}
 
 	// Lightbox work - OLD - keeping incase
 	/*$('.imageBox').bind("click", function(event) {
