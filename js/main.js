@@ -105,8 +105,6 @@ $(function() {
 		}
 		$('.filters a').removeClass('active');
 		$(this).addClass('active');
-		$('#msg').html('');
-		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
 		tileLoad(filter);
 		return false;
 	})
