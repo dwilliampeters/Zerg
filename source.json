@@ -125,6 +125,13 @@
 			"cols": "1",
 			"media": null,
 			"tags":  "Mountain Biking"
+		},
+		{
+			"id": "19",
+			"title": "Lorem ipsum dolor sit amet",
+			"cols": "2",
+			"media": "img/temp/image4.jpg",
+			"tags":  "Road Cycling"
 		}
 	]
 }

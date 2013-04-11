@@ -154,8 +154,8 @@ $(function() {
 		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
-		}, 900);
-	}, 3900);
+		}, 1200);
+	}, 6000);
 
 	// Lightbox work - OLD - keeping incase
 	/*$('.imageBox').bind("click", function(event) {

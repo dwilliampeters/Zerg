@@ -35,7 +35,7 @@ img { max-width: 100%; }
 header[role="banner"] { position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 header[role="banner"] h1 { background: rgba(0, 0, 0, 0.8); float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { display: block; padding: 10px; color: #fff; text-decoration: none; }
-nav[role="sitenav"] { float: right; background: rgba(0, 0, 0, 0.8); text-align: center; min-width: 150px; }
+nav[role="sitenav"] { float: right; background: #000; background: rgba(0, 0, 0, 0.8); text-align: center; min-width: 150px; }
 nav[role="sitenav"] h2 { margin: 0; font-size: 14px; text-transform: uppercase; }
 nav[role="sitenav"] h2 a { display: block; padding: 10px; color: #fff; text-decoration: none; }
 nav[role="sitenav"] ul { display: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
