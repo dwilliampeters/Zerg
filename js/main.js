@@ -13,6 +13,8 @@ $(function() {
 		things,
 		filter = false;
 
+	tileLoad();
+
 	// URL Vars
 	$.extend({
 		getUrlVars: function(){
@@ -29,24 +31,6 @@ $(function() {
 			return $.getUrlVars()[name];
 		}
 	});
-
-	if ($.getUrlVar('id')) {
-		var deepLink = $.getUrlVar('id');
-		$('#msg').html('');
-		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
-	}
-
-	$('.filters a').bind('click', function() {
-		filter = $(this).attr('data-target');
-		$('.filters a').removeClass('active');
-		$(this).addClass('active');
-		$('#msg').html('');
-		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
-		tileLoad(filter);
-		return false;
-	})
-
-	tileLoad();
 
 	function tileLoad (filter) {
 
@@ -100,6 +84,32 @@ $(function() {
 		});
 
 	}
+
+	if ($.getUrlVar('id')) {
+		var deepLink = $.getUrlVar('id');
+		$('#msg').html('');
+		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
+	}
+
+	$('nav[role="sitenav"] h2 a').bind('click', function() {
+		$('nav[role="sitenav"] ul').toggleClass('show');
+		return false;
+	})
+
+	$('.filters li > a').bind('click', function() {
+		filter = $(this).attr('data-target');
+		if ( $(this).hasClass('active') ) {
+			$('.filters a').removeClass('active');
+			tileLoad();
+			return false;
+		}
+		$('.filters a').removeClass('active');
+		$(this).addClass('active');
+		$('#msg').html('');
+		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
+		tileLoad(filter);
+		return false;
+	})
 
 	// Reset
 	$(document).on('click', '.action', function() {

@@ -26,17 +26,23 @@ textarea { resize: vertical; }
    Author's custom styles
    ========================================================================== */
 
+a, a:active, a:focus { outline: 0; outline: none; border: none; ie-dummy: expression(this.hideFocus=true); }
+
 img { max-width: 100%; }
 
 #shell { max-width: 1920px; margin: 0 auto; padding-top: 50px; text-align: center; }
 
 header[role="banner"] { position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
-header[role="banner"] h1 { background: rgba(0, 0, 0, 0.8); float: left; margin: 0; padding: 10px; color: #fff; font-size: 20px; font-weight: normal; }
-header[role="banner"] ul, header[role="banner"] ul li { list-style: none; margin: 0; padding: 0;}
-header[role="banner"] ul { float: right; background: rgba(0, 0, 0, 0.8); }
-/*header[role="banner"] ul li { float: left; }*/
-header[role="banner"] ul li a { display: block; padding: 10px; color: #fff; text-decoration: none; }
-header[role="banner"] ul li a:hover, header[role="banner"] ul li a.active { background: rgba(255, 255, 255, 0.1); }
+header[role="banner"] h1 { background: rgba(0, 0, 0, 0.8); float: left; margin: 0; font-weight: normal; font-size: 14px; text-transform: uppercase; }
+header[role="banner"] h1 a { display: block; padding: 10px; color: #fff; text-decoration: none; }
+nav[role="sitenav"] { float: right; background: rgba(0, 0, 0, 0.8); text-align: center; min-width: 150px; }
+nav[role="sitenav"] h2 { margin: 0; font-size: 14px; text-transform: uppercase; }
+nav[role="sitenav"] h2 a { display: block; padding: 10px; color: #fff; text-decoration: none; }
+nav[role="sitenav"] ul { display: none; }
+nav[role="sitenav"] ul.show { display: block; }
+nav[role="sitenav"] ul, nav[role="sitenav"] ul li { list-style: none; margin: 0; padding: 0;}
+nav[role="sitenav"] ul li a { display: block; padding: 10px; color: #fff; text-decoration: none; }
+nav[role="sitenav"] ul li a:hover, nav[role="sitenav"] ul li a.active { background: rgba(255, 255, 255, 0.1); }
 
 
 /**** Messages ****/
@@ -74,13 +80,7 @@ header[role="banner"] ul li a:hover, header[role="banner"] ul li a.active { back
 .centered { margin: 0 auto; }
 
 .box { margin: 5px; font-size: 11px; line-height: 1.4em; text-shadow: 0 1px 3px #fff; float: left; text-align: left; }
-.box .tile, .box .collectionInfo {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    overflow: hidden;
-}
+.box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
 .box.img .tile { padding: 0; }
 .box .collectionInfo { font-weight: bold; font-size: 14px; line-height: 1.4; }
 .box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
@@ -88,7 +88,12 @@ header[role="banner"] ul li a:hover, header[role="banner"] ul li a.active { back
 .box img, #tumblelog img { display: block; width: 100%; }
 .rtl .box { float: right; text-align: right; direction: rtl; }
 .col1, .col2, .col3 { width: 140px; height: 140px; }
-@media only screen and (min-width: 300px) { .col2 { width: 290px; height: 290px; } .col3 { width: 290px; height: 140px; } }
+@media only screen and (min-width: 300px) {
+    .col3 { width: 290px; height: 140px; }
+}
+@media only screen and (min-width: 450px) {
+    .col2 { width: 290px; height: 290px; }
+}
 
 
 /**** Transitions ****/
@@ -134,7 +139,9 @@ header[role="banner"] ul li a:hover, header[role="banner"] ul li a.active { back
 .twitter-share-button { margin-bottom: 10px; }
 
 @media only screen and (min-width: 640px) {
-    header[role="banner"] ul li { float: left; }
+    nav[role="sitenav"] h2 { display: none; }
+    nav[role="sitenav"] ul { display: block; }
+    nav[role="sitenav"] ul li { float: left; }
 }
 
 
