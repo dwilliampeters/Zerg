@@ -48,7 +48,9 @@ $(function() {
 			var ob = data.tiles;
 			$.each(ob, function(i, item) {
 				if ( filter ) {
-					if (item.tags.indexOf(filter) >= 0) {
+					//if (item.tags.indexOf(filter) >= 0) {
+					console.log(item.tags);
+					if ( $.inArray(item.tags, filter) > -1 ) {
 						if ( !item.media ) {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
 						}
@@ -99,7 +101,8 @@ $(function() {
 	})
 
 	$('.filters li > a').addClass('active');
-	filterAry = ["Mountain Biking", "Downhill", "Road Cycling", "Track"]
+	filterAry = ["Mountain Biking", "Downhill", "Road Cycling", "Track"];
+	console.log(filterAry);
 	$('.filters li > a').bind('click', function() {
 		filterTouched = $(this).attr('data-target');
 		if ( $(this).hasClass('active') ) {

@@ -26,7 +26,7 @@
 			"title": "Lorem ipsum dolor sit amet",
 			"cols": "2",
 			"media": "img/temp/image3.jpg",
-			"tags":  "Mountain Biking, Downhill"
+			"tags":  "Mountain Biking"
 		},
 		{
 			"id": "5",
@@ -89,7 +89,7 @@
 			"title": "Lorem ipsum dolor sit amet",
 			"cols": "2",
 			"media": "img/temp/image3.jpg",
-			"tags":  "Mountain Biking, Downhill"
+			"tags":  "Mountain Biking"
 		},
 		{
 			"id": "14",
