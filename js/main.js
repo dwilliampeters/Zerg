@@ -99,6 +99,7 @@ $(function() {
 	})
 
 	$('.filters li > a').addClass('active');
+	filterAry = ["Mountain Biking", "Downhill", "Road Cycling", "Track"]
 	$('.filters li > a').bind('click', function() {
 		filterTouched = $(this).attr('data-target');
 		if ( $(this).hasClass('active') ) {
