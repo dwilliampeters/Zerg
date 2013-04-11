@@ -17,7 +17,7 @@ $(function() {
 
 	tileLoad();
 
-	// URL Vars
+	// Check URL
 	$.extend({
 		getUrlVars: function(){
 		var vars = [], hash;
@@ -89,17 +89,21 @@ $(function() {
 
 	}
 
+	// Deep linking
 	if ($.getUrlVar('id')) {
 		var deepLink = $.getUrlVar('id');
 		$('#msg').html('');
-		$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
+		//$('#msg').append('<a class="action" data-target="reset" href="#">View All...</a>');
+		$('#msg').append('<a href="' + baseUrl + '">View All...</a>');
 	}
 
+	// Small screen navigation
 	$('nav[role="sitenav"] h2 a').bind('click', function() {
 		$('nav[role="sitenav"] ul').toggleClass('show');
 		return false;
 	})
 
+	// Filters
 	$('.filters li > a').addClass('active');
 	filterAry = ["Mountain Biking", "Downhill", "Road Cycling", "Track"];
 	console.log(filterAry);
@@ -110,13 +114,10 @@ $(function() {
 			filterAry = jQuery.grep(filterAry, function(value) {
 				return value != filterTouched;
 			});
-			//tileLoad();
-			//return false;
 		} else {
 			$(this).addClass('active');
 			filterAry.push(filterTouched);
 		}
-		//filter = filterAry + "";
 		filter = filterAry;
 		console.log(filter);
 		tileLoad(filter);
