@@ -11,7 +11,9 @@ $(function() {
 		touched,
 		imageBoxSrc,
 		things,
-		filter = false;
+		filter,
+		filterTouched,
+		filterAry = [];
 
 	tileLoad();
 
@@ -96,15 +98,23 @@ $(function() {
 		return false;
 	})
 
+	$('.filters li > a').addClass('active');
 	$('.filters li > a').bind('click', function() {
-		filter = $(this).attr('data-target');
+		filterTouched = $(this).attr('data-target');
 		if ( $(this).hasClass('active') ) {
-			$('.filters a').removeClass('active');
-			tileLoad();
-			return false;
+			$(this).removeClass('active');
+			filterAry = jQuery.grep(filterAry, function(value) {
+				return value != filterTouched;
+			});
+			//tileLoad();
+			//return false;
+		} else {
+			$(this).addClass('active');
+			filterAry.push(filterTouched);
 		}
-		$('.filters a').removeClass('active');
-		$(this).addClass('active');
+		//filter = filterAry + "";
+		filter = filterAry;
+		console.log(filter);
 		tileLoad(filter);
 		return false;
 	})
