@@ -34,6 +34,16 @@ $(function() {
 		}
 	});
 
+	function runMasonry () {
+		// Run masonry now it's in the dom
+		$('#container').masonry({
+			itemSelector: '.box',
+			isFitWidth: true
+		}).imagesLoaded(function() {
+			$('#container').masonry('reload');
+		});
+	}
+
 	function tileLoad (filter) {
 
 		// Reset the content
@@ -49,41 +59,35 @@ $(function() {
 			$.each(ob, function(i, item) {
 				if ( filter ) {
 					//if (item.tags.indexOf(filter) >= 0) {
-					console.log(item.tags);
+					//console.log(item.tags);
 					if ( $.inArray(item.tags, filter) > -1 ) {
 						if ( !item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p></div></div></div>');
 						}
 					}
 				} else if ( deepLink ) {
 				 	if ( item.id === deepLink) {
 						if ( !item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p></div></div></div>');
 						}
 					}
 				} else {
 					if ( !item.media ) {
-						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 					}
 					if ( item.media ) {
-						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><p>Other goodies can be added here</p></div></div></div>');
+						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p><i>Close</i></div></div></div>');
 					}
 				}
 			});
 
-			// Run masonry now it's in the dom
-			$('#container').masonry({
-				itemSelector: '.box',
-				isFitWidth: true
-			}).imagesLoaded(function() {
-				$('#container').masonry('reload');
-			});
+			runMasonry();
 
 		});
 
@@ -104,10 +108,10 @@ $(function() {
 	})
 
 	// Filters
-	$('.filters li > a').addClass('active');
+	$('.filterItem > a').addClass('active');
 	filterAry = ["Mountain Biking", "Downhill", "Road Cycling", "Track"];
 	console.log(filterAry);
-	$('.filters li > a').bind('click', function() {
+	$('.filterItem > a').bind('click', function() {
 		filterTouched = $(this).attr('data-target');
 		if ( $(this).hasClass('active') ) {
 			$(this).removeClass('active');
@@ -120,6 +124,13 @@ $(function() {
 		}
 		filter = filterAry;
 		console.log(filter);
+		if ( filter.length === 0 ) {
+			console.log('No Content');
+			$('#container').html('');
+			$('#container').append('<div class="box col3"><div class="tile"><h2>Nothing to show</h2><h3>Select at least 1 category</h3></div></div>');
+			runMasonry();
+			return false;
+		}
 		tileLoad(filter);
 		return false;
 	})
@@ -132,7 +143,7 @@ $(function() {
 	})
 
 	// Tile interaction
-	$(document).on('click', '.collectionTile', function() {
+	$(document).on("click", '.collectionTile', function() {
 		touched = $(this);
 		flipper(touched);
 	})
@@ -141,40 +152,44 @@ $(function() {
 		if ( !touched.hasClass('hover') ) {
 			$('.collectionTile').removeClass('hover');
 			touched.addClass('hover');
-		} else {
-			$('.collectionTile').removeClass('hover');
+		//} else {
+		//	$('.collectionTile').removeClass('hover');
 		}
 		return false;
 	}
 
-	// Randomly tease the tile content
+	$(document).on("click", '.collectionInfo > i', function() {
+		$(this).closest('.collectionTile').removeClass('hover');
+		return false;
+	})
+
+	// Randomly tease tile content
 	setInterval(function() {
 		$('.collectionTile').removeClass('tease');
-		things = $('.collectionTile');
+		things = $('.collectionTile.img');
 		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 1200);
 	}, 6000);
 
-	// Lightbox work - OLD - keeping incase
-	/*$('.imageBox').bind("click", function(event) {
+	// Lightbox
+	$(document).on("click", 'a[rel="lightbox"]', function() {
 		imageBoxSrc = $(this).attr('href');
 		$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
 		$('.lightbox').addClass('show');
 		return false;
-	});
+	})
 
-	$('.textBox').bind("click", function(event) {
-		$('.lightbox-content > div').html('Lightbox content, share, off site link etc.');
-		$('.lightbox').addClass('show');
+	$(document).on("click", '.lightbox-close', function() {
+		$('.lightbox').removeClass('show');
 		return false;
-	});
+	})
 
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
 		}   // esc
-	});*/
+	});
 
 });
