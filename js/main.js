@@ -201,20 +201,47 @@ $(function() {
 	// Lightbox - This really is going to be unused...
 	//$(document).on("click", 'a[rel="lightbox"]', function() {
 	$(document).on("click", '.box.img', function() {
-		//imageBoxSrc = $(this).attr('href');
-		//$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
-		$('.lightbox').addClass('show');
+		var touchedId = $(this).attr('id');
+			touchedId = touchedId.substring(1);
+			touchedId = parseInt(touchedId);
+			touchedId = touchedId -= 1;
+			console.log(touchedId);
+
+		var source = baseUrl + 'source.json';
+
+		$.getJSON( source, function( data ) {
+			var tilesTitle = data.tiles[touchedId].title;
+			var tilesMediaType = data.tiles[touchedId].media;
+			var tilesMediaSrc = data.tiles[touchedId].media_src;
+		
+			var tcShare = '<div class="meta"><span class="st_facebook_hcount" displayText="Facebook"></span><span class="st_twitter_hcount" displayText="Tweet"></span><span class="st_googleplus_hcount" displayText="Google +"></span></div>';
+			var tcTitle = '<h1>' + tilesTitle + '</h1>';
+			var tcMediaType = tilesMediaType;
+			var tcMediaSrc = tilesMediaSrc;
+			var tcMedia = '';
+			if ( tcMediaType === 'youtube' ) {
+				tcMedia = '<div class="media"><iframe width="100%" height="315" style="max-width: 560px;" src="http://www.youtube.com/embed/' + tcMediaSrc + '?rel=0" frameborder="0" allowfullscreen></iframe></div>';
+			}
+			if ( tcMediaType === 'image' ) {
+				tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
+			}
+			var lightboxContent = tcTitle + tcShare + tcMedia;
+			$('.lightbox-content > div').html(lightboxContent);
+			$('.lightbox').addClass('show');
+		});
 		return false;
 	})
 
 	$(document).on("click", '.lightbox-close', function() {
 		$('.lightbox').removeClass('show');
+		$('.lightbox-content > div').html('');
 		return false;
 	})
 
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
+			$('.lightbox-content > div').html('');
 		}
 	});
 
