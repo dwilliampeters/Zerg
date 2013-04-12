@@ -65,7 +65,14 @@ $(function() {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
+							if ( item.media === 'image' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+						}
+						if ( item.media === 'youtube' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+						}
 						}
 					}
 				} else if ( deepLink ) {
@@ -74,7 +81,14 @@ $(function() {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
+							if ( item.media === 'image' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+						}
+						if ( item.media === 'youtube' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+						}
 						}
 					}
 				} else {
@@ -198,10 +212,10 @@ $(function() {
 		return false;
 	})
 
-	/*$(document).keyup(function(e) {
+	$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
 		}
-	});*/
+	});
 
 });

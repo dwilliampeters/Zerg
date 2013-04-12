@@ -8,8 +8,9 @@
    ========================================================================== */
 
 html, button, input, select, textarea { color: #222; }
+html, body { height: 100%; }
 html {overflow-y: scroll;}
-body { font-size: 1em; line-height: 1.4; }
+body { font-size: 1em; line-height: 1.4; position: relative; }
 ::-moz-selection { background: #b3d4fc; text-shadow: none; }
 ::selection { background: #b3d4fc; text-shadow: none; }
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
@@ -33,11 +34,11 @@ img { max-width: 100%; }
 
 #shell { max-width: 1920px; margin: 0 auto; padding-top: 50px; text-align: center; }
 
-header[role="banner"] { background: rgba(0, 0, 0, 0.8); position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
+header[role="banner"] { background: rgba(0, 0, 0, 0.8); position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; }
 header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
-nav[role="sitenav"] { background: #000; background: rgba(0, 0, 0, 0.8); text-align: center; width: 100%; position: fixed; top: -100%; left: 0; z-index: 99; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; list-style: none; margin: 0; padding: 1px; }
+nav[role="sitenav"] { background: #000; background: rgba(0, 0, 0, 0.8); text-align: center; width: 100%; position: fixed; top: -100%; left: 0; z-index: 999; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; list-style: none; margin: 0; padding: 1px; }
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"].show { top: 47px; }
 .filterItem { padding: 1px; text-align: left; }
@@ -56,12 +57,14 @@ nav[role="sitenav"].show { top: 47px; }
 
 /**** Lightbox ****/
 
-.lightbox { display: none; background: #000; background: rgba(0, 0, 0, 0.95); position: fixed; top: 0; left: 0; z-index: 999; width: 100%; height: 100%; text-align: center; }
-.lightbox.show { display: block; }
-.lightbox-shell { width: 100%; }
-.lightbox-content { margin: 0 40px; display: inline-block; margin-top: 50px; padding: 20px; background: #fff; position: relative; }
-.lightbox-content > div { clear: both; }
-.lightbox .lightbox-close { float: right; background: url(../img/icon.close.dark.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: -23px; right: -30px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; }
+.lightbox { background: #000; background: rgba(0, 0, 0, 0.95); position: absolute; top: -200%; left: 0; z-index: 999; width: 100%; height: 100%; text-align: center; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+.lightbox.show { display: block; top: 0; }
+.lightbox .lightbox-close { float: right; background: url(../img/icon.close.dark.png) no-repeat right bottom; margin: 0; display: block; width: 23px; height: 23px; position: fixed; top: 57px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; }
+.lightbox-content { margin: 0 40px; height: 100%; display: block; background: #fff; }
+.lightbox-content > div { padding: 80px 40px 40px; text-align: left; position: relative; }
+.lightbox-content h1 { margin: 0 0 10px; }
+.lightbox .media { padding: 10px; background: black; display: inline-block; width: 100%; max-width: 560px; }
+.lightbox .meta { margin: 15px 0;}
 
 
 /**** Tiles ****/
@@ -98,7 +101,7 @@ nav[role="sitenav"].show { top: 47px; }
 
 /**** Masonry ****/
 
-#container { margin: 0 auto; background: #f5f5f5; padding: 5px; margin-bottom: 20px; clear: both; }
+#container { margin: 0 auto; background: #f5f5f5; padding: 5px; clear: both; }
 .centered { margin: 0 auto; }
 
 .box { margin: 5px; font-size: 11px; line-height: 1.4em; text-shadow: 0 1px 3px #fff; float: left; text-align: left; }
@@ -167,7 +170,7 @@ nav[role="sitenav"].show { top: 47px; }
 
 @media only screen and (min-width: 700px) {
     header[role="banner"] .navi { display: none; }
-    nav[role="sitenav"] { width: auto; position: fixed; top: 0; left: inherit; right: 0; z-index: 999; float: right; }
+    nav[role="sitenav"] { background: none; width: auto; position: fixed; top: 0; left: inherit; right: 0; z-index: 9999; float: right; }
     nav[role="sitenav"] ul{ float: right; }
     nav[role="sitenav"] ul li { float: left; }
 }
