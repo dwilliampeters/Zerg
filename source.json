@@ -6,7 +6,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{	
 			"id": "2",
@@ -14,7 +16,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "3",
@@ -22,15 +26,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Road Cycling"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Road Cycling"
 		},
 		{
 			"id": "4",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
-			"media": "img/temp/image3.jpg",
-			"tags":  "Mountain Biking"
+			"media": "image",
+			"media_src": "img/temp/image3.jpg",
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "5",
@@ -38,15 +46,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Track"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Track"
 		},
 		{
 			"id": "6",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
-			"media": "img/temp/image2.jpg",
-			"tags":  "Downhill"
+			"media": "image",
+			"media_src": "img/temp/image2.jpg",
+			"media_asset": null,
+			"tags": "Downhill"
 		},
 		{
 			"id": "7",
@@ -54,15 +66,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Downhill"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Downhill"
 		},
 		{
 			"id": "8",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
-			"cols": "3",
-			"media": null,
-			"tags":  "Mountain Biking"
+			"cols": "2",
+			"media": "youtube",
+			"media_src": "4bZJ3RPFtAo",
+			"media_asset": "img/temp/image3.jpg",
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "9",
@@ -70,7 +86,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "10",
@@ -78,7 +96,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{	
 			"id": "11",
@@ -86,7 +106,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "12",
@@ -94,15 +116,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Road Cycling"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Road Cycling"
 		},
 		{
 			"id": "13",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
-			"media": "img/temp/image3.jpg",
-			"tags":  "Mountain Biking"
+			"media": "image",
+			"media_src": "img/temp/image3.jpg",
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "14",
@@ -110,15 +136,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Track"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Track"
 		},
 		{
 			"id": "15",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
-			"media": "img/temp/image2.jpg",
-			"tags":  "Downhill"
+			"media": "image",
+			"media_src": "img/temp/image2.jpg",
+			"media_asset": null,
+			"tags": "Downhill"
 		},
 		{
 			"id": "16",
@@ -126,7 +156,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Downhill"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Downhill"
 		},
 		{
 			"id": "17",
@@ -134,7 +166,9 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "3",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "18",
@@ -142,15 +176,19 @@
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
 			"media": null,
-			"tags":  "Mountain Biking"
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		},
 		{
 			"id": "19",
 			"title": "The breakfast for champions",
 			"info": "Find out the secret!",
 			"cols": "2",
-			"media": "img/temp/image4.jpg",
-			"tags":  "Road Cycling"
+			"media": "image",
+			"media_src": "img/temp/image4.jpg",
+			"media_asset": null,
+			"tags": "Road Cycling"
 		}
 	]
 }

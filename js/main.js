@@ -65,7 +65,7 @@ $(function() {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
 					}
 				} else if ( deepLink ) {
@@ -74,7 +74,7 @@ $(function() {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 						}
 						if ( item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
 					}
 				} else {
@@ -82,7 +82,15 @@ $(function() {
 						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
 					}
 					if ( item.media ) {
-						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p><i>Close</i></div></div></div>');
+						//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p><i>Close</i></div></div></div>');
+						if ( item.media === 'image' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+						}
+						if ( item.media === 'youtube' ) {
+							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+						}
 					}
 				}
 			});
@@ -102,8 +110,8 @@ $(function() {
 	}
 
 	// Small screen navigation
-	$('nav[role="sitenav"] h2 a').bind('click', function() {
-		$('nav[role="sitenav"] ul').toggleClass('show');
+	$('.navi').bind('click', function() {
+		$('nav[role="sitenav"]').toggleClass('show');
 		return false;
 	})
 
@@ -145,38 +153,42 @@ $(function() {
 	// Tile interaction
 	$(document).on("click", '.collectionTile', function() {
 		touched = $(this);
-		flipper(touched);
-	})
-
-	function flipper (touched) {
-		if ( !touched.hasClass('hover') ) {
-			$('.collectionTile').removeClass('hover');
-			touched.addClass('hover');
-		//} else {
-		//	$('.collectionTile').removeClass('hover');
+		/*$('.collectionTile.img').removeClass('col4').addClass('col2');
+		if ( touched.hasClass('img') ) {
+			$('.collectionTile.col4').removeClass('col4').addClass('col2');
+			$(this).closest('.collectionTile').removeClass('col2').addClass('col4');
+		}*/
+		if ( !touched.hasClass('img') ) {
+			if ( !touched.hasClass('hover') ) {
+				$('.collectionTile').removeClass('hover');
+				touched.addClass('hover');
+			}
+			runMasonry();
 		}
 		return false;
-	}
+	})
 
 	$(document).on("click", '.collectionInfo > i', function() {
-		$(this).closest('.collectionTile').removeClass('hover');
+		//$(this).closest('.collectionTile').removeClass('col4').removeClass('hover').addClass('col2');
+		runMasonry();
 		return false;
 	})
 
 	// Randomly tease tile content
 	setInterval(function() {
 		$('.collectionTile').removeClass('tease');
-		things = $('.collectionTile.img');
+		things = $('.collectionTile');
 		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 1200);
 	}, 6000);
 
-	// Lightbox
-	$(document).on("click", 'a[rel="lightbox"]', function() {
-		imageBoxSrc = $(this).attr('href');
-		$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
+	// Lightbox - This really is going to be unused...
+	//$(document).on("click", 'a[rel="lightbox"]', function() {
+	$(document).on("click", '.box.img', function() {
+		//imageBoxSrc = $(this).attr('href');
+		//$('.lightbox-content > div').html('<img src="' + imageBoxSrc + '" />');
 		$('.lightbox').addClass('show');
 		return false;
 	})
@@ -186,10 +198,10 @@ $(function() {
 		return false;
 	})
 
-	$(document).keyup(function(e) {
+	/*$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
-		}   // esc
-	});
+		}
+	});*/
 
 });

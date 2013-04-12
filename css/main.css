@@ -33,20 +33,20 @@ img { max-width: 100%; }
 
 #shell { max-width: 1920px; margin: 0 auto; padding-top: 50px; text-align: center; }
 
-header[role="banner"] { position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
-header[role="banner"] h1 { background: rgba(0, 0, 0, 0.8); float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+header[role="banner"] { background: rgba(0, 0, 0, 0.8); position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
+header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
-nav[role="sitenav"] { float: right; background: #000; background: rgba(0, 0, 0, 0.8); text-align: center; min-width: 150px; }
-nav[role="sitenav"] h2 { margin: 0; font-size: 14px; text-transform: uppercase; }
-nav[role="sitenav"] h2 a { display: block; padding: 10px; color: #fff; text-decoration: none; }
-nav[role="sitenav"] ul { display: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; list-style: none; margin: 0; padding: 1px; }
-nav[role="sitenav"] ul.show { display: block; }
+header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
+nav[role="sitenav"] { background: #000; background: rgba(0, 0, 0, 0.8); text-align: center; width: 100%; position: fixed; top: -100%; left: 0; z-index: 99; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; list-style: none; margin: 0; padding: 1px; }
+nav[role="sitenav"] ul { margin: 0; padding: 0; }
+nav[role="sitenav"].show { top: 47px; }
 .filterItem { padding: 1px; text-align: left; }
 .filterItem > a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; color: #fff; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 .filterItem > a:hover { background: rgba(80, 160, 234, 0.4); }
 .filterItem > a.active { background: rgba(80, 160, 234, 0.8); }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
+
 
 /**** Messages ****/
 
@@ -58,9 +58,10 @@ nav[role="sitenav"] ul.show { display: block; }
 
 .lightbox { display: none; background: #000; background: rgba(0, 0, 0, 0.95); position: fixed; top: 0; left: 0; z-index: 999; width: 100%; height: 100%; text-align: center; }
 .lightbox.show { display: block; }
-.lightbox-content { margin: 0 40px; max-width: 500px; display: inline-block; margin-top: 50px; padding: 20px; background: #fff; position: relative; }
+.lightbox-shell { width: 100%; }
+.lightbox-content { margin: 0 40px; display: inline-block; margin-top: 50px; padding: 20px; background: #fff; position: relative; }
 .lightbox-content > div { clear: both; }
-.lightbox-content .lightbox-close { float: right; background: url(../img/icon.close.dark.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: -23px; right: -30px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; }
+.lightbox .lightbox-close { float: right; background: url(../img/icon.close.dark.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: -23px; right: -30px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; }
 
 
 /**** Tiles ****/
@@ -70,11 +71,19 @@ nav[role="sitenav"] ul.show { display: block; }
     .collectionTile.tease .collectionInfo, .collectionTile:hover .collectionInfo { top: 130px; }
     .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 250px; }
 
-    .collectionTile.img.tease .tile, .collectionTile.img:hover .tile { top: -50px; }
-    .collectionTile.col2.img.tease .collectionInfo, .collectionTile.col2.img:hover .collectionInfo { top: 240px; }
+    
 
-    .collectionTile.hover .tile, .collectionTile.img.hover .tile { top: -100%; }
-    .collectionTile.hover .collectionInfo, .collectionTile.col2.hover .collectionInfo, .collectionTile.col2.img.hover .collectionInfo { top: 0; }
+    @media only screen and (min-width: 300px) {
+        .collectionTile.col2.tease .tile, .collectionTile.col2:hover .tile { top: -50px; }
+        .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 240px; }
+    }
+
+    .collectionTile.hover .tile, .collectionTile.col2.hover .tile { top: -100%; }
+    .collectionTile.hover .collectionInfo, .collectionTile.col2.hover .collectionInfo { top: 0; }
+
+    /*.collectionTile.col4.img.hover .tile { top: 0; }
+    .collectionTile.col4.img.hover .collectionInfo { top: 100%; }*/
+
 .collectionTile, .tile, .collectionInfo { width: 100%; height: 100%; }
 .collectionContainer { position: relative; width: 100%; height: 100%; }
 .tile, .collectionInfo { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; position: absolute; top: 0; left: 0; }
@@ -82,8 +91,10 @@ nav[role="sitenav"] ul.show { display: block; }
 .collectionInfo { top: 100%; background: lightblue; }
 .collectionInfo h2 { margin: 0 0 10px; font-weight: normal; font-size: 20px; }
 .collectionInfo a { text-decoration: none; color: black; }
-.collectionInfo > i { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; background: url(../img/icon.close.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: -30px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; }
+/*.collectionInfo > i { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; background: url(../img/icon.close.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: -30px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; }*/
+.collectionInfo img { margin: 0 auto; max-height: 80%; }
 .collectionTile.hover .collectionInfo > i { top: 10px; }
+
 
 /**** Masonry ****/
 
@@ -96,14 +107,19 @@ nav[role="sitenav"] ul.show { display: block; }
 .box .collectionInfo { font-weight: bold; font-size: 14px; line-height: 1.4; }
 .box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
 .box p { margin: 0; }
-.box img, #tumblelog img { display: block; width: 100%; }
+.box img { display: block; max-width: 100%; }
 .rtl .box { float: right; text-align: right; direction: rtl; }
-.col1, .col2, .col3 { width: 140px; height: 140px; }
+.col1, .col2, .col3, .col4 { width: 140px; height: 140px; }
 @media only screen and (min-width: 300px) {
     .col3 { width: 290px; height: 140px; }
+    .col4 { width: 290px; height: 290px; }
 }
 @media only screen and (min-width: 450px) {
     .col2 { width: 290px; height: 290px; }
+    .col4 { width: 440px; height: 440px; }
+}
+@media only screen and (min-width: 600px) {
+    .col4 { width: 590px; height: 590px; }
 }
 
 
@@ -150,8 +166,9 @@ nav[role="sitenav"] ul.show { display: block; }
 .twitter-share-button { margin-bottom: 10px; }
 
 @media only screen and (min-width: 700px) {
-    nav[role="sitenav"] h2 { display: none; }
-    nav[role="sitenav"] ul { display: block; }
+    header[role="banner"] .navi { display: none; }
+    nav[role="sitenav"] { width: auto; position: fixed; top: 0; left: inherit; right: 0; z-index: 999; float: right; }
+    nav[role="sitenav"] ul{ float: right; }
     nav[role="sitenav"] ul li { float: left; }
 }
 
