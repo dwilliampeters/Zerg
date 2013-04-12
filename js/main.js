@@ -67,11 +67,11 @@ $(function() {
 						if ( item.media ) {
 							if ( item.media === 'image' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
 						if ( item.media === 'youtube' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
 						}
 						}
 					}
@@ -83,11 +83,11 @@ $(function() {
 						if ( item.media ) {
 							if ( item.media === 'image' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
 						if ( item.media === 'youtube' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
 						}
 						}
 					}
@@ -99,11 +99,11 @@ $(function() {
 						//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><p><a rel="lightbox" href="' + item.media + '">See the bigger picture</a></p><i>Close</i></div></div></div>');
 						if ( item.media === 'image' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div><div class="collectionInfo"><h2>' + item.title + '</h2><img src="' + item.media_src + '" alt="" /><i>Close</i></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
 						if ( item.media === 'youtube' ) {
 							//$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div><div class="collectionInfo"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/' + item.media_src + '?rel=0" frameborder="0" allowfullscreen></iframe></div></div></div>');
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' img"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
 						}
 					}
 				}
@@ -200,7 +200,7 @@ $(function() {
 
 	// Lightbox - This really is going to be unused...
 	//$(document).on("click", 'a[rel="lightbox"]', function() {
-	$(document).on("click", '.box.img', function() {
+	$(document).on("click", '.box.mediaTile', function() {
 		var touchedId = $(this).attr('id');
 			touchedId = touchedId.substring(1);
 			touchedId = parseInt(touchedId);
