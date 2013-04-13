@@ -13,7 +13,8 @@ $(function() {
 		things,
 		filter,
 		filterTouched,
-		filterAry = [];
+		filterAry = [],
+		itemMeta;
 
 	tileLoad();
 
@@ -79,13 +80,12 @@ $(function() {
 		// Get the tiles
 		var source = baseUrl + 'source.json';
 
-		var itemMeta = $('.lightbox > .meta').html();
-
 		// Load into the container
 		$.getJSON(source, function(data) {
 
 			var ob = data.tiles;
 			$.each(ob, function(i, item) {
+				itemMeta = $('.lightbox > .meta').html();
 				if ( filter ) {
 					if ( $.inArray(item.tags, filter) > -1 ) {
 						if ( !item.media ) {
