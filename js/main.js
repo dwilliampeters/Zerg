@@ -229,7 +229,8 @@ $(function() {
 			if ( tcMediaType === 'image' ) {
 				tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
 			}
-			var lightboxContent = tcTitle + tcShare + tcMedia;
+			var tcMeta = $('.lightbox > .meta').html();
+			var lightboxContent = tcTitle + tcMeta + tcShare + tcMedia;
 			$('.lightbox-content > div').html(lightboxContent);
 			$('.lightbox').addClass('show');
 		});
