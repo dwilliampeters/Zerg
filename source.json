@@ -120,6 +120,28 @@
 			"media_src": "img/temp/image9.jpg",
 			"media_asset": null,
 			"tags": "Mountain Biking"
+		},
+		{
+			"id": "12",
+			"url": "sef-title",
+			"title": "The Ardennes Classics kick off this weekend. Get on the front foot ahead of Amstel Gold with our race guide",
+			"link": "http://www.teamsky.com/article/0,27290,28718_8629502,00.html",
+			"cols": "1",
+			"media": null,
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Road"
+		},
+		{
+			"id": "13",
+			"url": "sef-title",
+			"title": "Help the team improve and inform future decisions by taking our survey. You could win a prize for completing it",
+			"link": "http://www.teamsky.com/article/0,27290,17546_8633055,00.html",
+			"cols": "1",
+			"media": null,
+			"media_src": null,
+			"media_asset": null,
+			"tags": "Road"
 		}
 	]
 }
