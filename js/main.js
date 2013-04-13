@@ -46,6 +46,8 @@ $(function() {
 		// Get the tiles
 		var source = baseUrl + 'source.json';
 
+		var itemMeta = $('.lightbox > .meta').html();
+
 		// Load into the container
 		$.getJSON(source, function(data) {
 
@@ -54,7 +56,7 @@ $(function() {
 				if ( filter ) {
 					if ( $.inArray(item.tags, filter) > -1 ) {
 						if ( !item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
+							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 						}
 						if ( item.media ) {
 							if ( item.media === 'image' ) {
@@ -71,7 +73,7 @@ $(function() {
 					}
 				} else {
 					if ( !item.media ) {
-						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + item.info + '</div></div></div>');
+						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 					}
 					if ( item.media ) {
 						if ( item.media === 'image' ) {
@@ -204,6 +206,7 @@ $(function() {
 			$('.lightbox').addClass('show');
 		});
 		$("html,body").animate({ scrollTop: 0 }, 300);
+		$('.collectionTile').removeClass('hover');
 		return false;
 	}
 
