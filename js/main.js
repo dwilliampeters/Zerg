@@ -66,8 +66,8 @@ $(function() {
 			isAnimated: !Modernizr.csstransitions,
 			isFitWidth: true,
 			//cornerStampSelector: '.corner-stamp'
-		/*}).imagesLoaded(function() {
-			$('#container').masonry('reload');*/
+		}).imagesLoaded(function() {
+			$('#container').masonry('reload');
 		});
 	}
 
