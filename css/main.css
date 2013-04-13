@@ -43,9 +43,9 @@ nav[role="sitenav"] { background: #000; background: rgba(19, 20, 21, 0.8); text-
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"].show { top: 47px; }
 .filterItem { padding: 1px; text-align: left; }
-.filterItem > a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; color: #fff; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+.filterItem > a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; font-weight: bold; color: #fff; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 .filterItem > a:hover { background: rgba(0, 173, 226, 0.4); }
-.filterItem > a.active { background: rgba(0, 173, 226, 0.8); }
+.filterItem > a.active { background: rgba(0, 173, 226, 1); }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
 
@@ -96,14 +96,27 @@ nav[role="sitenav"].show { top: 47px; }
 .videoTile.withText .tile { font-weight: bold; font-size: 22px; line-height: 1.4; color: white; padding-right: 60px !important; }
 .collectionInfo { top: 100%; background: rgba(0, 173, 226, 1); }
 .collectionInfo > span { display: block; margin-bottom: 10px; }
-.box > i { display: none; width: 50px; height: 50px; position: absolute; top: 0; right: 0; opacity: 0.8; }
+.box > i { display: none; width: 50px; height: 50px; position: absolute; top: 0; right: 0; opacity: 0.8; cursor: pointer; }
 .videoTile > i { display: block; background: url(../img/icon.video.png) no-repeat right bottom; }
+
+.corner-stamp {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 5px;
+  width: 290px;
+  height: 290px;
+  float: right;
+  background: red;
+  color: white;
+}
 
 
 /**** Masonry ****/
 
 #container { margin: 0 auto; background: white; padding: 5px; clear: both; position: relative; top: 50px; -webkit-box-shadow: 0 0 25px #000; -moz-box-shadow: 0 0 25px #000; box-shadow: 0 0 25px #000; }
-
+.centered { margin: 0 auto; }
 .box { margin: 5px; font-size: 11px; line-height: 1.4em; float: left; text-align: left; }
 .box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
 .box.imgTile .tile, .box.videoTile .tile { padding: 0; }

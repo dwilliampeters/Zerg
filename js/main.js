@@ -30,11 +30,44 @@ $(function() {
 
 	function runMasonry () {
 		// Run masonry now it's in the dom
+
+		/*// Masonry corner stamp modifications
+		$.Mason.prototype.resize = function() {
+			this._getColumns();
+			this._reLayout();
+		};
+
+		$.Mason.prototype._reLayout = function( callback ) {
+			var freeCols = this.cols;
+			if ( this.options.cornerStampSelector ) {
+				var $cornerStamp = this.element.find( this.options.cornerStampSelector ),
+					cornerStampX = $cornerStamp.offset().left - 
+						( this.element.offset().left + this.offset.x + parseInt($cornerStamp.css('marginLeft')) );
+				freeCols = Math.floor( cornerStampX / this.columnWidth );
+			}
+			// reset columns
+			var i = this.cols;
+			this.colYs = [];
+			while (i--) {
+				this.colYs.push( this.offset.y );
+			}
+
+			for ( i = freeCols; i < this.cols; i++ ) {
+				this.colYs[i] = this.offset.y + $cornerStamp.outerHeight(true);
+			}
+
+			// apply layout logic to all bricks
+			this.layout( this.$bricks, callback );
+		};*/
+
 		$('#container').masonry({
 			itemSelector: '.box',
-			isFitWidth: true
-		}).imagesLoaded(function() {
-			$('#container').masonry('reload');
+			columnWidth: 75,
+			isAnimated: !Modernizr.csstransitions,
+			isFitWidth: true,
+			//cornerStampSelector: '.corner-stamp'
+		/*}).imagesLoaded(function() {
+			$('#container').masonry('reload');*/
 		});
 	}
 
@@ -59,16 +92,19 @@ $(function() {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 						}
 						if ( item.media ) {
-							if ( item.media === 'image' ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
-						}
-						if ( item.media === 'youtube' ) {
-							if ( !item.media_asset ) {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div></div><i></i></div>');
-							} else {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
+							if ( item.media === 'stamp' ) {
+								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' corner-stamp mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 							}
-						}
+							if ( item.media === 'image' ) {
+								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+							}
+							if ( item.media === 'youtube' ) {
+								if ( !item.media_asset ) {
+									$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div></div><i></i></div>');
+								} else {
+									$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
+								}
+							}
 						}
 					}
 				} else {
@@ -76,6 +112,9 @@ $(function() {
 						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 					}
 					if ( item.media ) {
+						if ( item.media === 'stamp' ) {
+							$('#container').append('<div id="t' + item.id + '" class="' + item.cols + ' corner-stamp mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
+						}
 						if ( item.media === 'image' ) {
 							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
 						}
