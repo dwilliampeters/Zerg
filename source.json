@@ -2,11 +2,11 @@
 	"tiles": [
 		{
 			"id": "1",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra, lorem in imperdiet feugiat, tortor lorem lacinia nisl, vel commodo.",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
+			"url": "whoever-said-going-shopping-on-the-weekend-was-boring",
+			"title": "Whoever said going shopping on the weekend was boring!",
+			"cols": "2",
+			"media": "image",
+			"media_src": "img/temp/image8.jpg",
 			"media_asset": null,
 			"tags": "Mountain Biking"
 		},
@@ -58,7 +58,7 @@
 			"media": "youtube",
 			"media_src": "bZ7fY3tEXYc",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "Road"
 		},
 		{
 			"id": "7",
@@ -68,7 +68,7 @@
 			"media": "image",
 			"media_src": "img/temp/image7.jpg",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "Road"
 		},
 		{
 			"id": "8",
@@ -78,7 +78,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "Road"
 		}
 	]
 }
