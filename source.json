@@ -11,33 +11,22 @@
 			"media_asset": null,
 			"tags": "Mountain Biking"
 		},
-		{	
+		{
 			"id": "2",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
+			"url": "sam-hills-old-demo-nice-bit-of-kit",
+			"title": "Sam Hills old demo, nice bit of kit",
+			"info": null,
+			"cols": "3",
+			"media": "image",
+			"media_src": "img/temp/image6.jpg",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "Downhill"
 		},
 		{
 			"id": "3",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Road Cycling"
-		},
-		{
-			"id": "4",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
+			"url": "win-an-sram-xx1-for-your-bike",
+			"title": "Win an SRAM XX1 for your bike!",
+			"info": null,
 			"cols": "2",
 			"media": "image",
 			"media_src": "img/temp/image3.jpg",
@@ -45,43 +34,10 @@
 			"tags": "Mountain Biking"
 		},
 		{
-			"id": "5",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Track"
-		},
-		{
-			"id": "6",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "2",
-			"media": "image",
-			"media_src": "img/temp/image2.jpg",
-			"media_asset": null,
-			"tags": "Downhill"
-		},
-		{
-			"id": "7",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Downhill"
-		},
-		{
-			"id": "8",
-			"url": "sef-title",
+			"id": "4",
+			"url": "les-gets-bike-park",
 			"title": "Les Gets Bike Park",
-			"info": "<p>Other goodies can be added here</p>",
+			"info": null,
 			"cols": "2",
 			"media": "youtube",
 			"media_src": "4bZJ3RPFtAo",
@@ -89,125 +45,26 @@
 			"tags": "Downhill"
 		},
 		{
-			"id": "9",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{
-			"id": "10",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra, lorem in imperdiet feugiat, tortor lorem lacinia nisl, vel commodo.",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{	
-			"id": "11",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{
-			"id": "12",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Road Cycling"
-		},
-		{
-			"id": "13",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "2",
-			"media": "image",
-			"media_src": "img/temp/image3.jpg",
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{
-			"id": "14",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Track"
-		},
-		{
-			"id": "15",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "2",
-			"media": "image",
-			"media_src": "img/temp/image2.jpg",
-			"media_asset": null,
-			"tags": "Downhill"
-		},
-		{
-			"id": "16",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Downhill"
-		},
-		{
-			"id": "17",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "3",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{
-			"id": "18",
-			"url": "sef-title",
-			"title": "Lorem ipsum dolor sit amet",
-			"info": "<p>Other goodies can be added here</p>",
-			"cols": "1",
-			"media": null,
-			"media_src": null,
-			"media_asset": null,
-			"tags": "Mountain Biking"
-		},
-		{
-			"id": "19",
-			"url": "sef-title",
+			"id": "5",
+			"url": "the-breakfast-for-champions",
 			"title": "The breakfast for champions",
-			"info": "Find out the secret!",
+			"info": null,
 			"cols": "2",
 			"media": "image",
 			"media_src": "img/temp/image4.jpg",
 			"media_asset": null,
-			"tags": "Road Cycling"
+			"tags": "Road"
+		},
+		{
+			"id": "6",
+			"url": "fancy-an-s-works-have-a-watch",
+			"title": "Fancy an S-Works? Have a watch...",
+			"info": null,
+			"cols": "3",
+			"media": "youtube",
+			"media_src": "bZ7fY3tEXYc",
+			"media_asset": null,
+			"tags": "Mountain Biking"
 		}
 	]
 }

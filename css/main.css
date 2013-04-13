@@ -92,6 +92,7 @@ nav[role="sitenav"].show { top: 47px; }
 .collectionContainer { position: relative; width: 100%; height: 100%; }
 .tile, .collectionInfo { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; position: absolute; top: 0; left: 0; }
 .tile { background: lightgrey; cursor: pointer; }
+.videoTile.withText .tile { font-size: 24px; line-height: 1.4; padding-right: 60px !important; }
 .collectionInfo { top: 100%; background: lightblue; }
 .collectionInfo h2 { margin: 0 0 10px; font-weight: normal; font-size: 20px; }
 .collectionInfo a { text-decoration: none; color: black; }
@@ -110,6 +111,7 @@ nav[role="sitenav"].show { top: 47px; }
 .box { margin: 5px; font-size: 11px; line-height: 1.4em; text-shadow: 0 1px 3px #fff; float: left; text-align: left; }
 .box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
 .box.imgTile .tile, .box.videoTile .tile { padding: 0; }
+.box.withText .tile { padding: 10px; }
 .box .collectionInfo { font-weight: bold; font-size: 14px; line-height: 1.4; }
 .box > a { display: block; width: 100%; height: 100%; color: #000; text-decoration: none; }
 .box p { margin: 0; }
