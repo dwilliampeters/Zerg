@@ -213,7 +213,11 @@ $(function() {
 			var tilesTitle = data.tiles[touchedId].title;
 			var tilesMediaType = data.tiles[touchedId].media;
 			var tilesMediaSrc = data.tiles[touchedId].media_src;
-		
+			var tilesId = data.tiles[touchedId].id;
+			var tilesUrl = data.tiles[touchedId].url;
+			
+			window.location.hash = tilesUrl + '-' + tilesId;
+			document.title = tilesTitle + ' - Zerg Prototype';
 			var tcShare = '<div class="meta"><span class="st_facebook_hcount" displayText="Facebook"></span><span class="st_twitter_hcount" displayText="Tweet"></span><span class="st_googleplus_hcount" displayText="Google +"></span></div>';
 			var tcTitle = '<h1>' + tilesTitle + '</h1>';
 			var tcMediaType = tilesMediaType;
@@ -236,6 +240,8 @@ $(function() {
 	$(document).on("click", '.lightbox-close', function() {
 		$('.lightbox').removeClass('show');
 		$('.lightbox-content > div').html('');
+		document.title = 'Zerg Prototype';
+		window.location.hash = '';
 		return false;
 	})
 
@@ -243,6 +249,8 @@ $(function() {
 		if (e.keyCode == 27) {
 			$('.lightbox').removeClass('show');
 			$('.lightbox-content > div').html('');
+			document.title = 'Zerg Prototype';
+			window.location.hash = '';
 		}
 	});
 

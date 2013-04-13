@@ -2,6 +2,7 @@
 	"tiles": [
 		{
 			"id": "1",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra, lorem in imperdiet feugiat, tortor lorem lacinia nisl, vel commodo.",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -12,6 +13,7 @@
 		},
 		{	
 			"id": "2",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -22,6 +24,7 @@
 		},
 		{
 			"id": "3",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -32,6 +35,7 @@
 		},
 		{
 			"id": "4",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
@@ -42,6 +46,7 @@
 		},
 		{
 			"id": "5",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -52,6 +57,7 @@
 		},
 		{
 			"id": "6",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
@@ -62,6 +68,7 @@
 		},
 		{
 			"id": "7",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -72,6 +79,7 @@
 		},
 		{
 			"id": "8",
+			"url": "sef-title",
 			"title": "Les Gets Bike Park",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
@@ -82,6 +90,7 @@
 		},
 		{
 			"id": "9",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -92,6 +101,7 @@
 		},
 		{
 			"id": "10",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra, lorem in imperdiet feugiat, tortor lorem lacinia nisl, vel commodo.",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -102,6 +112,7 @@
 		},
 		{	
 			"id": "11",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -112,6 +123,7 @@
 		},
 		{
 			"id": "12",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -122,6 +134,7 @@
 		},
 		{
 			"id": "13",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
@@ -132,6 +145,7 @@
 		},
 		{
 			"id": "14",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -142,6 +156,7 @@
 		},
 		{
 			"id": "15",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "2",
@@ -152,6 +167,7 @@
 		},
 		{
 			"id": "16",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -162,6 +178,7 @@
 		},
 		{
 			"id": "17",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "3",
@@ -172,6 +189,7 @@
 		},
 		{
 			"id": "18",
+			"url": "sef-title",
 			"title": "Lorem ipsum dolor sit amet",
 			"info": "<p>Other goodies can be added here</p>",
 			"cols": "1",
@@ -182,6 +200,7 @@
 		},
 		{
 			"id": "19",
+			"url": "sef-title",
 			"title": "The breakfast for champions",
 			"info": "Find out the secret!",
 			"cols": "2",
