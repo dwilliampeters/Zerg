@@ -63,7 +63,7 @@ $(function() {
 		$('#container').masonry({
 			itemSelector: '.box',
 			columnWidth: 75,
-			//isAnimated: !Modernizr.csstransitions,
+			isAnimated: !Modernizr.csstransitions,
 			isFitWidth: true,
 			//cornerStampSelector: '.corner-stamp'
 		/*}).imagesLoaded(function() {
