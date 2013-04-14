@@ -8,9 +8,8 @@
    ========================================================================== */
 
 html, button, input, select, textarea { color: #222; }
-html, body { height: 100%; }
-html {overflow-y: scroll;}
-body { font-size: 1em; line-height: 1.4; background: black url(../img/bg.png) repeat; }
+html { overflow-y: scroll; height: 100%; }
+body { min-height: 100%; font-size: 1em; line-height: 1.4; background: black url(../img/bg.png) repeat; }
 ::-moz-selection { background: #b3d4fc; text-shadow: none; }
 ::selection { background: #b3d4fc; text-shadow: none; }
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
@@ -32,7 +31,7 @@ a, a:active, a:focus { outline: 0; outline: none; border: none; ie-dummy: expres
 
 img { max-width: 100%; }
 
-#shell { max-width: 1920px; min-height: 100%; margin: 0 auto; text-align: center; position: relative; }
+#shell { max-width: 1920px; margin: 0 auto; padding-top: 47px; text-align: center; position: relative; }
 
 header[role="banner"] { background: rgba(19, 20, 21, 0.98); position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; }
 header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
@@ -58,14 +57,14 @@ nav[role="sitenav"].show { top: 47px; }
 
 /**** Lightbox ****/
 
-.lightbox { background: #000; background: rgba(0, 0, 0, 0.90); position: absolute; top: -200%; left: 0; z-index: 999; width: 100%; height: 100%; text-align: center; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+.lightbox { background: #000; background: rgba(0, 0, 0, 0.90); position: absolute; top: -1000%; left: 0; z-index: 999; width: 100%; text-align: center; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
 .lightbox.show { display: block; top: 0; }
 .lightbox .lightbox-close { float: right; background: url(../img/icon.close.dark.png) no-repeat right bottom; margin: 0; display: none; width: 23px; height: 23px; position: fixed; top: 57px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; }
 .lightbox.show .lightbox-close { display: block; }
-.lightbox-content { margin: 0 40px; height: 100%; display: block; background: #fff; -webkit-box-shadow: 0 0 10px #000; -moz-box-shadow: 0 0 10px #000; box-shadow: 0 0 10px #000; }
-.lightbox-content > div { padding: 60px 20px 20px; text-align: left; position: relative; }
+.lightbox-content { margin: 0 40px; display: block; background: #fff; -webkit-box-shadow: 0 0 10px #000; -moz-box-shadow: 0 0 10px #000; box-shadow: 0 0 10px #000; }
+.lightbox-content > div { padding: 67px 20px 20px; text-align: left; position: relative; }
 .lightbox-content h1 { margin: 0 0 10px; font-size: 20px; }
-.lightbox .media img, .lightbox .media iframe { border: 10px solid black; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.lightbox .media img, .lightbox .media iframe { max-height: 50%; border: 10px solid black; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 .lightbox .meta { margin: 15px 0;}
 
 
@@ -115,7 +114,7 @@ nav[role="sitenav"].show { top: 47px; }
 
 /**** Masonry ****/
 
-#container { margin: 0 auto; background: white; padding: 5px; clear: both; position: relative; top: 50px; -webkit-box-shadow: 0 0 25px #000; -moz-box-shadow: 0 0 25px #000; box-shadow: 0 0 25px #000; }
+#container { margin: 0 auto; background: white; padding: 5px; clear: both; -webkit-box-shadow: 0 0 25px #000; -moz-box-shadow: 0 0 25px #000; box-shadow: 0 0 25px #000; }
 .centered { margin: 0 auto; }
 .box { margin: 5px; font-size: 11px; line-height: 1.4em; float: left; text-align: left; }
 .box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
@@ -191,7 +190,7 @@ nav[role="sitenav"].show { top: 47px; }
     nav[role="sitenav"] ul li { float: left; }
 
     .lightbox-content h1 { font-size: 26px; }
-    .lightbox-content > div { padding: 80px 40px 40px; }
+    .lightbox-content > div { padding: 87px 40px 40px; }
 
 }
 

@@ -213,8 +213,19 @@ $(function() {
 		return false;
 	})
 	
+	$(window).resize(function() {
+		setTimeout(function() {
+			$('.lightbox-content').height($('body').height());
+			$('.lightbox').height($('body').height());
+		}, 900);
+	});
+
+	$(window).trigger('resize');
+
 	function lightboxContent (touchedId) {
 		
+		$('.lightbox-content > div').html('');
+
 		touchedId = touchedId -= 1;
 
 		var source = baseUrl + 'source.json';
