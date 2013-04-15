@@ -7,7 +7,8 @@ $(function() {
     var baseUrl = '/git/zerg/';
     var baseUrl = host + baseUrl;
 
-	var box = $('.box'),
+	var $container = $('#container'),
+		box = $('.box'),
 		touched,
 		imageBoxSrc,
 		things,
@@ -17,6 +18,13 @@ $(function() {
 		itemMeta = $('.lightbox > .meta').html(),
 		tileMedia;
 
+	// Small screen navigation
+	$('.navi').bind('click', function() {
+		$('nav[role="sitenav"]').toggleClass('show');
+		return false;
+	})
+
+	// Start Masonry
 	tileLoad();
 
 	// Deep linking
@@ -33,13 +41,13 @@ $(function() {
 	function runMasonry () {
 		// Run masonry now it's in the dom
 
-		$('#container').masonry({
-			itemSelector: '.box',
-			columnWidth: 75,
-			isAnimated: !Modernizr.csstransitions,
-			isFitWidth: true,
-		}).imagesLoaded(function() {
-			$('#container').masonry('reload');
+		$container.imagesLoaded(function(){
+			$container.masonry({
+				itemSelector : '.box',
+				columnWidth: 75,
+				isAnimated: !Modernizr.csstransitions,
+				isFitWidth: true
+			});
 		});
 	}
 
@@ -74,8 +82,6 @@ $(function() {
 						whatMedia();
 						hasContent();
 					}
-					//$('#container').masonry('reload');
-					//return false;
 				} else {
 					tileItemId = item.id;
 					tileItemCols = item.cols;
@@ -113,15 +119,21 @@ $(function() {
 				}
 			}
 
-			runMasonry();
+			if ( filter ) {
+				$container.masonry('reload');
+				console.log('reload');
+			} else {
+				runMasonry();
+			}
 
 		});
 
 	}
 
-	// Small screen navigation
-	$('.navi').bind('click', function() {
-		$('nav[role="sitenav"]').toggleClass('show');
+	// Show more
+	$('.button[data-target="next"]').bind('click', function() {
+		paginate = 'next';
+		tileLoad(paginate);
 		return false;
 	})
 
@@ -146,12 +158,12 @@ $(function() {
 		return false;
 	})
 
-	// Reset
+	/*// Reset
 	$(document).on('click', '.action', function() {
 		var action = $(this).attr('data-target');
 		if ( action === 'reset' ) { tileLoad(); $('#msg').html(''); $('.filters a').removeClass('active'); }
 		return false;
-	})
+	})*/
 
 	// Tile interaction
 	$(document).on("click", '.collectionTile', function() {

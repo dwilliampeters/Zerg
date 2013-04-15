@@ -51,9 +51,10 @@ nav[role="sitenav"].show { top: 47px; }
 #shell > aside { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px 10px 10px 0; float: right; width: 300px; text-align: left; }
 #shell > aside > section { margin-bottom: 10px; }
 #shell > aside > section h1 { color: #fff; margin: 0; padding: 5px 20px; background: rgba(0, 173, 226, 1); font-size: 20px; text-transform: uppercase; }
-#shell > aside > section .promo { margin-top: 5px; min-height: 120px; background: black; }
-#shell > aside > section .promo p { margin: 0; padding: 100px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
-#container { clear: none !important; float: left; padding: 0; }
+#shell > aside > section .promo { margin-top: 5px; min-height: 97px; background: black; }
+#shell > aside > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
+#content { padding: 0 0 20px; }
+#content > a.button { display: inline-block; padding: 10px; }
 
 
 /**** Messages ****/
@@ -190,7 +191,7 @@ nav[role="sitenav"].show { top: 47px; }
 @media only screen and (min-width: 910px) {
 
     #shell { width: 910px; }
-    #content { width: 610px; }
+    #content { float: left; width: 610px; }
 
     header[role="banner"] .navi { display: none; }
     
