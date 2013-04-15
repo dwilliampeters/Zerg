@@ -14,7 +14,8 @@ $(function() {
 		filter,
 		filterTouched,
 		filterAry = [],
-		itemMeta;
+		itemMeta = $('.lightbox > .meta').html(),
+		tileMedia;
 
 	tileLoad();
 
@@ -32,45 +33,22 @@ $(function() {
 	function runMasonry () {
 		// Run masonry now it's in the dom
 
-		/*// Masonry corner stamp modifications
-		$.Mason.prototype.resize = function() {
-			this._getColumns();
-			this._reLayout();
-		};
-
-		$.Mason.prototype._reLayout = function( callback ) {
-			var freeCols = this.cols;
-			if ( this.options.cornerStampSelector ) {
-				var $cornerStamp = this.element.find( this.options.cornerStampSelector ),
-					cornerStampX = $cornerStamp.offset().left - 
-						( this.element.offset().left + this.offset.x + parseInt($cornerStamp.css('marginLeft')) );
-				freeCols = Math.floor( cornerStampX / this.columnWidth );
-			}
-			// reset columns
-			var i = this.cols;
-			this.colYs = [];
-			while (i--) {
-				this.colYs.push( this.offset.y );
-			}
-
-			for ( i = freeCols; i < this.cols; i++ ) {
-				this.colYs[i] = this.offset.y + $cornerStamp.outerHeight(true);
-			}
-
-			// apply layout logic to all bricks
-			this.layout( this.$bricks, callback );
-		};*/
-
 		$('#container').masonry({
 			itemSelector: '.box',
 			columnWidth: 75,
 			isAnimated: !Modernizr.csstransitions,
 			isFitWidth: true,
-			//cornerStampSelector: '.corner-stamp'
 		}).imagesLoaded(function() {
 			$('#container').masonry('reload');
 		});
 	}
+
+	var tileItemId,
+		tileItemCols,
+		tileMedia,
+		tileItemMediaSrc,
+		tileMediaAsset,
+		tileItemTitle;
 
 	function tileLoad (filter) {
 
@@ -85,49 +63,55 @@ $(function() {
 
 			var ob = data.tiles;
 			$.each(ob, function(i, item) {
-				itemMeta = $('.lightbox > .meta').html();
 				if ( filter ) {
 					if ( $.inArray(item.tags, filter) > -1 ) {
-						if ( !item.media ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
-						}
-						if ( item.media ) {
-							if ( item.media === 'stamp' ) {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' corner-stamp mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
-							}
-							if ( item.media === 'image' ) {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
-							}
-							if ( item.media === 'youtube' ) {
-								if ( !item.media_asset ) {
-									$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div></div><i></i></div>');
-								} else {
-									$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
-								}
-							}
-						}
+						tileItemId = item.id;
+						tileItemCols = item.cols;
+						tileMedia = item.media;
+						tileItemMediaSrc = item.media_src;
+						tileMediaAsset = item.media_asset;
+						tileItemTitle = item.title;
+						whatMedia();
+						hasContent();
 					}
+					//$('#container').masonry('reload');
+					//return false;
 				} else {
-					if ( !item.media ) {
-						$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
+					tileItemId = item.id;
+					tileItemCols = item.cols;
+					tileMedia = item.media;
+					tileItemMediaSrc = item.media_src;
+					tileMediaAsset = item.media_asset;
+					tileItemTitle = item.title;
+					whatMedia();
+					hasContent();
+				}
+			});
+
+			function whatMedia () {
+				if ( !tileMedia ) {
+					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
+				} else {
+					if ( tileMedia === 'image' ) {
+						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
 					}
-					if ( item.media ) {
-						if ( item.media === 'stamp' ) {
-							$('#container').append('<div id="t' + item.id + '" class="' + item.cols + ' corner-stamp mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
-						}
-						if ( item.media === 'image' ) {
-							$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_src + '" alt="" /></div></div></div>');
-						}
-						if ( item.media === 'youtube' ) {
-							if ( !item.media_asset ) {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + item.title + '</div></div><i></i></div>');
-							} else {
-								$('#container').append('<div id="t' + item.id + '" class="box col' + item.cols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + item.media_asset + '" alt="" /></div></div><i></i></div>');
-							}
+					if ( tileMedia === 'youtube' ) {
+						if ( !tileMediaAsset ) {
+							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
+						} else {
+							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
 						}
 					}
 				}
-			});
+			}
+
+			function hasContent () {
+				console.log(tileItemId);
+				if ( !tileItemId ) {
+					console.log('Nothing to show');
+					$('#container').append('<div class="box col3"><div class="tile"><h2>Nothing to show</h2><h3>Select at least 1 category</h3></div></div>');
+				}
+			}
 
 			runMasonry();
 
@@ -158,13 +142,6 @@ $(function() {
 		}
 		filter = filterAry;
 		console.log(filter);
-		if ( filter.length === 0 ) {
-			console.log('No Content');
-			$('#container').html('');
-			$('#container').append('<div class="box col3"><div class="tile"><h2>Nothing to show</h2><h3>Select at least 1 category</h3></div></div>');
-			runMasonry();
-			return false;
-		}
 		tileLoad(filter);
 		return false;
 	})
