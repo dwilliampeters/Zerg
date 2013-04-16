@@ -62,13 +62,14 @@ $(function() {
 	}
 
 	var tileItemId,
+		tileItemTags,
 		tileItemCols,
 		tileMedia,
 		tileItemMediaSrc,
 		tileMediaAsset,
 		tileItemTitle;
 
-	function tileLoad (filter, filterSet) {
+	function tileLoad (filter) {
 
 		if ( filter ) {
 			// Reset the content
@@ -84,23 +85,9 @@ $(function() {
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
 				tileItemId = null;
 				if ( filter ) {
-					/*if ( data.tiles[i].tags === filter ) {
-					//if ( $.inArray(data.tiles[i].tags, filter) > -1 ) {
-						tileItemId = data.tiles[i].id;
-						tileItemCols = data.tiles[i].cols;
-						tileMedia = data.tiles[i].media;
-						tileItemMediaSrc = data.tiles[i].media_src;
-						tileMediaAsset = data.tiles[i].media_asset;
-						tileItemTitle = data.tiles[i].title;
-						console.log('for: ' + tileItemId)
-						if ( filterSet === 'active' ) {
-							filterTiles();
-						} else {
-							removeTiles(tileItemId);
-						}
-					}*/
 				} else {
 					tileItemId = data.tiles[i].id;
+					tileItemTags = data.tiles[i].tags;
 					tileItemCols = data.tiles[i].cols;
 					tileMedia = data.tiles[i].media;
 					tileItemMediaSrc = data.tiles[i].media_src;
@@ -112,42 +99,20 @@ $(function() {
 			
 			function addTiles () {
 				if ( !tileMedia ) {
-					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
+					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 				} else {
 					if ( tileMedia === 'image' ) {
-						$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
+						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
 					}
 					if ( tileMedia === 'youtube' ) {
 						if ( !tileMediaAsset ) {
-							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
+							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
 						} else {
-							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
+							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
 						}
 					}
 				}
 			}
-
-			/*function filterTiles () {
-				if ( !tileMedia ) {
-					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
-				} else {
-					if ( tileMedia === 'image' ) {
-						$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
-					}
-					if ( tileMedia === 'youtube' ) {
-						if ( !tileMediaAsset ) {
-							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
-						} else {
-							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
-						}
-					}
-				}
-			}*/
-
-			/*function removeTiles (tileItemId) {
-				console.log('Remove: ' + tileItemId);
-				$('#t' + tileItemId).remove();
-			}*/
 
 			function hasContent () {
 				console.log(tileItemId);
@@ -178,39 +143,33 @@ $(function() {
 	})
 
 	// Filters
-	$('.filterItem > a').addClass('active');
-	/*filterAry = ["Mountain Biking", "Downhill", "Road", "Track"];
-	console.log(filterAry);
+	//$('.filterItem > a').addClass('active');
+	//var isoFilters = ['.mountain-biking, .downhill, .road, .track'];
 	$('.filterItem > a').bind('click', function() {
-		filterTouched = $(this).attr('data-target');
-		if ( $(this).hasClass('active') ) {
-			$(this).removeClass('active');
-			filterAry = jQuery.grep(filterAry, function(value) {
-				return value != filterTouched;
-			});
+		var $this = $(this);
+
+		var $optionSet = $this.parents('.option-set');
+
+		// store filter value in object
+		// i.e. filters.color = 'red'
+		var group = $optionSet.attr('data-filter-group');
+		if ( $this.hasClass('active') ) {
+			filters[ group ] = '.none';
 		} else {
-			$(this).addClass('active');
-			filterAry.push(filterTouched);
+			filters[ group ] = $this.attr('data-filter-value');
 		}
-		filter = filterAry;
-		console.log(filter);
-		tileLoad(filter);
-		return false;
-	})*/
-	var filterSet;
-	$('.filterItem > a').bind('click', function() {
-		filterSet = null;
-		filterTouched = $(this).attr('data-target');
-		if ( $(this).hasClass('active') ) {
-			$(this).removeClass('active');
-		} else {
-			$(this).addClass('active');
-			filterSet = 'active';
+		// convert object into array
+		var isoFilters = [];
+		for ( var prop in filters ) {
+			isoFilters.push( filters[ prop ] )
 		}
-		console.log(filterSet);
-		filter = filterTouched;
-		console.log(filter);
-		tileLoad(filter, filterSet);
+		console.log(filters[ prop ]);
+		console.log(isoFilters);
+		var selector = isoFilters.join(', ');
+		$this.toggleClass('active');
+		console.log(selector);
+		$container.isotope({ filter: selector });
+
 		return false;
 	})
 

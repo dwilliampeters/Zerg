@@ -9,7 +9,7 @@
 			"media": "image",
 			"media_src": "img/temp/image8.jpg",
 			"media_asset": null,
-			"tags": "Downhill"
+			"tags": "downhill"
 		},
 		{
 			"id": "2",
@@ -20,7 +20,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "mountain-biking"
 		},
 		{
 			"id": "3",
@@ -31,7 +31,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "4",
@@ -42,7 +42,7 @@
 			"media": "image",
 			"media_src": "img/temp/image6.jpg",
 			"media_asset": null,
-			"tags": "Downhill"
+			"tags": "downhill"
 		},
 		{
 			"id": "5",
@@ -53,7 +53,7 @@
 			"media": "image",
 			"media_src": "img/temp/image3.jpg",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "mountain-biking"
 		},
 		{
 			"id": "6",
@@ -64,7 +64,7 @@
 			"media": "youtube",
 			"media_src": "4bZJ3RPFtAo",
 			"media_asset": "img/temp/image5.jpg",
-			"tags": "Downhill"
+			"tags": "downhill"
 		},
 		{
 			"id": "7",
@@ -75,7 +75,7 @@
 			"media": "image",
 			"media_src": "img/temp/image4.jpg",
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "8",
@@ -86,7 +86,7 @@
 			"media": "youtube",
 			"media_src": "bZ7fY3tEXYc",
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "9",
@@ -97,7 +97,7 @@
 			"media": "image",
 			"media_src": "img/temp/image7.jpg",
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "10",
@@ -108,7 +108,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "11",
@@ -119,7 +119,7 @@
 			"media": "image",
 			"media_src": "img/temp/image9.jpg",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "mountain-biking"
 		},
 		{
 			"id": "12",
@@ -130,7 +130,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "13",
@@ -141,7 +141,7 @@
 			"media": null,
 			"media_src": null,
 			"media_asset": null,
-			"tags": "Road"
+			"tags": "road"
 		},
 		{
 			"id": "14",
@@ -152,7 +152,7 @@
 			"media": "image",
 			"media_src": "img/temp/image10.jpg",
 			"media_asset": null,
-			"tags": "Mountain Biking"
+			"tags": "mountain-biking"
 		}
 	]
 }
