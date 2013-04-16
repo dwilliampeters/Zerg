@@ -30,11 +30,10 @@ $(function() {
 	// Deep linking
 	if (window.location.hash) {
 		console.log('have hash');
-		var hash = window.location.hash.substring(1);
-		var hasharray = hash.split('-');
-		var hashnumber = hasharray[hasharray.length - 1];
-		console.log(hashnumber);
-		var touchedId = hashnumber;
+		var hash = window.location.hash.substring(1),
+			hasharray = hash.split('-'),
+			hashnumber = hasharray[hasharray.length - 1],
+			touchedId = hashnumber;
 		lightboxContent(touchedId);
 	}
 
@@ -52,11 +51,12 @@ $(function() {
 
 
 	// Show more
-	var start_page = 0;
-	var end_page = 10;
+	var start_page = 0,
+		end_page = 10,
+		loadMore;
 	console.log(start_page, end_page);
 	$('.button[data-target="next"]').bind('click', function() {
-		var loadMore = 'next';
+		loadMore = 'next';
 		start_page = start_page += 10;
 		end_page = end_page += 10;
 		console.log(start_page, end_page);
@@ -65,7 +65,9 @@ $(function() {
 	});
 
 
-	// Get the content
+	/**
+	 * Get the content
+	 */
 	var tileItemId,
 		tileItemTags,
 		tileItemCols,
@@ -117,12 +119,12 @@ $(function() {
 			runMasonry();
 
 		});
-
 	}
 
 
-	// Filters
-	//var isoFilters = ['.mountain-biking, .downhill, .road, .track'];
+	/**
+	 * Filter the tiles
+	 */
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this);
 
@@ -148,7 +150,11 @@ $(function() {
 	});
 
 
-	// Tile interaction
+	/**
+	 * Play with the tiles
+	 */
+
+	// Tile touched
 	$(document).on("click", '.collectionTile', function() {
 		touched = $(this);
 		if ( !touched.hasClass('hover') ) {
@@ -159,6 +165,14 @@ $(function() {
 		return false;
 	})
 
+	// Tiles with a lightbox touched
+	$(document).on("click", '.box.mediaTile', function() {
+		var touchedId = $(this).attr('id');
+		touchedId = touchedId.substring(1);
+		touchedId = parseInt(touchedId);
+		lightboxContent(touchedId);
+		return false;
+	})
 
 	// Randomly tease tile content
 	setInterval(function() {
@@ -171,26 +185,9 @@ $(function() {
 	}, 6000);
 
 
-	// Lightbox content
-	$(document).on("click", '.box.mediaTile', function() {
-		var touchedId = $(this).attr('id');
-		touchedId = touchedId.substring(1);
-		touchedId = parseInt(touchedId);
-		lightboxContent(touchedId);
-		return false;
-	})
-	
-
-	// Lightbox height
-	$(window).resize(function() {
-		setTimeout(function() {
-			$('.lightbox-content').height($('body').height());
-			$('.lightbox').height($('body').height());
-		}, 900);
-	});
-
-	$(window).trigger('resize');
-
+	/**
+	 * Lightbox tile content
+	 */
 	function lightboxContent (touchedId) {
 		
 		$('.lightbox-content > div').html('');
@@ -245,8 +242,20 @@ $(function() {
 		}
 	});
 
+	// Lightbox height
+	$(window).resize(function() {
+		setTimeout(function() {
+			$('.lightbox-content').height($('body').height());
+			$('.lightbox').height($('body').height());
+		}, 900);
+	});
 
-	// Start Masonry
+	$(window).trigger('resize');
+
+
+	/**
+	 * Start masonry
+	 */
 	tileLoad(start_page, end_page);
 
 });
