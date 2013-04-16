@@ -60,10 +60,12 @@ $(function() {
 		tileMediaAsset,
 		tileItemTitle;
 
-	function tileLoad (filter) {
+	function tileLoad (filter, filterSet) {
 
-		// Reset the content
-		$('#container').html('');
+		if ( filter ) {
+			// Reset the content
+			//$('#container').html('');
+		}
 
 		// Get the tiles
 		var source = baseUrl + 'source.json';
@@ -74,14 +76,20 @@ $(function() {
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
 				tileItemId = null;
 				if ( filter ) {
-					if ( $.inArray(data.tiles[i].tags, filter) > -1 ) {
+					if ( data.tiles[i].tags === filter ) {
+					//if ( $.inArray(data.tiles[i].tags, filter) > -1 ) {
 						tileItemId = data.tiles[i].id;
 						tileItemCols = data.tiles[i].cols;
 						tileMedia = data.tiles[i].media;
 						tileItemMediaSrc = data.tiles[i].media_src;
 						tileMediaAsset = data.tiles[i].media_asset;
 						tileItemTitle = data.tiles[i].title;
-						whatMedia();
+						console.log('for: ' + tileItemId)
+						if ( filterSet === 'active' ) {
+							filterTiles();
+						} else {
+							removeTiles(tileItemId);
+						}
 					}
 				} else {
 					tileItemId = data.tiles[i].id;
@@ -90,33 +98,55 @@ $(function() {
 					tileItemMediaSrc = data.tiles[i].media_src;
 					tileMediaAsset = data.tiles[i].media_asset;
 					tileItemTitle = data.tiles[i].title;
-					whatMedia();
+					PresetTiles();
 				}
 			};
 			
-			function whatMedia () {
+			function PresetTiles () {
 				if ( !tileMedia ) {
-					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
+					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 				} else {
 					if ( tileMedia === 'image' ) {
-						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
+						$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
 					}
 					if ( tileMedia === 'youtube' ) {
 						if ( !tileMediaAsset ) {
-							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
+							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
 						} else {
-							$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
+							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
 						}
 					}
 				}
 			}
 
+			function filterTiles () {
+				if ( !tileMedia ) {
+					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
+				} else {
+					if ( tileMedia === 'image' ) {
+						$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile imgTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div></div></div>');
+					}
+					if ( tileMedia === 'youtube' ) {
+						if ( !tileMediaAsset ) {
+							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile withText videoTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div></div><i></i></div>');
+						} else {
+							$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' mediaTile videoTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaAsset + '" alt="" /></div></div><i></i></div>');
+						}
+					}
+				}
+			}
+
+			function removeTiles (tileItemId) {
+				console.log('Remove: ' + tileItemId);
+				$('#t' + tileItemId).remove();
+			}
+
 			function hasContent () {
 				console.log(tileItemId);
-				if ( !tileItemId ) {
+				/*if ( !tileItemId ) {
 					console.log('Nothing to show');
 					$('#container').append('<div class="box col3"><div class="tile">No content found...</div></div>');
-				}
+				}*/
 			}
 
 			hasContent();
@@ -141,7 +171,7 @@ $(function() {
 
 	// Filters
 	$('.filterItem > a').addClass('active');
-	filterAry = ["Mountain Biking", "Downhill", "Road", "Track"];
+	/*filterAry = ["Mountain Biking", "Downhill", "Road", "Track"];
 	console.log(filterAry);
 	$('.filterItem > a').bind('click', function() {
 		filterTouched = $(this).attr('data-target');
@@ -158,14 +188,23 @@ $(function() {
 		console.log(filter);
 		tileLoad(filter);
 		return false;
-	})
-
-	/*// Reset
-	$(document).on('click', '.action', function() {
-		var action = $(this).attr('data-target');
-		if ( action === 'reset' ) { tileLoad(); $('#msg').html(''); $('.filters a').removeClass('active'); }
-		return false;
 	})*/
+	var filterSet;
+	$('.filterItem > a').bind('click', function() {
+		filterSet = null;
+		filterTouched = $(this).attr('data-target');
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active');
+		} else {
+			$(this).addClass('active');
+			filterSet = 'active';
+		}
+		console.log(filterSet);
+		filter = filterTouched;
+		console.log(filter);
+		tileLoad(filter, filterSet);
+		return false;
+	})
 
 	// Tile interaction
 	$(document).on("click", '.collectionTile', function() {
