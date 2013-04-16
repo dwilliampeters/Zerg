@@ -16,7 +16,8 @@ $(function() {
 		filterTouched,
 		filterAry = [],
 		itemMeta = $('.lightbox > .meta').html(),
-		tileMedia;
+		tileMedia,
+		paginate;
 
 	// Small screen navigation
 	$('.navi').bind('click', function() {
@@ -41,14 +42,15 @@ $(function() {
 	function runMasonry () {
 		// Run masonry now it's in the dom
 
-		$container.imagesLoaded(function(){
+		// masonry image loader is breaking windows phone 8
+		//$container.imagesLoaded(function(){
 			$container.masonry({
 				itemSelector : '.box',
 				columnWidth: 75,
 				isAnimated: !Modernizr.csstransitions,
 				isFitWidth: true
 			});
-		});
+		//});
 	}
 
 	var tileItemId,
@@ -69,31 +71,29 @@ $(function() {
 		// Load into the container
 		$.getJSON(source, function(data) {
 
-			var ob = data.tiles;
-			$.each(ob, function(i, item) {
+			for (var i = data.tiles.length - 1; i >= 0; i--) {
+				tileItemId = null;
 				if ( filter ) {
-					if ( $.inArray(item.tags, filter) > -1 ) {
-						tileItemId = item.id;
-						tileItemCols = item.cols;
-						tileMedia = item.media;
-						tileItemMediaSrc = item.media_src;
-						tileMediaAsset = item.media_asset;
-						tileItemTitle = item.title;
+					if ( $.inArray(data.tiles[i].tags, filter) > -1 ) {
+						tileItemId = data.tiles[i].id;
+						tileItemCols = data.tiles[i].cols;
+						tileMedia = data.tiles[i].media;
+						tileItemMediaSrc = data.tiles[i].media_src;
+						tileMediaAsset = data.tiles[i].media_asset;
+						tileItemTitle = data.tiles[i].title;
 						whatMedia();
-						hasContent();
 					}
 				} else {
-					tileItemId = item.id;
-					tileItemCols = item.cols;
-					tileMedia = item.media;
-					tileItemMediaSrc = item.media_src;
-					tileMediaAsset = item.media_asset;
-					tileItemTitle = item.title;
+					tileItemId = data.tiles[i].id;
+					tileItemCols = data.tiles[i].cols;
+					tileMedia = data.tiles[i].media;
+					tileItemMediaSrc = data.tiles[i].media_src;
+					tileMediaAsset = data.tiles[i].media_asset;
+					tileItemTitle = data.tiles[i].title;
 					whatMedia();
-					hasContent();
 				}
-			});
-
+			};
+			
 			function whatMedia () {
 				if ( !tileMedia ) {
 					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
@@ -115,9 +115,11 @@ $(function() {
 				console.log(tileItemId);
 				if ( !tileItemId ) {
 					console.log('Nothing to show');
-					$('#container').append('<div class="box col3"><div class="tile"><h2>Nothing to show</h2><h3>Select at least 1 category</h3></div></div>');
+					$('#container').append('<div class="box col3"><div class="tile">No content found...</div></div>');
 				}
 			}
+
+			hasContent();
 
 			if ( filter ) {
 				$container.masonry('reload');
