@@ -84,8 +84,7 @@ $(function() {
 
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
 				tileItemId = null;
-				if ( filter ) {
-				} else {
+				if ( !filter ) {
 					tileItemId = data.tiles[i].id;
 					tileItemTags = data.tiles[i].tags;
 					tileItemCols = data.tiles[i].cols;
@@ -151,23 +150,21 @@ $(function() {
 		var $optionSet = $this.parents('.option-set');
 
 		// store filter value in object
-		// i.e. filters.color = 'red'
 		var group = $optionSet.attr('data-filter-group');
 		if ( $this.hasClass('active') ) {
 			filters[ group ] = '.none';
 		} else {
 			filters[ group ] = $this.attr('data-filter-value');
 		}
+		console.log(group);
 		// convert object into array
 		var isoFilters = [];
 		for ( var prop in filters ) {
 			isoFilters.push( filters[ prop ] )
 		}
-		console.log(filters[ prop ]);
-		console.log(isoFilters);
 		var selector = isoFilters.join(', ');
-		$this.toggleClass('active');
 		console.log(selector);
+		$this.toggleClass('active');
 		$container.isotope({ filter: selector });
 
 		return false;
