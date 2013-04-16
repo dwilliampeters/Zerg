@@ -17,7 +17,8 @@ $(function() {
 		filterAry = [],
 		itemMeta = $('.lightbox > .meta').html(),
 		tileMedia,
-		paginate;
+		paginate,
+		filters = {};
 
 	// Small screen navigation
 	$('.navi').bind('click', function() {
@@ -44,13 +45,20 @@ $(function() {
 
 		// masonry image loader is breaking windows phone 8
 		//$container.imagesLoaded(function(){
-			$container.masonry({
+			/*$container.masonry({
 				itemSelector : '.box',
 				columnWidth: 75,
 				isAnimated: !Modernizr.csstransitions,
 				isFitWidth: true
-			});
+			});*/
 		//});
+		$container.isotope({
+			itemSelector : '.box',
+			layoutMode : 'fitRows',
+			masonry: {
+				columnWidth: 75,
+			}
+		});
 	}
 
 	var tileItemId,
@@ -76,7 +84,7 @@ $(function() {
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
 				tileItemId = null;
 				if ( filter ) {
-					if ( data.tiles[i].tags === filter ) {
+					/*if ( data.tiles[i].tags === filter ) {
 					//if ( $.inArray(data.tiles[i].tags, filter) > -1 ) {
 						tileItemId = data.tiles[i].id;
 						tileItemCols = data.tiles[i].cols;
@@ -90,7 +98,7 @@ $(function() {
 						} else {
 							removeTiles(tileItemId);
 						}
-					}
+					}*/
 				} else {
 					tileItemId = data.tiles[i].id;
 					tileItemCols = data.tiles[i].cols;
@@ -98,11 +106,11 @@ $(function() {
 					tileItemMediaSrc = data.tiles[i].media_src;
 					tileMediaAsset = data.tiles[i].media_asset;
 					tileItemTitle = data.tiles[i].title;
-					PresetTiles();
+					addTiles();
 				}
 			};
 			
-			function PresetTiles () {
+			function addTiles () {
 				if ( !tileMedia ) {
 					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 				} else {
@@ -119,7 +127,7 @@ $(function() {
 				}
 			}
 
-			function filterTiles () {
+			/*function filterTiles () {
 				if ( !tileMedia ) {
 					$('#container').prepend('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' collectionTile"><div class="collectionContainer"><div class="tile">' + tileItemTitle + '</div><div class="collectionInfo">' + itemMeta + '</div></div></div>');
 				} else {
@@ -134,12 +142,12 @@ $(function() {
 						}
 					}
 				}
-			}
+			}*/
 
-			function removeTiles (tileItemId) {
+			/*function removeTiles (tileItemId) {
 				console.log('Remove: ' + tileItemId);
 				$('#t' + tileItemId).remove();
-			}
+			}*/
 
 			function hasContent () {
 				console.log(tileItemId);
