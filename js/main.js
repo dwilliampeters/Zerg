@@ -5,17 +5,15 @@ $(function() {
 
 	// Base URL
 	var host = window.location.protocol + "//" + window.location.host,
-    	baseUrl = '/git/zerg/';
-    	baseUrl = host + baseUrl;
+		baseUrl = '/git/zerg/';
+		baseUrl = host + baseUrl;
 
 
     // Global vars
 	var $container = $('#container'),
 		touched,
-		imageBoxSrc,
 		things,
 		filter,
-		filterTouched,
 		itemMeta = $('.lightbox > .meta').html(),
 		filters = {};
 
@@ -97,7 +95,7 @@ $(function() {
 					addTiles();
 					console.log(tileItemId);
 				}
-			};
+			}
 			
 			function addTiles () {
 				if ( !tileMedia ) {
@@ -140,8 +138,8 @@ $(function() {
 		// convert object into array
 		var isoFilters = [];
 		for ( var prop in filters ) {
-			isoFilters.push( filters[ prop ] )
-		};
+			isoFilters.push( filters[ prop ] );
+		}
 		var selector = isoFilters.join(', ');
 		$this.toggleClass('active');
 		$container.isotope({ filter: selector });
@@ -163,7 +161,7 @@ $(function() {
 		}
 		runMasonry();
 		return false;
-	})
+	});
 
 	// Tiles with a lightbox touched
 	$(document).on("click", '.box.mediaTile', function() {
@@ -172,7 +170,7 @@ $(function() {
 		touchedId = parseInt(touchedId);
 		lightboxContent(touchedId);
 		return false;
-	})
+	});
 
 	// Randomly tease tile content
 	setInterval(function() {

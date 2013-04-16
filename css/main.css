@@ -54,7 +54,7 @@ nav[role="sitenav"].show { top: 47px; }
 #shell > aside > section .promo { margin-top: 5px; min-height: 97px; background: black; }
 #shell > aside > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
 #content { padding: 0 0 20px; }
-#content > a.button { display: inline-block; padding: 10px; }
+#content > a.button { display: inline-block; padding: 10px; text-decoration: none; color: blue; }
 
 
 /**** Messages ****/
