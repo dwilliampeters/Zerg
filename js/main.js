@@ -78,9 +78,10 @@ $(function() {
 
 		// Get the tiles
 		var source = baseUrl + 'source.json';
+		var params = 5;
 
 		// Load into the container
-		$.getJSON(source, function(data) {
+		$.getJSON(source, params, function(data) {
 
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
 				tileItemId = null;
