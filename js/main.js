@@ -2,32 +2,30 @@ $(function() {
 	"use strict";
 	/*jshint smarttabs:true */
 
-	// Base URL
-	var host = window.location.protocol + "//" + window.location.host;
-    var baseUrl = '/git/zerg/';
-    var baseUrl = host + baseUrl;
 
+	// Base URL
+	var host = window.location.protocol + "//" + window.location.host,
+    	baseUrl = '/git/zerg/';
+    	baseUrl = host + baseUrl;
+
+
+    // Global vars
 	var $container = $('#container'),
-		box = $('.box'),
 		touched,
 		imageBoxSrc,
 		things,
 		filter,
 		filterTouched,
-		filterAry = [],
 		itemMeta = $('.lightbox > .meta').html(),
-		tileMedia,
-		paginate,
 		filters = {};
+
 
 	// Small screen navigation
 	$('.navi').bind('click', function() {
 		$('nav[role="sitenav"]').toggleClass('show');
 		return false;
-	})
+	});
 
-	// Start Masonry
-	tileLoad();
 
 	// Deep linking
 	if (window.location.hash) {
@@ -40,27 +38,34 @@ $(function() {
 		lightboxContent(touchedId);
 	}
 
-	function runMasonry () {
-		// Run masonry now it's in the dom
 
-		// masonry image loader is breaking windows phone 8
-		//$container.imagesLoaded(function(){
-			/*$container.masonry({
-				itemSelector : '.box',
-				columnWidth: 75,
-				isAnimated: !Modernizr.csstransitions,
-				isFitWidth: true
-			});*/
-		//});
+	// Masonry
+	function runMasonry () {
 		$container.isotope({
 			itemSelector : '.box',
-			layoutMode : 'fitRows',
+			//layoutMode : 'fitRows',
 			masonry: {
 				columnWidth: 75,
 			}
 		});
 	}
 
+
+	// Show more
+	var start_page = 0;
+	var end_page = 10;
+	console.log(start_page, end_page);
+	$('.button[data-target="next"]').bind('click', function() {
+		var loadMore = 'next';
+		start_page = start_page += 10;
+		end_page = end_page += 10;
+		console.log(start_page, end_page);
+		tileLoad(loadMore, start_page, end_page);
+		return false;
+	});
+
+
+	// Get the content
 	var tileItemId,
 		tileItemTags,
 		tileItemCols,
@@ -69,23 +74,17 @@ $(function() {
 		tileMediaAsset,
 		tileItemTitle;
 
-	function tileLoad (filter) {
+	function tileLoad (loadMore, start_page, end_page) {
 
-		if ( filter ) {
-			// Reset the content
-			//$('#container').html('');
-		}
-
-		// Get the tiles
 		var source = baseUrl + 'source.json';
-		var params = 5;
 
-		// Load into the container
-		$.getJSON(source, params, function(data) {
-
+		$.getJSON(source, function(data) {
+			console.log(start_page,end_page);
 			for (var i = data.tiles.length - 1; i >= 0; i--) {
+				
 				tileItemId = null;
 				if ( !filter ) {
+
 					tileItemId = data.tiles[i].id;
 					tileItemTags = data.tiles[i].tags;
 					tileItemCols = data.tiles[i].cols;
@@ -94,6 +93,7 @@ $(function() {
 					tileMediaAsset = data.tiles[i].media_asset;
 					tileItemTitle = data.tiles[i].title;
 					addTiles();
+					console.log(tileItemId);
 				}
 			};
 			
@@ -114,36 +114,14 @@ $(function() {
 				}
 			}
 
-			function hasContent () {
-				console.log(tileItemId);
-				/*if ( !tileItemId ) {
-					console.log('Nothing to show');
-					$('#container').append('<div class="box col3"><div class="tile">No content found...</div></div>');
-				}*/
-			}
-
-			hasContent();
-
-			if ( filter ) {
-				$container.masonry('reload');
-				console.log('reload');
-			} else {
-				runMasonry();
-			}
+			runMasonry();
 
 		});
 
 	}
 
-	// Show more
-	$('.button[data-target="next"]').bind('click', function() {
-		paginate = 'next';
-		tileLoad(paginate);
-		return false;
-	})
 
 	// Filters
-	//$('.filterItem > a').addClass('active');
 	//var isoFilters = ['.mountain-biking, .downhill, .road, .track'];
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this);
@@ -157,37 +135,30 @@ $(function() {
 		} else {
 			filters[ group ] = $this.attr('data-filter-value');
 		}
-		console.log(group);
 		// convert object into array
 		var isoFilters = [];
 		for ( var prop in filters ) {
 			isoFilters.push( filters[ prop ] )
-		}
+		};
 		var selector = isoFilters.join(', ');
-		console.log(selector);
 		$this.toggleClass('active');
 		$container.isotope({ filter: selector });
 
 		return false;
-	})
+	});
+
 
 	// Tile interaction
 	$(document).on("click", '.collectionTile', function() {
 		touched = $(this);
-		if ( !touched.hasClass('img') ) {
-			if ( !touched.hasClass('hover') ) {
-				$('.collectionTile').removeClass('hover');
-				touched.addClass('hover');
-			}
-			runMasonry();
+		if ( !touched.hasClass('hover') ) {
+			$('.collectionTile').removeClass('hover');
+			touched.addClass('hover');
 		}
-		return false;
-	})
-
-	$(document).on("click", '.collectionInfo > i', function() {
 		runMasonry();
 		return false;
 	})
+
 
 	// Randomly tease tile content
 	setInterval(function() {
@@ -199,6 +170,7 @@ $(function() {
 		}, 1200);
 	}, 6000);
 
+
 	// Lightbox content
 	$(document).on("click", '.box.mediaTile', function() {
 		var touchedId = $(this).attr('id');
@@ -208,6 +180,8 @@ $(function() {
 		return false;
 	})
 	
+
+	// Lightbox height
 	$(window).resize(function() {
 		setTimeout(function() {
 			$('.lightbox-content').height($('body').height());
@@ -226,26 +200,27 @@ $(function() {
 		var source = baseUrl + 'source.json';
 
 		$.getJSON( source, function( data ) {
-			var tilesTitle = data.tiles[touchedId].title;
-			var tilesMediaType = data.tiles[touchedId].media;
-			var tilesMediaSrc = data.tiles[touchedId].media_src;
-			var tilesId = data.tiles[touchedId].id;
-			var tilesUrl = data.tiles[touchedId].url;
+			var tilesTitle = data.tiles[touchedId].title,
+				tilesMediaType = data.tiles[touchedId].media,
+				tilesMediaSrc = data.tiles[touchedId].media_src,
+				tilesId = data.tiles[touchedId].id,
+				tilesUrl = data.tiles[touchedId].url;
 			
 			window.location.hash = tilesUrl + '-' + tilesId;
 			document.title = tilesTitle + ' - Zerg Prototype';
-			var tcTitle = '<h1>' + tilesTitle + '</h1>';
-			var tcMediaType = tilesMediaType;
-			var tcMediaSrc = tilesMediaSrc;
-			var tcMedia = '';
-			if ( tcMediaType === 'youtube' ) {
-				tcMedia = '<div class="media"><iframe width="100%" height="315" style="max-width: 560px;" src="http://www.youtube.com/embed/' + tcMediaSrc + '?rel=0" frameborder="0" allowfullscreen></iframe></div>';
-			}
-			if ( tcMediaType === 'image' ) {
-				tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
-			}
-			var tcMeta = $('.lightbox > .meta').html();
-			var lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia;
+
+			var tcTitle = '<h1>' + tilesTitle + '</h1>',
+				tcMediaType = tilesMediaType,
+				tcMediaSrc = tilesMediaSrc,
+				tcMedia = '';
+				if ( tcMediaType === 'youtube' ) {
+					tcMedia = '<div class="media"><iframe width="100%" height="315" style="max-width: 560px;" src="http://www.youtube.com/embed/' + tcMediaSrc + '?rel=0" frameborder="0" allowfullscreen></iframe></div>';
+				}
+				if ( tcMediaType === 'image' ) {
+					tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
+				}
+			var tcMeta = $('.lightbox > .meta').html(),
+				lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia;
 			$('.lightbox-content > div').html(lightboxContent);
 			$('.lightbox').addClass('show');
 		});
@@ -254,21 +229,24 @@ $(function() {
 		return false;
 	}
 
-	$(document).on("click", '.lightbox-close', function() {
+	function lightboxClose () {
 		$('.lightbox').removeClass('show');
 		$('.lightbox-content > div').html('');
 		document.title = 'Zerg Prototype';
 		window.location.hash = '';
 		return false;
-	})
+	}
+
+	$(document).on("click", '.lightbox-close', lightboxClose);
 
 	$(document).keyup(function(e) {
-		if (e.keyCode == 27) {
-			$('.lightbox').removeClass('show');
-			$('.lightbox-content > div').html('');
-			document.title = 'Zerg Prototype';
-			window.location.hash = '';
+		if (e.keyCode === 27) {
+			lightboxClose();
 		}
 	});
+
+
+	// Start Masonry
+	tileLoad(start_page, end_page);
 
 });

@@ -67,9 +67,9 @@ nav[role="sitenav"].show { top: 47px; }
 
 .lightbox { background: #000; background: rgba(0, 0, 0, 0.90); position: absolute; top: -1000%; left: 0; z-index: 999; width: 100%; text-align: center; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
 .lightbox.show { display: block; top: 0; }
-.lightbox .lightbox-close { float: right; background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: none; width: 23px; height: 23px; position: fixed; top: 57px; right: 5px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; z-index: 99; }
+.lightbox .lightbox-close { float: right; background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: none; width: 23px; height: 23px; position: absolute; top: 57px; right: 5px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; z-index: 99; }
 .lightbox.show .lightbox-close { display: block; }
-.lightbox-content { margin: 0 auto; max-width: 1210px; display: block; background: #fff; -webkit-box-shadow: 0 0 10px #000; -moz-box-shadow: 0 0 10px #000; box-shadow: 0 0 10px #000; }
+.lightbox-content { margin: 0 auto; max-width: 1210px; display: block; background: #fff; -webkit-box-shadow: 0 0 10px #000; -moz-box-shadow: 0 0 10px #000; box-shadow: 0 0 10px #000; position: relative; }
 .lightbox-content > div { padding: 67px 30px 40px; text-align: left; position: relative; }
 .lightbox-content h1 { margin: 0 0 10px; font-size: 20px; }
 .lightbox .media img, .lightbox .media iframe { max-height: 50%; border: 10px solid black; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
