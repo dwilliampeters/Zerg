@@ -30,11 +30,10 @@ $(function() {
 	// Deep linking
 	if (window.location.hash) {
 		console.log('have hash');
-		var hash = window.location.hash.substring(1);
-		var hasharray = hash.split('-');
-		var hashnumber = hasharray[hasharray.length - 1];
-		console.log(hashnumber);
-		var touchedId = hashnumber;
+		var hash = window.location.hash.substring(1),
+			hasharray = hash.split('-'),
+			hashnumber = hasharray[hasharray.length - 1],
+			touchedId = hashnumber;
 		lightboxContent(touchedId);
 	}
 
@@ -52,8 +51,8 @@ $(function() {
 
 
 	// Show more
-	var start_page = 0;
-	var end_page = 10;
+	var start_page = 0,
+		end_page = 10;
 	console.log(start_page, end_page);
 	$('.button[data-target="next"]').bind('click', function() {
 		var loadMore = 'next';
@@ -65,7 +64,7 @@ $(function() {
 	});
 
 
-	// Get the content
+	// Get the tiles
 	var tileItemId,
 		tileItemTags,
 		tileItemCols,
@@ -76,7 +75,7 @@ $(function() {
 
 	function tileLoad (loadMore, start_page, end_page) {
 
-		var source = baseUrl + 'source.json';
+		var source = baseUrl + 'content_test.json';
 
 		$.getJSON(source, function(data) {
 			console.log(start_page,end_page);
@@ -124,9 +123,8 @@ $(function() {
 	// Filters
 	//var isoFilters = ['.mountain-biking, .downhill, .road, .track'];
 	$('.filterItem > a').bind('click', function() {
-		var $this = $(this);
-
-		var $optionSet = $this.parents('.option-set');
+		var $this = $(this),
+			$optionSet = $this.parents('.option-set');
 
 		// store filter value in object
 		var group = $optionSet.attr('data-filter-group');
@@ -159,6 +157,14 @@ $(function() {
 		return false;
 	})
 
+	// Tile opens lightbox
+	$(document).on("click", '.box.mediaTile', function() {
+		var touchedId = $(this).attr('id');
+			touchedId = touchedId.substring(1);
+			touchedId = parseInt(touchedId);
+		lightboxContent(touchedId);
+		return false;
+	})
 
 	// Randomly tease tile content
 	setInterval(function() {
@@ -169,16 +175,6 @@ $(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 1200);
 	}, 6000);
-
-
-	// Lightbox content
-	$(document).on("click", '.box.mediaTile', function() {
-		var touchedId = $(this).attr('id');
-		touchedId = touchedId.substring(1);
-		touchedId = parseInt(touchedId);
-		lightboxContent(touchedId);
-		return false;
-	})
 	
 
 	// Lightbox height
@@ -191,6 +187,16 @@ $(function() {
 
 	$(window).trigger('resize');
 
+	// Lightbox close
+	$(document).on("click", '.lightbox-close', lightboxClose);
+
+	$(document).keyup(function(e) {
+		if (e.keyCode === 27) {
+			lightboxClose();
+		}
+	});
+
+	// Lightbox content
 	function lightboxContent (touchedId) {
 		
 		$('.lightbox-content > div').html('');
@@ -210,6 +216,7 @@ $(function() {
 			document.title = tilesTitle + ' - Zerg Prototype';
 
 			var tcTitle = '<h1>' + tilesTitle + '</h1>',
+				tcMeta = $('.lightbox > .meta').html(),
 				tcMediaType = tilesMediaType,
 				tcMediaSrc = tilesMediaSrc,
 				tcMedia = '';
@@ -219,8 +226,7 @@ $(function() {
 				if ( tcMediaType === 'image' ) {
 					tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
 				}
-			var tcMeta = $('.lightbox > .meta').html(),
-				lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia;
+			var lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia;
 			$('.lightbox-content > div').html(lightboxContent);
 			$('.lightbox').addClass('show');
 		});
@@ -236,14 +242,6 @@ $(function() {
 		window.location.hash = '';
 		return false;
 	}
-
-	$(document).on("click", '.lightbox-close', lightboxClose);
-
-	$(document).keyup(function(e) {
-		if (e.keyCode === 27) {
-			lightboxClose();
-		}
-	});
 
 
 	// Start Masonry
