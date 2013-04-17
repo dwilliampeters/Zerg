@@ -13,6 +13,7 @@ $(function() {
 
     // Global vars
 	var $container = $('#container'),
+		$siteNav = $('nav[role="sitenav"]'),
 		$filterNav = $('nav[role="filters"]'),
 		touched,
 		imageBoxSrc,
@@ -37,7 +38,7 @@ $(function() {
 
 	// Small screen navigation
 	$('.navi').bind('click', function() {
-		$filterNav.toggleClass('show');
+		$siteNav.toggleClass('show');
 		return false;
 	});
 

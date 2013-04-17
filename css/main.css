@@ -36,13 +36,13 @@ img { max-width: 100%; }
 div[role="main"] { width: 160px; background: white; margin: 0 auto; padding: 47px 0 0; text-align: center; position: relative; }
 
 header[role="banner"] { background: rgba(19, 20, 21, 0.98); }
-header[role="banner"] > div { width: 160px; margin: 0 auto; }
+header[role="banner"] > div { width: 160px; margin: 0 auto; position: relative; }
 header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
 
-nav[role="sitenav"] { display: none; clear: both; }
-
+nav[role="sitenav"] { background: #000; background: rgba(19, 20, 21, 0.8); position: absolute; width: 100%; top: -282px; left: 0; z-index: 999; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+nav[role="sitenav"].show { top: 47px; }
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 
@@ -208,7 +208,7 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
 
     header[role="banner"] .navi { display: none; }
 
-    nav[role="sitenav"] { display: block; clear: none; float: right; }
+    nav[role="sitenav"] { position: static; width: auto; float: right; }
     nav[role="sitenav"] ul li { float: left; }
     
     nav[role="filters"] { position: fixed; top: 47px; left: inherit; right: 0; z-index: 9999; float: right; padding: 0; }
