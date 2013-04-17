@@ -57,12 +57,6 @@ nav[role="sitenav"].show { top: 47px; }
 #content > a.button { display: inline-block; padding: 10px; }
 
 
-/**** Messages ****/
-
-#msg { margin: 0 auto; }
-    #msg a { color: blue; text-decoration: none; }
-
-
 /**** Lightbox ****/
 
 .lightbox { background: #000; background: rgba(0, 0, 0, 0.90); position: absolute; top: -1000%; left: 0; z-index: 999; width: 100%; text-align: center; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
@@ -82,14 +76,10 @@ nav[role="sitenav"].show { top: 47px; }
 .collectionTile { overflow: hidden; }
     .collectionTile.tease .tile, .collectionTile:hover .tile { top: -10px; }
     .collectionTile.tease .collectionInfo, .collectionTile:hover .collectionInfo { top: 130px; }
+
+    /*.collectionTile.col2.tease .tile, .collectionTile.col2:hover .tile { top: -60px; }*/
+    .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 230px; }
     .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 250px; }
-
-    
-
-    @media only screen and (min-width: 300px) {
-        .collectionTile.col2.tease .tile, .collectionTile.col2:hover .tile { top: -50px; }
-        .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 240px; }
-    }
 
     .collectionTile.hover .tile, .collectionTile.col2.hover .tile { top: -100%; }
     .collectionTile.hover .collectionInfo, .collectionTile.col2.hover .collectionInfo { top: 0; }
@@ -103,6 +93,7 @@ nav[role="sitenav"].show { top: 47px; }
 .tile { background: rgba(19, 20, 21, 1); cursor: pointer; color: #969696; }
 .videoTile.withText .tile { font-weight: bold; font-size: 22px; line-height: 1.4; color: white; padding-right: 60px !important; }
 .collectionInfo { top: 100%; background: rgba(0, 173, 226, 1); }
+.collectionInfo > h2 { margin: 0; padding: 0; font-size: 14px; }
 .collectionInfo > span { display: block; margin-bottom: 10px; }
 .box > i { display: none; width: 50px; height: 50px; position: absolute; top: 0; right: 0; opacity: 0.8; cursor: pointer; }
 .videoTile > i { display: block; background: url(../img/icon.video.png) no-repeat right bottom; }
