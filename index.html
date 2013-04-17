@@ -24,95 +24,113 @@
         <div id="shell" class="clearfix">
 
             <header role="banner" class="clearfix">
-                <h1><a href="/git/zerg/">Prototype</a></h1>
-                <a class="navi" href="#">Navigation</a>
+                <div>
+                    <h1><a href="/git/zerg/">Prototype</a></h1>
+                    <nav role="sitenav">
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                            <li><a href="#">Link 5</a></li>
+                            <li><a href="#">Link 6</a></li>
+                        </ul>
+                    </nav>
+                    <a class="navi" href="#">Navigation</a>
+                </div>
             </header>
 
-            <nav role="sitenav">
-                <ul class="filters">
-                    <li class="filterItem option-set" data-filter-group="mountain-biking">
-                        <a data-target="Mountain Biking" data-filter-value=".mountain-biking" href="#" class="active">
-                            Mountain Biking
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="downhill">
-                        <a data-target="Downhill" data-filter-value=".downhill" href="#" class="active">
-                            Downhill
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="road">
-                        <a data-target="Road" data-filter-value=".road" href="#" class="active">
-                            Road
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="track">
-                        <a data-target="Track" data-filter-value=".track" href="#" class="active">
-                            Track
-                            <i></i>
-                        </a>
-                    </li>
-                </ul>
+            <nav role="filters">
+                <div>
+                    <ul class="filters">
+                        <li class="filterItem option-set" data-filter-group="mountain-biking">
+                            <a data-target="Mountain Biking" data-filter-value=".mountain-biking" href="#" class="active">
+                                Mountain Biking
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="downhill">
+                            <a data-target="Downhill" data-filter-value=".downhill" href="#" class="active">
+                                Downhill
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="road">
+                            <a data-target="Road" data-filter-value=".road" href="#" class="active">
+                                Road
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="track">
+                            <a data-target="Track" data-filter-value=".track" href="#" class="active">
+                                Track
+                                <i></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
 
-            <div class="lightbox">
-                <div class="lightbox-content">
-                    <p class="lightbox-close">Close</p>
-                    <div>
-                    </div>
-                </div>
-                <div class="meta" style="display: none; visibillity: hidden;">
-                    <span class='st_facebook_hcount' displayText='Facebook'></span>
-                    <span class='st_twitter_hcount' displayText='Tweet'></span>
-                    <span class='st_googleplus_hcount' displayText='Google +'></span>
-                </div>
-            </div>
-            
-            <div id="content">
-                <div id="container" class="transitions-enabled clearfix">
+            <div role="main" class="clearfix">
 
-                    <!--<div id="box1" class="box col1 collectionTile">
-                        <div class="collectionContainer">
-                            <div class="tile">
-                                <p>Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
-                            </div>
-                            <div class="collectionInfo">
-                                <p>Tile Info</p>
+                <div class="lightbox">
+                    <div class="lightbox-content">
+                        <p class="lightbox-close">Close</p>
+                        <div>
                         </div>
-                    </div>-->
-
+                    </div>
+                    <div class="meta" style="display: none; visibillity: hidden;">
+                        <span class='st_facebook_hcount' displayText='Facebook'></span>
+                        <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        <span class='st_googleplus_hcount' displayText='Google +'></span>
+                    </div>
                 </div>
-                <a class="button" data-target="next" href="#">Load more...</a>
-            </div>
+                
+                <div id="content">
+                    <div id="container" class="transitions-enabled clearfix">
 
-            <aside>
-                <section>
-                    <h1>SIDE</h1>
-                    <div class="promo">
-                        <p>Promo</p>
+                        <!--<div id="box1" class="box col1 collectionTile">
+                            <div class="collectionContainer">
+                                <div class="tile">
+                                    <p>Sed id auctor augue. Proin luctus ornare bibendum. In tincidunt sollicitudin lorem sit amet hendrerit. Vestibulum risus dui amet.</p>
+                                </div>
+                                <div class="collectionInfo">
+                                    <p>Tile Info</p>
+                            </div>
+                        </div>-->
+
                     </div>
-                </section>
-                <section>
-                    <h1>SIDE</h1>
-                    <div class="promo">
-                        <p>Promo</p>
-                    </div>
-                </section>
-                <section>
-                    <h1>SIDE</h1>
-                    <div class="promo">
-                        <p>Promo</p>
-                    </div>
-                </section>
-                <section>
-                    <h1>SIDE</h1>
-                    <div class="promo">
-                        <p>Promo</p>
-                    </div>
-                </section>
-            </aside>
+                    <a class="button" data-target="next" href="#">Load more...</a>
+                </div>
+
+                <aside>
+                    <section>
+                        <h1>SIDE</h1>
+                        <div class="promo">
+                            <p>Promo</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>SIDE</h1>
+                        <div class="promo">
+                            <p>Promo</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>SIDE</h1>
+                        <div class="promo">
+                            <p>Promo</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>SIDE</h1>
+                        <div class="promo">
+                            <p>Promo</p>
+                        </div>
+                    </section>
+                </aside>
+
+            </div>
 
         </div>
 

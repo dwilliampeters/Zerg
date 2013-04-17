@@ -13,6 +13,7 @@ $(function() {
 
     // Global vars
 	var $container = $('#container'),
+		$filterNav = $('nav[role="filters"]'),
 		touched,
 		imageBoxSrc,
 		things,
@@ -21,9 +22,22 @@ $(function() {
 		filters = {};
 
 
+	// Filter nav keep up top
+	$(window).scroll(function(e){ 
+		var windowScrollPos = $(this).scrollTop(),
+			windowScroll = 47- windowScrollPos;
+		$filterNav.css({'position': 'fixed', 'top': windowScroll + 'px'});
+		if ( $(this).scrollTop() > 47 ){ 
+			$filterNav.css({'top': '0'});
+
+		}
+		console.log(windowScroll);
+	});
+
+
 	// Small screen navigation
 	$('.navi').bind('click', function() {
-		$('nav[role="sitenav"]').toggleClass('show');
+		$filterNav.toggleClass('show');
 		return false;
 	});
 
@@ -168,19 +182,19 @@ $(function() {
 	}, 6000);
 	
 
-	// Lightbox height
+	/*// Lightbox height
 	$(window).resize(function() {
 		setTimeout(function() {
 			var containerHeight = $('#container').height();
-			/*$('.lightbox-content').height($('body').height());
-			$('.lightbox').height($('body').height());*/
+			//$('.lightbox-content').height($('body').height());
+			//$('.lightbox').height($('body').height());
 			$('.lightbox').css('min-height', containerHeight);
 			$('.lightbox-content').css('min-height', containerHeight);
 
 		}, 900);
 	});
 
-	$(window).trigger('resize');
+	$(window).trigger('resize');*/
 
 	// Lightbox close
 	$(document).on("click", '.lightbox-close', lightboxClose);
