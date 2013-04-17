@@ -145,17 +145,6 @@ $(function() {
 	});
 
 
-	/*// Tile interaction
-	$(document).on("click", '.collectionTile', function() {
-		touched = $(this);
-		if ( !touched.hasClass('hover') ) {
-			$('.collectionTile').removeClass('hover');
-			touched.addClass('hover');
-		}
-		runMasonry();
-		return false;
-	})*/
-
 	// Tile opens lightbox
 	$(document).on("click", '.box.mediaTile', function() {
 		var touchedId = $(this).attr('id');
@@ -182,8 +171,12 @@ $(function() {
 	// Lightbox height
 	$(window).resize(function() {
 		setTimeout(function() {
-			$('.lightbox-content').height($('body').height());
-			$('.lightbox').height($('body').height());
+			var containerHeight = $('#container').height();
+			/*$('.lightbox-content').height($('body').height());
+			$('.lightbox').height($('body').height());*/
+			$('.lightbox').css('min-height', containerHeight);
+			$('.lightbox-content').css('min-height', containerHeight);
+
 		}, 900);
 	});
 
@@ -204,8 +197,6 @@ $(function() {
 		$('.lightbox-content > div').html('');
 
 		touchedId = touchedId -= 1;
-
-		//var source = baseUrl + 'source.json';
 
 		$.getJSON( source, function( data ) {
 			var tilesTitle = data.tiles[touchedId].title,
@@ -232,7 +223,7 @@ $(function() {
 				}
 			var lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia + tcContent;
 			$('.lightbox-content > div').html(lightboxContent);
-			$('.lightbox').addClass('show');
+			$('#shell').addClass('show-lightbox');
 		});
 		$("html,body").animate({ scrollTop: 0 }, 300);
 		$('.collectionTile').removeClass('hover');
@@ -240,8 +231,8 @@ $(function() {
 	}
 
 	function lightboxClose () {
-		$('.lightbox').removeClass('show');
-		$('.lightbox-content > div').html('');
+		$('#shell').removeClass('show-lightbox');
+		/*$('.lightbox-content > div').html('');*/
 		document.title = 'Zerg Prototype';
 		window.location.hash = '';
 		return false;
