@@ -33,10 +33,10 @@ img { max-width: 100%; }
 
 #shell {  }
 
-div[role="main"] { width: 160px; background: white; margin: 0 auto; padding: 47px 0 0; text-align: center; position: relative; }
+div[role="main"] { /*width: 160px;*/ background: white; text-align: center; position: relative; }
 
 header[role="banner"] { background: rgba(19, 20, 21, 0.98); }
-header[role="banner"] > div { width: 160px; margin: 0 auto; position: relative; }
+header[role="banner"] > div { /*width: 160px;*/ margin: 0 auto; position: relative; }
 header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
@@ -47,7 +47,7 @@ nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 
 nav[role="filters"] { background: #000; background: rgba(19, 20, 21, 0.8); text-align: center; width: 100%; position: fixed; top: -100%; left: 0; z-index: 999; list-style: none; margin: 0; padding: 1px; }
-nav[role="filters"] > div { width: 160px; margin: 0 auto; }
+nav[role="filters"] > div { /*width: 160px;*/ margin: 0 auto; }
 nav[role="filters"] ul { margin: 0; padding: 0; }
 nav[role="filters"].show { top: 47px; }
 .filterItem { padding: 1px; text-align: left; }
@@ -57,12 +57,12 @@ nav[role="filters"].show { top: 47px; }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
 
-div[role="main"] > aside { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px 10px 10px 0; float: right; width: 300px; text-align: left; }
+div[role="main"] > aside { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid #eee; float: left; width: 300px; margin-left: -300px; text-align: left; }
 div[role="main"] > aside > section { margin-bottom: 10px; }
 div[role="main"] > aside > section h1 { color: #fff; margin: 0; padding: 5px 20px; background: rgba(0, 173, 226, 1); font-size: 20px; text-transform: uppercase; }
 div[role="main"] > aside > section .promo { margin-top: 5px; min-height: 97px; background: black; }
 div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
-#content { padding: 0 0 20px; }
+#content { padding: 0 0 20px; float: left; width: 100%; position: relative; }
 #content > a.button { display: inline-block; padding: 10px; }
 
 
@@ -70,9 +70,9 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
 
 .lightbox { position: absolute; top: 0; bottom: 0; left: -9999px; z-index: 99; width: 100%; text-align: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
 .show-lightbox .lightbox { left: 0; }
-.lightbox .lightbox-close { float: right; background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: block; width: 23px; height: 23px; position: absolute; top: 57px; right: 5px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; z-index: 99; }
-.lightbox-content { min-height: 100%; margin: 0 auto; max-width: 1210px; display: block; background: #fff; position: relative; }
-.lightbox-content > div { padding: 87px 10px 40px; text-align: left; position: relative; }
+.lightbox .lightbox-close { float: right; background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; cursor: pointer; z-index: 99; }
+.lightbox-content { min-height: 100%; margin: 0 auto; display: block; background: #fff; position: relative; }
+.lightbox-content > div { padding: 10px; text-align: left; position: relative; }
 .lightbox-content h1 { margin: 0 0 10px; font-size: 20px; }
 .lightbox .media img, .lightbox .media iframe { max-height: 50%; border: 10px solid black; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 .lightbox .meta { margin: 15px 0; }
@@ -187,7 +187,7 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
 
 .twitter-share-button { margin-bottom: 10px; }
 
-@media only screen and (min-width: 310px) {
+/*@media only screen and (min-width: 310px) {
     div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 310px; }
 }
 
@@ -199,34 +199,36 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
 
 @media only screen and (min-width: 610px) {
     div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 610px; }
-}
+}*/
 
 @media only screen and (min-width: 910px) {
 
-    div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 910px; }
-    #content { float: left; width: 610px; }
+    /*div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 910px; }
+    #content { float: left; width: 610px; }*/
+
+    div[role="main"] { padding-top: 43px; padding-left: 300px; }
 
     header[role="banner"] .navi { display: none; }
 
     nav[role="sitenav"] { position: static; width: auto; float: right; }
     nav[role="sitenav"] ul li { float: left; }
     
-    nav[role="filters"] { position: fixed; top: 47px; left: inherit; right: 0; z-index: 9999; float: right; padding: 0; }
-    nav[role="filters"] ul{ float: right; }
+    nav[role="filters"] { position: fixed; top: 47px; left: 0; z-index: 9999; padding: 0; }
+    nav[role="filters"] ul{ float: left; }
     nav[role="filters"] ul li { float: left; }
     .filterItem { padding: 0; }
 
-    .lightbox { padding-right: 310px; }
+    .lightbox { }
     .lightbox-content h1 { font-size: 26px; }
 
     div[role="main"] > aside { display: block; }
 
 }
 
-@media only screen and (min-width: 1210px) {
+/*@media only screen and (min-width: 1210px) {
     div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 1210px; }
     #content { width: 910px ; }
-}
+}*/
 
 
 /* ==========================================================================
