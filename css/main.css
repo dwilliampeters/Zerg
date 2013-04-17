@@ -41,15 +41,16 @@ header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size:
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
 
-nav[role="sitenav"] { background: #000; background: rgba(19, 20, 21, 0.8); position: absolute; width: 100%; top: -282px; left: 0; z-index: 999; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+nav[role="sitenav"] { background: #000; background: rgba(19, 20, 21, 0.8); position: absolute; width: 100%; top: -282px; left: 0; z-index: 9999; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="sitenav"].show { top: 47px; }
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 
-nav[role="filters"] { background: #000; background: rgba(19, 20, 21, 0.8); text-align: center; width: 100%; position: fixed; top: -100%; left: 0; z-index: 999; list-style: none; margin: 0; padding: 1px; }
+nav[role="filters"] { background: #000; background: rgba(19, 20, 21, 0.8); text-align: center; width: 100%; position: fixed; top: 47px; left: 0; z-index: 999; list-style: none; margin: 0; text-align: left; }
 nav[role="filters"] > div { /*width: 160px;*/ margin: 0 auto; }
-nav[role="filters"] ul { margin: 0; padding: 0; }
-nav[role="filters"].show { top: 47px; }
+nav[role="filters"] .navi { display: block; line-height: 23px; padding: 10px; color: #fff; text-decoration: none; }
+nav[role="filters"] ul { background: #000; background: rgba(19, 20, 21, 0.8); margin: 0; padding: 0; position: absolute; top: -500px; left: 0; width: 100%; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+nav[role="filters"].show ul { top: 43px; }
 .filterItem { padding: 1px; text-align: left; }
 .filterItem > a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; font-weight: bold; color: #fff; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 .filterItem > a:hover { background: rgba(0, 173, 226, 0.4); }
@@ -213,8 +214,9 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
     nav[role="sitenav"] { position: static; width: auto; float: right; }
     nav[role="sitenav"] ul li { float: left; }
     
-    nav[role="filters"] { position: fixed; top: 47px; left: 0; z-index: 9999; padding: 0; }
-    nav[role="filters"] ul{ float: left; }
+    /*nav[role="filters"] { position: fixed; left: 0; z-index: 9999; padding: 0; }*/
+    nav[role="filters"] .navi { display: none; }
+    nav[role="filters"] ul{ top: 0; float: left; }
     nav[role="filters"] ul li { float: left; }
     .filterItem { padding: 0; }
 

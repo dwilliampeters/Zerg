@@ -37,8 +37,13 @@ $(function() {
 
 
 	// Small screen navigation
-	$('.navi').bind('click', function() {
+	$('header[role="banner"] .navi').bind('click', function() {
 		$siteNav.toggleClass('show');
+		return false;
+	});
+
+	$('nav[role="filters"] .navi').bind('click', function() {
+		$filterNav.toggleClass('show');
 		return false;
 	});
 
