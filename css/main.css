@@ -31,9 +31,13 @@ a, a:active, a:focus { outline: 0; outline: none; border: none; ie-dummy: expres
 
 img { max-width: 100%; }
 
+#shell { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; float: left; width: 100%; }
+body.sitenav #shell { margin-left: -300px; }
+body.filters #shell { margin-right: -300px; }
+
 div[role="main"] { padding-top: 115px; background: white; text-align: center; position: relative; }
 
-header[role="banner"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
+header[role="banner"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 header[role="banner"] h1 { background: white; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; position: relative; z-index: 999; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #666; text-decoration: none; }
 header[role="banner"] h1 img { height: 40px; }
@@ -43,12 +47,17 @@ header[role="banner"] h1 img { height: 40px; }
 .navi_filter { float: left; display: block; line-height: 23px; font-size: 14px; text-transform: uppercase; padding: 12px 12px 12px 48px; font-weight: bold; color: #fff; text-decoration: none; position: relative; z-index: 2; }
 .navi_filter > i { background: url(../img/icon.menu.png) no-repeat 0 0; display: block; width: 28px; height: 19px; position: absolute; top: 12px; left: 10px; }
 
-nav[role="sitenav"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); -moz-box-shadow: 0 5px 10px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); background: white; position: absolute; width: 100%; top: -282px; left: 0; z-index: 99; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+.small-siteNav { background: rgba(0, 156, 221, 1); width: 300px; float: right; margin-top: 125px; margin-right: -300px; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s;  }
+body.sitenav .small-siteNav { margin-right: 0; }
+nav[role="sitenav"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: white; position: absolute; width: 100%; top: -282px; left: 0; z-index: 99; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="sitenav"].show { top: 94px; }
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
-nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color: #666; text-decoration: none; }
+nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; font-weight: bold; color: #666; text-decoration: none; }
 
-nav[role="filters"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6); background: rgba(0, 156, 221, 1); text-align: center; width: 100%; position: absolute; top: -500px; left: 0; /*position: fixed; top: 47px; left: 0;*/ z-index: 99; list-style: none; margin: 0; text-align: left; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+.small-filterNav { background: rgba(0, 156, 221, 1); width: 300px; float: left; margin-top: 125px; margin-left: -300px; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+.small-filterNav ul { margin: 0; padding: 0; }
+body.filters .small-filterNav { margin-left: 0; }
+nav[role="filters"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: rgba(0, 156, 221, 1); text-align: center; width: 100%; position: absolute; top: -500px; left: 0; /*position: fixed; top: 47px; left: 0;*/ z-index: 99; list-style: none; margin: 0; text-align: left; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="filters"].show { top: 94px; }
 nav[role="filters"] ul { margin: 0; padding: 0; z-index: 1; }
 .filterItem { padding: 0; text-align: left; }
@@ -73,7 +82,7 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 .lightbox .lightbox-close { background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; }
 .lightbox-content { max-width: 1200px; min-height: 100%; background: #fff; display: block; position: relative; }
 .lightbox-content > div { padding: 10px; }
-.lightbox-content h1 { margin: 0 0 10px; font-size: 20px; }
+.lightbox-content h1 { margin: 0 0 10px; font-size: 20px; color: #009cdd; }
 .lightbox .media img, .lightbox .media iframe { max-height: 50%; border: 10px solid black; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 .lightbox .meta { margin: 15px 0; }
 .meta > span { display: block; margin-bottom: 10px; }
@@ -100,9 +109,9 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 .collectionTile, .tile, .collectionInfo { width: 100%; height: 100%; }
 .collectionContainer { position: relative; width: 100%; height: 100%; }
 .tile, .collectionInfo { -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; position: absolute; top: 0; left: 0; }
-.tile { background: rgba(19, 20, 21, 1); cursor: pointer; color: #969696; }
+.tile { background: rgba(0, 156, 221, 1); cursor: pointer; color: white; }
 .videoTile.withText .tile { font-weight: bold; font-size: 22px; line-height: 1.4; color: white; padding-right: 60px !important; }
-.collectionInfo { top: 100%; background: rgba(0, 173, 226, 1); }
+.collectionInfo { top: 100%; background: rgba(0, 156, 221, 1); color: white; }
 .collectionInfo > h2 { margin: 0; padding: 0; font-size: 14px; }
 .collectionInfo > span { display: block; margin-bottom: 10px; }
 .box > i { display: none; width: 50px; height: 50px; position: absolute; top: 0; right: 0; opacity: 0.8; cursor: pointer; }
@@ -112,7 +121,7 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 /**** Masonry ****/
 
 #container { /*margin: 0 auto;*/ background: white; padding: 5px; clear: both; /*-webkit-box-shadow: 0 0 25px #000; -moz-box-shadow: 0 0 25px #000; box-shadow: 0 0 25px #000;*/ }
-.box { margin: 5px; font-size: 11px; line-height: 1.4em; float: left; text-align: left; }
+.box { margin: 5px; font-size: 12px; line-height: 1.4em; float: left; text-align: left; }
 .box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
 .box.imgTile .tile, .box.videoTile .tile { padding: 0; }
 .box.withText .tile { padding: 10px; }
@@ -188,6 +197,8 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 .twitter-share-button { margin-bottom: 10px; }
 
 @media only screen and (min-width: 910px) {
+
+    .small-filterNav, .small-siteNav { display: none; visibility: hidden; }
 
     div[role="main"] { padding-left: 300px; }
 
