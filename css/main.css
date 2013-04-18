@@ -48,7 +48,7 @@ nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color:
 
 nav[role="filters"] { background: #000; background: rgba(19, 20, 21, 0.8); text-align: center; width: 100%; position: absolute; top: -500px; left: 0; /*position: fixed; top: 47px; left: 0;*/ z-index: 99; list-style: none; margin: 0; text-align: left; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="filters"].show { top: 94px; }
-nav[role="filters"] ul { margin: 0; padding: 0; z-index: 1; width: 100%; }
+nav[role="filters"] ul { margin: 0; padding: 2px; z-index: 1; }
 .filterItem { padding: 1px; text-align: left; }
 .filterItem > a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; font-weight: bold; color: #fff; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 .filterItem > a:hover { background: rgba(0, 173, 226, 0.4); }
@@ -198,6 +198,7 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
     
     .navi_nav, .navi_filter { display: none; }
     nav[role="filters"] { background: none; position: static; top: 0; float: left; }
+    nav[role="filters"] ul { padding: 2px; }
     nav[role="filters"] ul li { float: left; margin-right: 1px; }
     .filterItem { padding: 0; }
 
