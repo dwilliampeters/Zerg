@@ -56,14 +56,23 @@ $(function() {
 	$('.navi').bind('click', function() {
 		
 		var touched = $(this).attr('data-target');
-		if ( $('#' + touched + '').hasClass('show') ) {
+
+		if ( $('#shell').hasClass(touched) ) {
+			$('#shell').removeClass(touched);
+			return false;
+		}
+
+		$('#shell').removeClass();
+		$('#shell').addClass(touched);
+		
+		/*if ( $('#' + touched + '').hasClass('show') ) {
 			$('#' + touched + '').removeClass('show');
 			return false;
 		}
 		$siteNav.removeClass('show');
 		$filterNav.removeClass('show');
 		console.log(touched);
-		$('#' + touched + '').addClass('show');
+		$('#' + touched + '').addClass('show');*/
 		return false;
 	});
 
