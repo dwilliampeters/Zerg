@@ -63,7 +63,7 @@ $(function() {
 	function runMasonry () {
 		$container.isotope({
 			itemSelector : '.box',
-			//layoutMode : 'fitRows',
+			rowHeight: 120,
 			masonry: {
 				columnWidth: 75,
 			}
