@@ -13,8 +13,8 @@ $(function() {
 
     // Global vars
 	var $container = $('#container'),
-		$siteNav = $('nav[role="sitenav"]'),
-		$filterNav = $('nav[role="filters"]'),
+		$siteNav = $('#sitenav'),
+		$filterNav = $('#filters'),
 		touched,
 		imageBoxSrc,
 		things,
@@ -34,27 +34,36 @@ $(function() {
 	$(window).trigger('resize');
 
 
-	// Filter nav keep up top
+	// Nav stays up top
 	$(window).scroll(function(e){ 
 		var windowScrollPos = $(this).scrollTop(),
-			windowScroll = 47- windowScrollPos;
-		$filterNav.css({'position': 'fixed', 'top': windowScroll + 'px'});
+			windowScroll = 0- windowScrollPos;
+		$('header[role="banner"]').css({'top': windowScroll + 'px'});
+		if ( $(this).scrollTop() > 47 ){ 
+			$('header[role="banner"]').css({'top': '-47px'});
+
+		}
+		/*$filterNav.css({'top': windowScroll + 'px'});
 		if ( $(this).scrollTop() > 47 ){ 
 			$filterNav.css({'top': '0'});
 
-		}
+		}*/
 		console.log(windowScroll);
 	});
 
 
 	// Small screen navigation
-	$('header[role="banner"] .navi').bind('click', function() {
-		$siteNav.toggleClass('show');
-		return false;
-	});
-
-	$('nav[role="filters"] .navi').bind('click', function() {
-		$filterNav.toggleClass('show');
+	$('.navi').bind('click', function() {
+		
+		var touched = $(this).attr('data-target');
+		if ( $('#' + touched + '').hasClass('show') ) {
+			$('#' + touched + '').removeClass('show');
+			return false;
+		}
+		$siteNav.removeClass('show');
+		$filterNav.removeClass('show');
+		console.log(touched);
+		$('#' + touched + '').addClass('show');
 		return false;
 	});
 

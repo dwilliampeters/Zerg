@@ -24,8 +24,10 @@
         <div id="shell" class="clearfix">
 
             <header role="banner" class="clearfix">
+
                 <h1><a href="/git/zerg/">Prototype</a></h1>
-                <nav role="sitenav">
+
+                <nav role="sitenav" id="sitenav">
                     <ul>
                         <li><a href="#">Link 1</a></li>
                         <li><a href="#">Link 2</a></li>
@@ -35,44 +37,47 @@
                         <li><a href="#">Link 6</a></li>
                     </ul>
                 </nav>
-                <a class="navi" href="#">
+
+                <a class="navi navi_filter" data-target="filters" href="#">
+                    Filter
+                    <i></i>
+                </a>
+                
+                <a class="navi navi_nav" data-target="sitenav" href="#">
                     Navigation
                     <i></i>
                 </a>
-            </header>
 
-            <nav role="filters">
-                <a class="navi" href="#">
-                    Filter Content
-                    <i></i>
-                </a>
-                <ul class="filters">
-                    <li class="filterItem option-set" data-filter-group="mountain-biking">
-                        <a data-target="Mountain Biking" data-filter-value=".mountain-biking" href="#" class="active">
-                            Mountain Biking
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="downhill">
-                        <a data-target="Downhill" data-filter-value=".downhill" href="#" class="active">
-                            Downhill
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="road">
-                        <a data-target="Road" data-filter-value=".road" href="#" class="active">
-                            Road
-                            <i></i>
-                        </a>
-                    </li>
-                    <li class="filterItem option-set" data-filter-group="track">
-                        <a data-target="Track" data-filter-value=".track" href="#" class="active">
-                            Track
-                            <i></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                <nav role="filters" id="filters">
+                    <ul class="filters">
+                        <li class="filterItem option-set" data-filter-group="mountain-biking">
+                            <a data-target="Mountain Biking" data-filter-value=".mountain-biking" href="#" class="active">
+                                Mountain Biking
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="downhill">
+                            <a data-target="Downhill" data-filter-value=".downhill" href="#" class="active">
+                                Downhill
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="road">
+                            <a data-target="Road" data-filter-value=".road" href="#" class="active">
+                                Road
+                                <i></i>
+                            </a>
+                        </li>
+                        <li class="filterItem option-set" data-filter-group="track">
+                            <a data-target="Track" data-filter-value=".track" href="#" class="active">
+                                Track
+                                <i></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </header>
 
             <div role="main" class="clearfix">
 
