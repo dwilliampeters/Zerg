@@ -39,8 +39,8 @@ $(function() {
 		var windowScrollPos = $(this).scrollTop(),
 			windowScroll = 0- windowScrollPos;
 		$('header[role="banner"]').css({'top': windowScroll + 'px'});
-		if ( $(this).scrollTop() > 47 ){ 
-			$('header[role="banner"]').css({'top': '-47px'});
+		if ( $(this).scrollTop() > 67 ){ 
+			$('header[role="banner"]').css({'top': '-67px'});
 
 		}
 		/*$filterNav.css({'top': windowScroll + 'px'});
@@ -57,22 +57,22 @@ $(function() {
 		
 		var touched = $(this).attr('data-target');
 
-		if ( $('#shell').hasClass(touched) ) {
+		/*if ( $('#shell').hasClass(touched) ) {
 			$('#shell').removeClass(touched);
 			return false;
 		}
 
 		$('#shell').removeClass();
-		$('#shell').addClass(touched);
+		$('#shell').addClass(touched);*/
 		
-		/*if ( $('#' + touched + '').hasClass('show') ) {
+		if ( $('#' + touched + '').hasClass('show') ) {
 			$('#' + touched + '').removeClass('show');
 			return false;
 		}
 		$siteNav.removeClass('show');
 		$filterNav.removeClass('show');
 		console.log(touched);
-		$('#' + touched + '').addClass('show');*/
+		$('#' + touched + '').addClass('show');
 		return false;
 	});
 
