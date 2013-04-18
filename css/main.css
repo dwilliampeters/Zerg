@@ -36,7 +36,8 @@ div[role="main"] { padding-top: 43px; background: white; text-align: center; pos
 header[role="banner"] { background: #000; background: rgba(19, 20, 21, 0.98); position: relative; z-index: 999; }
 header[role="banner"] h1 { float: left; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; }
 header[role="banner"] h1 a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
-header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px; line-height: 23px; color: #fff; text-decoration: none; }
+header[role="banner"] .navi { float: right; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; display: block; padding: 12px 48px 12px 12px; line-height: 23px; color: #fff; text-decoration: none; position: relative; }
+header[role="banner"] .navi > i { background: url(../img/icon.menu.png) no-repeat 0 0; display: block; width: 28px; height: 19px; position: absolute; top: 12px; right: 10px; }
 
 nav[role="sitenav"] { background: #000; background: rgba(19, 20, 21, 0.98); position: absolute; width: 100%; top: -282px; left: 0; z-index: 9999; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="sitenav"].show { top: 47px; }
@@ -44,7 +45,8 @@ nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; color: #fff; text-decoration: none; }
 
 nav[role="filters"] { text-align: center; width: 100%; position: fixed; top: 47px; left: 0; z-index: 99; list-style: none; margin: 0; text-align: left; }
-nav[role="filters"] .navi { background: #000; background: rgba(19, 20, 21, 0.95); display: block; line-height: 23px; padding: 10px; color: #fff; text-decoration: none; position: relative; z-index: 2; }
+nav[role="filters"] .navi { background: #000; background: rgba(19, 20, 21, 0.95); display: block; line-height: 23px; padding: 10px; font-weight: bold; color: #fff; text-decoration: none; position: relative; z-index: 2; }
+nav[role="filters"] .navi > i { background: url(../img/icon.menu.png) no-repeat 0 0; display: block; width: 28px; height: 19px; position: absolute; top: 12px; right: 10px; }
 nav[role="filters"] ul { background: #000; background: rgba(19, 20, 21, 0.8); margin: 0; padding: 0; position: absolute; top: -500px; left: 0; z-index: 1; width: 100%; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 nav[role="filters"].show ul { top: 43px; }
 .filterItem { padding: 1px; text-align: left; }
