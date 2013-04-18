@@ -8,8 +8,8 @@
    ========================================================================== */
 
 html, button, input, select, textarea { color: #222; }
-html { overflow-y: scroll; height: 100%; }
-body { min-height: 100%; font-size: 1em; line-height: 1.4; background: white; /*background: black url(../img/bg.png) repeat;*/ }
+html { overflow-y: scroll; }
+body { font-size: 1em; line-height: 1.4; background: white; }
 ::-moz-selection { background: #b3d4fc; text-shadow: none; }
 ::selection { background: #b3d4fc; text-shadow: none; }
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
@@ -30,8 +30,6 @@ textarea { resize: vertical; }
 a, a:active, a:focus { outline: 0; outline: none; border: none; ie-dummy: expression(this.hideFocus=true); }
 
 img { max-width: 100%; }
-
-#shell {  }
 
 div[role="main"] { padding-top: 43px; background: white; text-align: center; position: relative; }
 
@@ -56,11 +54,11 @@ nav[role="filters"].show ul { top: 43px; }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
 
-div[role="main"] > aside { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid #eee; float: left; width: 300px; margin-left: -300px; text-align: left; }
-div[role="main"] > aside > section { margin-bottom: 10px; }
-div[role="main"] > aside > section h1 { color: #fff; margin: 0; padding: 5px 20px; background: rgba(0, 173, 226, 1); font-size: 20px; text-transform: uppercase; }
-div[role="main"] > aside > section .promo { margin-top: 5px; min-height: 97px; background: black; }
-div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
+aside[role="sideNav"] { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid rgba(19, 20, 21, 0.35); float: left; width: 300px; margin-left: -300px; text-align: left; }
+aside[role="sideNav"] > section { margin-bottom: 10px; }
+aside[role="sideNav"] > section h1 { color: #fff; margin: 0; padding: 5px 10px; background: #000; background: rgba(19, 20, 21, 0.7); font-size: 20px; text-transform: uppercase; }
+aside[role="sideNav"] > section .promo { margin-top: 5px; min-height: 97px; background: #000; background: rgba(19, 20, 21, 0.7); }
+aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
 #content { padding: 0 0 20px; float: left; width: 100%; position: relative; }
 #content > a.button { display: inline-block; padding: 10px; }
 
@@ -186,24 +184,7 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
 
 .twitter-share-button { margin-bottom: 10px; }
 
-/*@media only screen and (min-width: 310px) {
-    div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 310px; }
-}
-
-@media only screen and (min-width: 460px) {
-    div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 460px; }
-    .meta > span { display: inline-block; margin-bottom: 0; }
-    .lightbox-content > div { padding: 67px 30px 20px; }
-}
-
-@media only screen and (min-width: 610px) {
-    div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 610px; }
-}*/
-
 @media only screen and (min-width: 910px) {
-
-    /*div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 910px; }
-    #content { float: left; width: 610px; }*/
 
     div[role="main"] { padding-left: 300px; }
 
@@ -212,7 +193,6 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
     nav[role="sitenav"] { position: static; width: auto; float: left; }
     nav[role="sitenav"] ul li { float: left; }
     
-    /*nav[role="filters"] { position: fixed; left: 0; z-index: 9999; padding: 0; }*/
     nav[role="filters"] .navi { display: none; }
     nav[role="filters"] ul{ top: 0; float: left; }
     nav[role="filters"] ul li { float: left; margin-right: 1px; }
@@ -221,14 +201,9 @@ div[role="main"] > aside > section .promo p { margin: 0; padding: 65px 10px 10px
     .lightbox { }
     .lightbox-content h1 { font-size: 26px; }
 
-    div[role="main"] > aside { display: block; }
+    aside[role="sideNav"] { display: block; }
 
 }
-
-/*@media only screen and (min-width: 1210px) {
-    div[role="main"], header[role="banner"] > div, nav[role="filters"] > div { width: 1210px; }
-    #content { width: 910px ; }
-}*/
 
 
 /* ==========================================================================

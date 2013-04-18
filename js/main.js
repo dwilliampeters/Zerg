@@ -23,6 +23,17 @@ $(function() {
 		filters = {};
 
 
+	// Equal heights
+	$(window).resize(function() {
+		setTimeout(function() {
+			var mainHeight = $('div[role="main"]').height();
+			$('aside[role="sideNav"]').css('min-height', mainHeight);
+		}, 300);
+	});
+
+	$(window).trigger('resize');
+
+
 	// Filter nav keep up top
 	$(window).scroll(function(e){ 
 		var windowScrollPos = $(this).scrollTop(),
@@ -186,21 +197,7 @@ $(function() {
 		$('.collectionTile').removeClass('tease');
 		}, 3000);
 	}, 6000);
-	
 
-	/*// Lightbox height
-	$(window).resize(function() {
-		setTimeout(function() {
-			var containerHeight = $('#container').height();
-			//$('.lightbox-content').height($('body').height());
-			//$('.lightbox').height($('body').height());
-			$('.lightbox').css('min-height', containerHeight);
-			$('.lightbox-content').css('min-height', containerHeight);
-
-		}, 900);
-	});
-
-	$(window).trigger('resize');*/
 
 	// Lightbox close
 	$(document).on("click", '.lightbox-close', lightboxClose);
