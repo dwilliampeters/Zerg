@@ -96,6 +96,7 @@ $(function() {
 		$container.isotope({
 			itemSelector : '.box',
 			rowHeight: 120,
+			filter: '*',
 			masonry: {
 				columnWidth: 75,
 			}
@@ -176,7 +177,8 @@ $(function() {
 							var $newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 						}
 					}
-					$container.isotope( 'insert', $newItem );
+					//$container.isotope( 'insert', $newItem );
+					$container.append( $newItem ).isotope( 'appended', $newItem );
 					return false;
 				}
 				if ( !tileMedia ) {
@@ -199,7 +201,12 @@ $(function() {
 
 
 	// Filters
-	//var isoFilters = ['.mountain-biking, .downhill, .road, .track'];
+	var isoFilters = ['.mountain-biking', '.downhill', '.road', '.track'];
+	var isoFilters = [];
+		for ( var prop in filters ) {
+			isoFilters.push( filters[ prop ] )
+		};
+		var selector = isoFilters.join(', ');
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this),
 			$optionSet = $this.parents('.option-set');
@@ -212,13 +219,14 @@ $(function() {
 			filters[ group ] = $this.attr('data-filter-value');
 		}
 		// convert object into array
-		var isoFilters = [];
+		//var isoFilters = [];
 		for ( var prop in filters ) {
 			isoFilters.push( filters[ prop ] )
 		};
 		var selector = isoFilters.join(', ');
 		$this.toggleClass('active');
 		$container.isotope({ filter: selector });
+		console.log(selector);
 
 		return false;
 	});
