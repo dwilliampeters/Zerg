@@ -39,9 +39,18 @@ $(function() {
 		var windowScrollPos = $(this).scrollTop(),
 			windowScroll = 0- windowScrollPos;
 		$('header[role="banner"]').css({'top': windowScroll + 'px'});
-		if ( $(this).scrollTop() > 67 ){ 
+		if ( $(this).scrollTop() > 67 ){
 			$('header[role="banner"]').css({'top': '-67px'});
+		}
 
+		if ( $(this).scrollTop() > 67 ){
+			$('.small-filterNav').css({'position': 'relative', 'top': windowScrollPos-64  + 'px'});
+			$('.small-siteNav').css({'position': 'relative', 'top': windowScrollPos-64  + 'px'});
+		}
+
+		if ( $(this).scrollTop() === 0 ){
+			$('.small-filterNav').css({'position': 'relative', 'top': '0px'});
+			$('.small-siteNav').css({'position': 'relative', 'top': '0px'});
 		}
 
 		// Near the bottom?
