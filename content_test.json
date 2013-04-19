@@ -154,6 +154,48 @@
 			"media": null,
 			"media_src": null,
 			"media_thumbnail": null
+		},
+		{
+			"id": "12",
+			"cols": "2",
+			"tags": "downhill",
+			"date": "2012, 01, 31",
+			"summary": "Summary",
+			"title": "Tile content",
+			"sef_title": "tile-content",
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero enim, vehicula at vulputate et, adipiscing quis elit. Mauris a enim arcu. Donec imperdiet mollis elit, ac pharetra urna dictum ut. Maecenas viverra vehicula dolor nec interdum. Sed sit amet molestie quam. Phasellus blandit augue vitae purus mollis ultricies. Phasellus eget tortor lacus, non consectetur libero. Etiam gravida massa nec orci elementum molestie.</p><p>Sed ac tristique quam. Aenean elit neque, mollis vitae blandit in, euismod non nisl. Vivamus adipiscing hendrerit lobortis. Etiam tristique rutrum sapien, quis laoreet dui venenatis imperdiet. Sed magna diam, eleifend vestibulum euismod quis, vestibulum non dui. Nulla eleifend risus porta lacus interdum et hendrerit quam hendrerit. Vivamus interdum ultricies fermentum.</p>",
+			"link": null,
+			"media": "image",
+			"media_src": "img/temp/image8.jpg",
+			"media_thumbnail": "img/temp/image8.jpg"
+		},
+		{
+			"id": "13",
+			"cols": "2",
+			"tags": "mountain-biking",
+			"date": "2012, 01, 31",
+			"summary": "Summary",
+			"title": "Tile content",
+			"sef_title": "tile-content",
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero enim, vehicula at vulputate et, adipiscing quis elit. Mauris a enim arcu. Donec imperdiet mollis elit, ac pharetra urna dictum ut. Maecenas viverra vehicula dolor nec interdum. Sed sit amet molestie quam. Phasellus blandit augue vitae purus mollis ultricies. Phasellus eget tortor lacus, non consectetur libero. Etiam gravida massa nec orci elementum molestie.</p><p>Sed ac tristique quam. Aenean elit neque, mollis vitae blandit in, euismod non nisl. Vivamus adipiscing hendrerit lobortis. Etiam tristique rutrum sapien, quis laoreet dui venenatis imperdiet. Sed magna diam, eleifend vestibulum euismod quis, vestibulum non dui. Nulla eleifend risus porta lacus interdum et hendrerit quam hendrerit. Vivamus interdum ultricies fermentum.</p>",
+			"link": null,
+			"media": "image",
+			"media_src": "img/temp/image3.jpg",
+			"media_thumbnail": "img/temp/image3.jpg"
+		},
+		{
+			"id": "14",
+			"cols": "2",
+			"tags": "downhill",
+			"date": "2012, 01, 31",
+			"summary": "Summary",
+			"title": "Tile content",
+			"sef_title": "tile-content",
+			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero enim, vehicula at vulputate et, adipiscing quis elit. Mauris a enim arcu. Donec imperdiet mollis elit, ac pharetra urna dictum ut. Maecenas viverra vehicula dolor nec interdum. Sed sit amet molestie quam. Phasellus blandit augue vitae purus mollis ultricies. Phasellus eget tortor lacus, non consectetur libero. Etiam gravida massa nec orci elementum molestie.</p><p>Sed ac tristique quam. Aenean elit neque, mollis vitae blandit in, euismod non nisl. Vivamus adipiscing hendrerit lobortis. Etiam tristique rutrum sapien, quis laoreet dui venenatis imperdiet. Sed magna diam, eleifend vestibulum euismod quis, vestibulum non dui. Nulla eleifend risus porta lacus interdum et hendrerit quam hendrerit. Vivamus interdum ultricies fermentum.</p>",
+			"link": null,
+			"media": "youtube",
+			"media_src": "4bZJ3RPFtAo",
+			"media_thumbnail": "img/temp/image5.jpg"
 		}
 	]
 }

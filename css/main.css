@@ -48,8 +48,11 @@ header[role="banner"] h1 img { height: 40px; }
 .navi_filter > i { background: url(../img/icon.menu.png) no-repeat 0 0; display: block; width: 28px; height: 19px; position: absolute; top: 12px; left: 10px; }
 
 .small-siteNav { background: rgba(0, 156, 221, 1); width: 300px; float: right; margin-top: 125px; margin-right: -300px; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s;  }
+.small-siteNav ul { margin: 0; padding: 0; list-style: none; }
+.small-siteNav li { padding: 0; text-align: left; }
+.small-siteNav a { line-height: 23px; position: relative; display: block; padding: 10px 40px 10px 10px; font-weight: bold; color: white; text-decoration: none; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 body.sitenav .small-siteNav { margin-right: 0; }
-nav[role="sitenav"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: white; position: absolute; width: 100%; top: -282px; left: 0; z-index: 99; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+nav[role="sitenav"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: white; position: absolute; width: 100%; top: -282px; left: 0; z-index: 99; }
 nav[role="sitenav"].show { top: 94px; }
 nav[role="sitenav"] ul { margin: 0; padding: 0; }
 nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; font-weight: bold; color: #666; text-decoration: none; }
@@ -57,7 +60,7 @@ nav[role="sitenav"] a { line-height: 23px; display: block; padding: 12px; font-w
 .small-filterNav { background: rgba(0, 156, 221, 1); width: 300px; float: left; margin-top: 125px; margin-left: -300px; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
 .small-filterNav ul { margin: 0; padding: 0; }
 body.filters .small-filterNav { margin-left: 0; }
-nav[role="filters"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: rgba(0, 156, 221, 1); text-align: center; width: 100%; position: absolute; top: -500px; left: 0; /*position: fixed; top: 47px; left: 0;*/ z-index: 99; list-style: none; margin: 0; text-align: left; -webkit-transition: 0.5s; -moz-transition: 0.5s; transition: 0.5s; }
+nav[role="filters"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); background: rgba(0, 156, 221, 1); text-align: center; width: 100%; position: absolute; top: -500px; left: 0; /*position: fixed; top: 47px; left: 0;*/ z-index: 99; list-style: none; margin: 0; text-align: left; }
 nav[role="filters"].show { top: 94px; }
 nav[role="filters"] ul { margin: 0; padding: 0; z-index: 1; }
 .filterItem { padding: 0; text-align: left; }
@@ -66,12 +69,12 @@ nav[role="filters"] ul { margin: 0; padding: 0; z-index: 1; }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
 
-aside[role="sideNav"] { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid rgba(19, 20, 21, 0.35); float: left; width: 300px; margin-left: -300px; text-align: left; }
+aside[role="sideNav"] { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid rgba(0, 156, 221, 0.25); float: left; width: 300px; margin-left: -300px; text-align: left; }
 aside[role="sideNav"] > section { margin-bottom: 10px; }
 aside[role="sideNav"] > section h1 { color: #fff; margin: 0; padding: 5px 10px; background: #000; background: rgba(19, 20, 21, 0.5); font-size: 20px; text-transform: uppercase; }
 aside[role="sideNav"] > section .promo { margin-top: 5px; min-height: 97px; background: #000; background: rgba(19, 20, 21, 0.7); }
 aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
-#content { padding: 0 0 20px; float: left; width: 100%; position: relative; overflow: hidden; }
+#content { padding: 0 0 20px; float: left; width: 100%; position: relative; /*overflow: hidden;*/ }
 #content > a.button { display: inline-block; padding: 10px; }
 
 
@@ -217,6 +220,8 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 
     .lightbox { }
     .lightbox-content h1 { font-size: 26px; }
+
+    .meta > span { float: left; }
 
     aside[role="sideNav"] { display: block; }
 

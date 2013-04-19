@@ -43,12 +43,11 @@ $(function() {
 			$('header[role="banner"]').css({'top': '-67px'});
 
 		}
-		/*$filterNav.css({'top': windowScroll + 'px'});
-		if ( $(this).scrollTop() > 47 ){ 
-			$filterNav.css({'top': '0'});
 
-		}*/
-		console.log(windowScroll);
+		// Near the bottom?
+		if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+			console.log("near bottom!");
+		}
 	});
 
 
@@ -68,14 +67,6 @@ $(function() {
 		$('body').removeClass('filters');
 		$('body').addClass(touched);
 		
-		/*if ( $('#' + touched + '').hasClass('show') ) {
-			$('#' + touched + '').removeClass('show');
-			return false;
-		}
-		$siteNav.removeClass('show');
-		$filterNav.removeClass('show');
-		console.log(touched);
-		$('#' + touched + '').addClass('show');*/
 		return false;
 	});
 
@@ -104,15 +95,17 @@ $(function() {
 
 
 	// Show more
-	var start_page = 0,
-		end_page = 10;
-	console.log(start_page, end_page);
+	var page_start = 0,
+		page_end = 1,
+		loadMore = 'no',
+		start = 0;
 	$('.button[data-target="next"]').bind('click', function() {
-		var loadMore = 'next';
-		start_page = start_page += 10;
-		end_page = end_page += 10;
-		console.log(start_page, end_page);
-		tileLoad(loadMore, start_page, end_page);
+		console.log('Load more');
+		page_start = page_start +=2,
+		page_end = page_end +=1,
+		loadMore = 'yes',
+		start = start +=5;
+		tileLoad();
 		return false;
 	});
 
@@ -128,15 +121,25 @@ $(function() {
 		tileItemMediaSrc,
 		tileMediaThumb;
 
-	function tileLoad (loadMore, start_page, end_page) {
+	function tileLoad () {
+
+		/* 	If required
+			$.getJSON(source, params,function(data) {
+			params: {'start':startNumber, 'length': lenNumber }
+			*/
 
 		$.getJSON(source, function(data) {
-			console.log(start_page,end_page);
-			for (var i = data.tiles.length - 1; i >= 0; i--) {
+
+			//var construct = data.tiles.splice(page_start, page_end);
+			//console.log('Splice Start: ' + page_start + ' End: ' + page_end);
+			
+			//for (var i = data.tiles.length - 1; i >= 0; i--) {
+			//for (var i = construct.length - 1; i >= 0; i--) {
+			//for (var i =0; i< construct.length - 1; i++) {
+			for (var i=start; i<start+5; i++) {
 				
 				tileItemId = null;
 				if ( !filter ) {
-
 					tileItemId = data.tiles[i].id;
 					tileItemCols = data.tiles[i].cols;
 					tileItemTags = data.tiles[i].tags;
@@ -147,11 +150,26 @@ $(function() {
 					tileItemMediaSrc = data.tiles[i].media_thumbnail;
 					tileMediaThumb = data.tiles[i].media_thumbnail;
 					addTiles();
-					console.log(tileItemId);
+					console.log('ID: ' + tileItemId);
 				}
 			};
 			
 			function addTiles () {
+				if ( loadMore === 'yes' ) {
+					console.log('ADD FUNCTION');
+					if ( !tileMedia ) {
+						var $newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
+					} else {
+						if ( tileMedia === 'image' ) {
+							var $newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+						}
+						if ( tileMedia === 'youtube' ) {
+							var $newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+						}
+					}
+					$container.isotope( 'insert', $newItem );
+					return false;
+				}
 				if ( !tileMedia ) {
 					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
 				} else {
@@ -209,10 +227,9 @@ $(function() {
 	// Randomly tease tile content
 	setInterval(function() {
 		$('.collectionTile').removeClass('tease');
-		var thingsHeight = $('.collectionTile > h2').height();
-		console.log(thingsHeight);
+		//var thingsHeight = $('.collectionTile > h2').height();
+		//console.log(thingsHeight);
 		things = $('.collectionTile');
-
 		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
@@ -248,7 +265,8 @@ $(function() {
 			document.title = tilesTitle + ' - Zerg Prototype';
 
 			var tcTitle = '<h1>' + tilesTitle + '</h1>',
-				tcMeta = $('.lightbox > .meta').html(),
+				MetaHTML = $('.lightbox > .meta').html(),
+				tcMeta = '<div class="meta clearfix">' + MetaHTML + '</div>',
 				tcContent = '<div class="entry">' + tilesContent + '</div>',
 				tcMediaType = tilesMediaType,
 				tcMediaSrc = tilesMediaSrc,
@@ -259,7 +277,7 @@ $(function() {
 				if ( tcMediaType === 'image' ) {
 					tcMedia = '<div class="media"><img src="' + tcMediaSrc + '" alt="" /></div>';
 				}
-			var lightboxContent = tcTitle + '<div class="meta">' + tcMeta + '</div>' + tcMedia + tcContent;
+			var lightboxContent = tcTitle + tcMeta + tcMedia + tcContent;
 			$('.lightbox-content > div').html(lightboxContent);
 			$('#shell').addClass('show-lightbox');
 		});
@@ -270,7 +288,6 @@ $(function() {
 
 	function lightboxClose () {
 		$('#shell').removeClass('show-lightbox');
-		/*$('.lightbox-content > div').html('');*/
 		document.title = 'Zerg Prototype';
 		window.location.hash = '';
 		return false;
@@ -278,6 +295,6 @@ $(function() {
 
 
 	// Start Masonry
-	tileLoad(start_page, end_page);
+	tileLoad();
 
 });
