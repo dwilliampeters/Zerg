@@ -54,7 +54,7 @@ $(function() {
 
 	// Infinite load
 	var _throttleTimer = null;
-	var _throttleDelay = 1000;
+	var _throttleDelay = 900;
 
 	$(window).off('scroll', ScrollHandler).on('scroll', ScrollHandler);
 
@@ -152,7 +152,7 @@ $(function() {
 			
 			//for (var i = data.tiles.length - 1; i >= 0; i--) {
 			for (var i=start; i<start+10; i++) {
-				
+			//for (var i=start+10; i>=start; i--) {
 				tileItemId = null;
 				tileItemId = data.tiles[i].id;
 				tileItemCols = data.tiles[i].cols;
@@ -234,7 +234,8 @@ $(function() {
 	$(document).on("click", '.box.mediaTile', function() {
 		var touchedId = $(this).attr('id');
 			touchedId = touchedId.substring(1);
-			touchedId = parseInt(touchedId);
+			//touchedId = parseInt(touchedId);
+			console.log(touchedId);
 		lightboxContent(touchedId);
 		return false;
 	});
@@ -265,15 +266,21 @@ $(function() {
 		
 		$('.lightbox-content > div').html('');
 
-		touchedId = touchedId -= 1;
+		//touchedId = touchedId -= 1;
+		console.log(touchedId);
 
 		$.getJSON( source, function( data ) {
-			var tilesTitle = data.tiles[touchedId].title,
-				tilesSefTitle = data.tiles[touchedId].sef_title,
-				tilesContent = data.tiles[touchedId].content,
-				tilesMediaType = data.tiles[touchedId].media,
-				tilesMediaSrc = data.tiles[touchedId].media_src,
-				tilesId = data.tiles[touchedId].id;
+			for (var i = data.tiles.length - 1; i >= 0; i--) {
+				console.log('Lightbox ID: ' + data.tiles[i].id);
+				if ( touchedId === data.tiles[i].id ) {
+					var tilesId = data.tiles[i].id,
+						tilesTitle = data.tiles[i].title,
+						tilesSefTitle = data.tiles[i].sef_title,
+						tilesContent = data.tiles[i].content,
+						tilesMediaType = data.tiles[i].media,
+						tilesMediaSrc = data.tiles[i].media_src;
+				}
+			}
 			
 			window.location.hash = tilesSefTitle + '-' + tilesId;
 			document.title = tilesTitle + ' - Zerg Prototype';
