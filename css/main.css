@@ -121,7 +121,7 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 /**** Masonry ****/
 
 #container { /*margin: 0 auto;*/ background: white; padding: 5px; clear: both; /*-webkit-box-shadow: 0 0 25px #000; -moz-box-shadow: 0 0 25px #000; box-shadow: 0 0 25px #000;*/ }
-.box { margin: 5px; font-size: 12px; line-height: 1.4em; float: left; text-align: left; }
+.box { margin: 5px; font-size: 12px; line-height: 1.4em; float: left; text-align: left; z-index: 9; }
 .box .tile, .box .collectionInfo { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; overflow: hidden; }
 .box.imgTile .tile, .box.videoTile .tile { padding: 0; }
 .box.withText .tile { padding: 10px; }
