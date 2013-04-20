@@ -234,7 +234,6 @@ $(function() {
 	$(document).on("click", '.box.mediaTile', function() {
 		var touchedId = $(this).attr('id');
 			touchedId = touchedId.substring(1);
-			//touchedId = parseInt(touchedId);
 			console.log(touchedId);
 		lightboxContent(touchedId);
 		return false;
@@ -266,7 +265,6 @@ $(function() {
 		
 		$('.lightbox-content > div').html('');
 
-		//touchedId = touchedId -= 1;
 		console.log(touchedId);
 
 		$.getJSON( source, function( data ) {
