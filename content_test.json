@@ -5,7 +5,7 @@
 			"cols": "2",
 			"tags": "mountain-biking",
 			"date": "2012, 01, 31",
-			"summary": "Summary",
+			"summary": "A long summary on two lines testing the hover height",
 			"title": "Tile content",
 			"sef_title": "tile-content",
 			"content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras libero enim, vehicula at vulputate et, adipiscing quis elit. Mauris a enim arcu. Donec imperdiet mollis elit, ac pharetra urna dictum ut. Maecenas viverra vehicula dolor nec interdum. Sed sit amet molestie quam. Phasellus blandit augue vitae purus mollis ultricies. Phasellus eget tortor lacus, non consectetur libero. Etiam gravida massa nec orci elementum molestie.</p><p>Sed ac tristique quam. Aenean elit neque, mollis vitae blandit in, euismod non nisl. Vivamus adipiscing hendrerit lobortis. Etiam tristique rutrum sapien, quis laoreet dui venenatis imperdiet. Sed magna diam, eleifend vestibulum euismod quis, vestibulum non dui. Nulla eleifend risus porta lacus interdum et hendrerit quam hendrerit. Vivamus interdum ultricies fermentum.</p>",

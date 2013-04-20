@@ -99,13 +99,13 @@ body.sidenav #content { margin-right: -300px; }
 
 .collectionTile { overflow: hidden; }
   .collectionTile.tease .tile, .collectionTile:hover .tile { top: -10px; }
-  .collectionTile.tease .collectionInfo, .collectionTile:hover .collectionInfo { top: 130px; }
+  /*.collectionTile.tease .collectionInfo, .collectionTile:hover .collectionInfo { top: 130px; }*/
 
-  .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 100px; }
+  /*.collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 100px; }*/
 
-  @media only screen and (min-width: 460px) {
+  /*@media only screen and (min-width: 460px) {
     .collectionTile.col2.tease .collectionInfo, .collectionTile.col2:hover .collectionInfo { top: 250px; }
-  }
+  }*/
 
   .collectionTile.hover .tile, .collectionTile.col2.hover .tile { top: -100%; }
   .collectionTile.hover .collectionInfo, .collectionTile.col2.hover .collectionInfo { top: 0; }

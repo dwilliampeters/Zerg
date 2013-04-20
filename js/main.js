@@ -13,14 +13,14 @@ $(function() {
 
 	// Global vars
 	var $container = $('#container'),
-		things,
 		filters = {},
 		loadMore = 'no',
 		start = 0,
+		paginate = 10,
 		$newItem;
 
 
-	// Equal heights
+	/*// Equal heights
 	$(window).resize(function() {
 		setTimeout(function() {
 			var mainHeight = $('div[role="main"]').height();
@@ -28,7 +28,7 @@ $(function() {
 		}, 300);
 	});
 
-	$(window).trigger('resize');
+	$(window).trigger('resize');*/
 
 
 	// Scroll events
@@ -68,7 +68,7 @@ $(function() {
 			if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
 				console.log('Load more');
 				loadMore = 'yes',
-				start = start +=10;
+				start = start +=paginate;
 				tileLoad();
 			}
 
@@ -125,7 +125,7 @@ $(function() {
 	$('.button[data-target="next"]').bind('click', function() {
 		console.log('Load more');
 		loadMore = 'yes',
-		start = start +=10;
+		start = start +=paginate;
 		tileLoad();
 		return false;
 	});
@@ -152,7 +152,7 @@ $(function() {
 		$.getJSON(source, function(data) {
 			
 			//for (var i = data.tiles.length - 1; i >= 0; i--) {
-			for (var i=start; i<start+10; i++) {
+			for (var i=start; i<start+paginate; i++) {
 			//for (var i=start+10; i>=start; i--) {
 				tileItemId = null;
 				tileItemId = data.tiles[i].id;
@@ -240,15 +240,36 @@ $(function() {
 		return false;
 	});
 
+	// Tile hover
+	$(document).on("mouseover", '.collectionTile', function() {
+		var tileTeased = $(this).attr('id');
+			console.log(tileTeased);
+			var thingsHeight = $('#' + tileTeased + ' h2').height();
+			thingsHeight = thingsHeight += 20;
+			var thingsPos = 290 - thingsHeight;
+			$('#' + tileTeased).find('.collectionInfo').css('top', thingsPos);
+		return false;
+	});
+	$(document).on("mouseout", '.collectionTile', function() {
+		$('.collectionInfo').css('top', '100%');
+		return false;
+	});
+
 	// Randomly tease tile content
 	setInterval(function() {
-		$('.collectionTile').removeClass('tease');
-		//var thingsHeight = $('.collectionTile > h2').height();
-		//console.log(thingsHeight);
-		things = $('.collectionTile');
-		$(things[Math.floor(Math.random()*things.length)]).addClass('tease');
+		//$('.collectionTile').removeClass('tease');
+		var things = '.collectionTile';
+		var $things = $('.collectionTile');
+		$($things[Math.floor(Math.random()*$things.length)]).addClass('tease');
+		var tileTeased = $('.collectionTile.tease').attr('id');
+			console.log(tileTeased);
+			var thingsHeight = $('#' + tileTeased + ' h2').height();
+			thingsHeight = thingsHeight += 20;
+			var thingsPos = 290 - thingsHeight;
+			$('#' + tileTeased).find('.collectionInfo').css('top', thingsPos);
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
+		$('.collectionInfo').css('top', '100%');
 		}, 3000);
 	}, 6000);
 
