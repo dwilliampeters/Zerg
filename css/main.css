@@ -35,7 +35,7 @@ img { max-width: 100%; }
 body.sitenav #shell { margin-left: -300px; }
 body.filters #shell { margin-right: -300px; }
 
-div[role="main"] { padding-top: 115px; background: white; text-align: center; position: relative; }
+div[role="main"] { padding-top: 115px; background: white; text-align: center; position: relative; overflow: hidden; }
 
 header[role="banner"] { -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); position: fixed; top: 0; left: 0; width: 100%; z-index: 999; }
 header[role="banner"] h1 { background: white; margin: 0; font-weight: bold; font-size: 14px; text-transform: uppercase; position: relative; z-index: 999; }
@@ -69,12 +69,16 @@ nav[role="filters"] ul { margin: 0; padding: 0; z-index: 1; }
 .filterItem > a > i { background: url(../img/icon.filter.png) no-repeat right bottom; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; }
 .filterItem > a.active > i { background-position: right top; }
 
-aside[role="sideNav"] { display: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid rgba(0, 156, 221, 0.25); float: left; width: 300px; margin-left: -300px; text-align: left; }
+.navi_sidenav { background: rgba(0, 156, 221, 0.25); display: block; width: 28px; height: 19px; font-size: 14px;  position: absolute; top: 0; left: 0; z-index: 999; }
+.navi_sidenav > i { background: url(../img/icon.menu.png) no-repeat 0 0; display: block; width: 28px; height: 19px; }
+aside[role="sideNav"] { float: left; margin-left: -300px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; border-right: 1px solid rgba(0, 156, 221, 0.25); float: left; width: 300px; text-align: left; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+body.sidenav aside[role="sideNav"] { margin-left: 0; }
 aside[role="sideNav"] > section { margin-bottom: 10px; }
 aside[role="sideNav"] > section h1 { color: #fff; margin: 0; padding: 5px 10px; background: #000; background: rgba(19, 20, 21, 0.5); font-size: 20px; text-transform: uppercase; }
 aside[role="sideNav"] > section .promo { margin-top: 5px; min-height: 97px; background: #000; background: rgba(19, 20, 21, 0.7); }
 aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; color: #fff; font-weight: bold; font-size: 16px; text-transform: uppercase; }
-#content { padding: 0 0 20px; float: left; width: 100%; position: relative; /*overflow: hidden;*/ }
+#content { float: left; padding: 0 0 20px 30px; float: left; width: 100%; position: relative; /*overflow: hidden;*/ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+body.sidenav #content { margin-right: -300px; }
 #content > a.button { display: inline-block; padding: 10px; }
 
 
@@ -201,7 +205,7 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
 
 @media only screen and (min-width: 910px) {
 
-    .small-filterNav, .small-siteNav { display: none; visibility: hidden; }
+    .small-filterNav, .small-siteNav, .navi_sidenav { display: none; visibility: hidden; }
 
     div[role="main"] { padding-left: 300px; }
 
@@ -218,12 +222,16 @@ aside[role="sideNav"] > section .promo p { margin: 0; padding: 65px 10px 10px; c
     nav[role="filters"] ul li { float: left; }
     .filterItem { padding: 0; }
 
+    #content { padding-left: 0; }
+
     .lightbox { }
     .lightbox-content h1 { font-size: 26px; }
 
     .meta > span { float: left; }
 
     aside[role="sideNav"] { display: block; }
+    body.sidenav aside[role="sideNav"] { margin-left: -300px; }
+    body.sidenav #content { margin-right: 0; }
 
 }
 

@@ -90,6 +90,7 @@ $(function() {
 
 		$('body').removeClass('sitenav');
 		$('body').removeClass('filters');
+		$('body').removeClass('sidenav');
 		$('body').addClass(touched);
 		
 		return false;
@@ -180,8 +181,8 @@ $(function() {
 							$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 						}
 					}
-					//$container.isotope( 'insert', $newItem );
 					$container.append( $newItem ).isotope( 'appended', $newItem );
+					//$container.isotope( 'appended', $newItem );
 					return false;
 				}
 				if ( !tileMedia ) {
