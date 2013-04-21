@@ -112,7 +112,8 @@ $(function() {
 	function runMasonry () {
 		$container.isotope({
 			itemSelector : '.box',
-			rowHeight: 120,
+			//rowHeight: 120,
+			//layoutMode : 'categoryRows',
 			filter: '*',
 			masonry: {
 				columnWidth: 75
@@ -149,6 +150,9 @@ $(function() {
 			params: {'start':startNumber, 'length': lenNumber }
 			*/
 
+		// Use this to paginate on a new row
+		var categoryRow = 'row' + start;
+
 		$.getJSON(source, function(data) {
 			
 			//for (var i = data.tiles.length - 1; i >= 0; i--) {
@@ -172,13 +176,13 @@ $(function() {
 				if ( loadMore === 'yes' ) {
 					console.log('ADD FUNCTION');
 					if ( !tileMedia ) {
-						$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
+						$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
 					} else {
 						if ( tileMedia === 'image' ) {
-							$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+							$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile collectionTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 						}
 						if ( tileMedia === 'youtube' ) {
-							$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+							$newItem = $('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 						}
 					}
 					$container.append( $newItem ).isotope( 'appended', $newItem );
@@ -186,13 +190,13 @@ $(function() {
 					return false;
 				}
 				if ( !tileMedia ) {
-					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
+					$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile">' + tileItemSummary + '</div></div></div>');
 				} else {
 					if ( tileMedia === 'image' ) {
-						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile imgTile collectionTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile"><img src="' + tileItemMediaSrc + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 					}
 					if ( tileMedia === 'youtube' ) {
-						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
+						$('#container').append('<div id="t' + tileItemId + '" class="box col' + tileItemCols + ' ' + tileItemTags + ' mediaTile videoTile collectionTile" data-category="' + categoryRow + '"><div class="collectionContainer"><div class="tile"><img src="' + tileMediaThumb + '" alt="" /></div><div class="collectionInfo"><h2>' + tileItemSummary + '</h2></div></div><i></i></div>');
 					}
 				}
 			}
