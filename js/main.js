@@ -169,21 +169,27 @@ $(function() {
 
 		$container.isotope({
 			itemSelector : '.box',
-			//rowHeight: 120,
+			/*masonry: {
+				columnWidth: 75
+			},
+			rowHeight: 120,*/
+			filter: '*',
+			/*masonryHorizontal: {
+				rowHeight: 120
+			}*/
+			// Category rows
 			layoutMode : 'categoryRows',
 			categoryRows : {
-				gutter : 20
+				gutter : 0,
+				height: 120,
+				width: 75,
 			},
-			filter: '*',
 			getSortData : {
 				category : function( $elem ) {
 					return $elem.attr('data-category');
 				}
 			},
-			sortBy: 'category',
-			/*masonry: {
-				columnWidth: 75
-			}*/
+			sortBy: 'category'
 		});
 	}
 
@@ -275,7 +281,7 @@ $(function() {
 
 
 	// Filters
-	//var isoFilters = ['.mountain-biking', '.downhill', '.road', '.track'];
+	//var selector = '.mountain-biking, .downhill, .road, .track';
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this),
 			$optionSet = $this.parents('.option-set');
@@ -287,11 +293,13 @@ $(function() {
 		} else {
 			filters[ group ] = $this.attr('data-filter-value');
 		}
+		console.log(filters[ group ]);
 		// convert object into array
 		var isoFilters = [];
 		for ( var prop in filters ) {
 			isoFilters.push( filters[ prop ] );
 		}
+		console.log(isoFilters);
 		var selector = isoFilters.join(', ');
 		$this.toggleClass('active');
 		$container.isotope({ filter: selector });
@@ -313,7 +321,6 @@ $(function() {
 	// Tile hover
 	$(document).on("mouseover", '.collectionTile', function() {
 		var tileTeased = $(this).attr('id');
-			console.log(tileTeased);
 			var thingsHeight = $('#' + tileTeased + ' h2').height();
 			thingsHeight = thingsHeight += 20;
 			var thingsPos = 290 - thingsHeight;
@@ -332,7 +339,6 @@ $(function() {
 		var $things = $('.collectionTile');
 		$($things[Math.floor(Math.random()*$things.length)]).addClass('tease');
 		var tileTeased = $('.collectionTile.tease').attr('id');
-			console.log(tileTeased);
 			var thingsHeight = $('#' + tileTeased + ' h2').height();
 			thingsHeight = thingsHeight += 20;
 			var thingsPos = 290 - thingsHeight;
