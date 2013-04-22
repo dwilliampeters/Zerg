@@ -282,8 +282,29 @@ $(function() {
 
 	// Filters
 	//var selector = '.mountain-biking, .downhill, .road, .track';
+	var filters = [".mountain-biking", ".downhill", ".road", ".track"];
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this),
+			filter = $this.attr('data-filter-value');
+		console.log(filter);
+
+		$this.toggleClass('active');
+
+		if($.inArray(filter, filters)<0) {
+			//add to array
+			filters.push(filter);
+		} 
+		else {
+			//remove from array
+			filters.splice($.inArray(filter, filters),1);
+		};
+
+		console.log(filters);
+
+		var selector = filters.join(', ');
+		$container.isotope({ filter: selector });
+
+		/*var $this = $(this),
 			$optionSet = $this.parents('.option-set');
 
 		// store filter value in object
@@ -305,7 +326,7 @@ $(function() {
 		$container.isotope({ filter: selector });
 		console.log(selector);
 
-		return false;
+		return false;*/
 	});
 
 
