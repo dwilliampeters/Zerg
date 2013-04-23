@@ -332,15 +332,16 @@ $(function() {
 
 	// Randomly tease tile content
 	setInterval(function() {
-		//$('.collectionTile').removeClass('tease');
-		var things = '.collectionTile';
-		var $things = $('.collectionTile');
+		var things = '.collectionTile',
+			$things = $('.collectionTile');
+		// Find a random tile
 		$($things[Math.floor(Math.random()*$things.length)]).addClass('tease');
 		var tileTeased = $('.collectionTile.tease').attr('id');
-			var thingsHeight = $('#' + tileTeased + ' h2').height();
-			thingsHeight = thingsHeight += 20;
-			var thingsPos = 290 - thingsHeight;
-			$('#' + tileTeased).find('.collectionInfo').css('top', thingsPos);
+		var thingsHeight = $('#' + tileTeased + ' h2').height();
+		thingsHeight = thingsHeight += 20;
+		var thingsPos = 290 - thingsHeight;
+		$('#' + tileTeased).find('.collectionInfo').css('top', thingsPos);
+		// Times up - reset
 		setTimeout(function() {
 		$('.collectionTile').removeClass('tease');
 		$('.collectionInfo').css('top', '100%');
