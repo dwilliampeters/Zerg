@@ -280,14 +280,14 @@ $(function() {
 
 
 	// Filters
-	//var selector = '.mountain-biking, .downhill, .road, .track';
 	var filters = [".mountain-biking", ".downhill", ".road", ".track"];
 	$('.filterItem > a').bind('click', function() {
 		var $this = $(this),
-			filter = $this.attr('data-filter-value');
-		console.log(filter);
-
-		$this.toggleClass('active');
+			filter = $this.attr('data-filter-value'),
+			filterTarget = $this.attr('data-target');
+			console.log(filter);
+		$('.filterItem > a[data-target="' + filterTarget + '"]').toggleClass('active');
+		//$this.toggleClass('active');
 
 		if($.inArray(filter, filters)<0) {
 			//add to array
@@ -303,29 +303,7 @@ $(function() {
 		var selector = filters.join(', ');
 		$container.isotope({ filter: selector });
 
-		/*var $this = $(this),
-			$optionSet = $this.parents('.option-set');
-
-		// store filter value in object
-		var group = $optionSet.attr('data-filter-group');
-		if ( $this.hasClass('active') ) {
-			filters[ group ] = '.none';
-		} else {
-			filters[ group ] = $this.attr('data-filter-value');
-		}
-		console.log(filters[ group ]);
-		// convert object into array
-		var isoFilters = [];
-		for ( var prop in filters ) {
-			isoFilters.push( filters[ prop ] );
-		}
-		console.log(isoFilters);
-		var selector = isoFilters.join(', ');
-		$this.toggleClass('active');
-		$container.isotope({ filter: selector });
-		console.log(selector);
-
-		return false;*/
+		return false;
 	});
 
 
