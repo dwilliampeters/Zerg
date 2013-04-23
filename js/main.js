@@ -172,8 +172,7 @@ $(function() {
 			/*masonry: {
 				columnWidth: 75
 			},
-			rowHeight: 120,*/
-			filter: '*',
+			filter: '*',*/
 			/*masonryHorizontal: {
 				rowHeight: 120
 			}*/
