@@ -84,7 +84,7 @@ body.sidenav #content { margin-right: -300px; }
 
 /**** Lightbox ****/
 
-.lightbox { background: black; background: rgba(0, 0, 0, 0.90); position: absolute; top: 0; bottom: 0; left: -1800px; z-index: 99; width: 100%; text-align: left; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+.lightbox { background: black; background: rgba(0, 0, 0, 0.90); position: absolute; top: 0; bottom: 0; left: -100%; z-index: 99; width: 100%; text-align: left; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
 .show-lightbox .lightbox { left: 0; }
 .lightbox .lightbox-close { background: url(../img/icon.close.png) no-repeat right bottom; margin: 0; display: block; width: 23px; height: 23px; position: absolute; top: 10px; right: 10px; text-indent: -9999px; overflow: hidden; cursor: pointer; }
 .lightbox-content { max-width: 1200px; min-height: 100%; background: #fff; display: block; position: relative; }
